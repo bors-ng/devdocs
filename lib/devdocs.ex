@@ -28,7 +28,7 @@ defmodule DevDocs do
   def document_repo(installation_token, %{"full_name" => @self_repo}) do
     IO.puts "Setting up Git"
     {_, 0} = System.cmd("git", ["init"], cd: "_docsubmit")
-    {_, 0} = System.cmd("git", ["checkout", "-b", "gh_pages"], cd: "_docsubmit")
+    {_, 0} = System.cmd("git", ["checkout", "-b", "gh-pages"], cd: "_docsubmit")
     origin = "https://x-access-token:#{installation_token}@github.com/#{@self_repo}.git"
     {_, 0} = System.cmd("git", ["remote", "add", "origin", origin], cd: "_docsubmit")
     nil
