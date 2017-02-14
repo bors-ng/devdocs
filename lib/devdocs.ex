@@ -56,7 +56,9 @@ defmodule DevDocs do
     {:ok, index_html} = File.open("_docsubmit/index.html", [:write])
     :ok = IO.write(index_html, "<!DOCTYPE html><meta name=viewport content=width=device-width><ul>")
     document_add_git(list, index_html)
-    {_, 0} = System.cmd("git", ["add", "index.html"], cd: "_docsubmit")
+    {:ok, nojekyll} = File.open("_docsubmit/.nojekyll", [:write])
+    :ok = IO.write(nojekyll, "\n")
+    {_, 0} = System.cmd("git", ["add", "index.html", ".nojekyll"], cd: "_docsubmit")
     {_, 0} = System.cmd("git", ["commit", "-m", "generated docs"], cd: "_docsubmit")
     {_, 0} = System.cmd("git", ["push", "-f", "origin", "HEAD"], cd: "_docsubmit")
   end
