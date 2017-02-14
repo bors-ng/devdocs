@@ -6,6 +6,8 @@ otp_release:
 
 install:
   - mix do local.rebar --force, local.hex --force, deps.get
+  - git config --global user.name "bors-ng-devdocs"
+  - git config --global user.email "bors-ng-devdocs[bot]@users.noreply.github.com"
 
 script:
   - mix run
