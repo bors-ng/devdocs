@@ -11,7 +11,7 @@ defmodule DevDocs.GitHub do
   def get_installations!(integration_token) do
     get_installations_!(
       integration_token,
-      "#{config()[:site]}/integration/installations",
+      "#{config()[:site]}/app/installations",
       [])
   end
 
