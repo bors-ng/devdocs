@@ -1,6 +1,7 @@
 defmodule DevDocs.GitHub do
 
   @content_type "application/vnd.github.machine-man-preview+json"
+  @pages_content_type "  application/vnd.github.mister-fantastic-preview+json"
 
   defp config do
     :devdocs
@@ -75,6 +76,15 @@ defmodule DevDocs.GitHub do
       [] -> repositories
       [next] -> get_installation_repos_!(token, next.next.url, repositories)
     end
+  end
+
+  def trigger_pages_build!(token, id) do
+    %{status_code: 201} = HTTPoison.post!(
+      "#{config()[:site]}/repositories/#{id}/pages/builds",
+      "",
+      [
+        {"Authorization", "token #{token}"},
+        {"Accept", @pages_content_type}])
   end
 
   defp write_http_to_file(path) when is_binary(path) do

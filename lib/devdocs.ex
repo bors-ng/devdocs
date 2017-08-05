@@ -13,6 +13,7 @@ defmodule DevDocs do
     |> DevDocs.GitHub.get_installations!()
     |> Enum.map(&document_installation(integration_token, &1))
     |> document_all()
+    manually_trigger_pages_build(integration_token)
     Task.start_link fn -> Application.stop(:devdocs) end
   end
 
@@ -69,6 +70,20 @@ defmodule DevDocs do
   end
   def document_add_git(list, index_html) when is_list list do
     Enum.each(list, &document_add_git(&1, index_html))
+  end
+
+  def manually_trigger_pages_build(integration_token) do
+    integration_token
+    |> DevDocs.GitHub.get_installations!()
+    |> Enum.each(fn installation_xref ->
+      installation_token = DevDocs.GitHub.get_installation_token!(integration_token, installation_xref)
+      repos = DevDocs.GitHub.get_installation_repos!(installation_token)
+      Enum.each(repos, fn
+        %{"full_name" => @self_repo, "id" => id} ->
+          DevDocs.GitHub.trigger_pages_build!(installation_token, id)
+        _ -> :ok
+      end)
+    end)
   end
 
   def single_dir(["." | rest]) do
