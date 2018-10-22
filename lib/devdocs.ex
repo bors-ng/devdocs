@@ -59,9 +59,9 @@ defmodule DevDocs do
     document_add_git(list, index_html)
     {:ok, nojekyll} = File.open("_docsubmit/.nojekyll", [:write])
     :ok = IO.write(nojekyll, "\n")
-    {_, 0} = System.cmd("git", ["add", "index.html", ".nojekyll"], cd: "_docsubmit")
-    {_, 0} = System.cmd("git", ["commit", "-m", "generated docs"], cd: "_docsubmit")
-    {_, 0} = System.cmd("git", ["push", "-f", "origin", "HEAD"], cd: "_docsubmit")
+    #{_, 0} = System.cmd("git", ["add", "index.html", ".nojekyll"], cd: "_docsubmit")
+    #{_, 0} = System.cmd("git", ["commit", "-m", "generated docs"], cd: "_docsubmit")
+    #{_, 0} = System.cmd("git", ["push", "-f", "origin", "HEAD"], cd: "_docsubmit")
   end
 
   def document_add_git(name, index_html) when is_binary name do
