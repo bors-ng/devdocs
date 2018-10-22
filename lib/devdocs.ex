@@ -12,8 +12,7 @@ defmodule DevDocs do
     integration_token
     |> DevDocs.GitHub.get_installations!()
     |> Enum.map(&document_installation(integration_token, &1))
-    |> document_all()
-    manually_trigger_pages_build(integration_token)
+    document_all()
     Task.start_link fn -> Application.stop(:devdocs) end
   end
 
@@ -59,9 +58,6 @@ defmodule DevDocs do
     document_add_git(list, index_html)
     {:ok, nojekyll} = File.open("_docsubmit/.nojekyll", [:write])
     :ok = IO.write(nojekyll, "\n")
-    #{_, 0} = System.cmd("git", ["add", "index.html", ".nojekyll"], cd: "_docsubmit")
-    #{_, 0} = System.cmd("git", ["commit", "-m", "generated docs"], cd: "_docsubmit")
-    #{_, 0} = System.cmd("git", ["push", "-f", "origin", "HEAD"], cd: "_docsubmit")
   end
 
   def document_add_git(name, index_html) when is_binary name do
@@ -70,20 +66,6 @@ defmodule DevDocs do
   end
   def document_add_git(list, index_html) when is_list list do
     Enum.each(list, &document_add_git(&1, index_html))
-  end
-
-  def manually_trigger_pages_build(integration_token) do
-    integration_token
-    |> DevDocs.GitHub.get_installations!()
-    |> Enum.each(fn installation_xref ->
-      installation_token = DevDocs.GitHub.get_installation_token!(integration_token, installation_xref)
-      repos = DevDocs.GitHub.get_installation_repos!(installation_token)
-      Enum.each(repos, fn
-        %{"full_name" => @self_repo, "id" => id} ->
-          DevDocs.GitHub.trigger_pages_build!(installation_token, id)
-        _ -> :ok
-      end)
-    end)
   end
 
   def single_dir(["." | rest]) do
