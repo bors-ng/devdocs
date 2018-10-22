@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.19.1">
+    <title>The innards of Bors-NG – Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
+    <script src="dist/sidebar_items-21b8b543f3.js"></script>
+    
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  <a href="https://bors.tech/" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+Bors-NG      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+      <li><a id="exceptions-list" href="#full-list">Exceptions</a></li>
+
+      <li><a id="tasks-list" href="#full-list">Mix Tasks</a></li>
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+<h1>The innards of Bors-NG</h1>
+<p>Bors-NG uses Ecto for all permanent data storage
+and Phoenix to implement the webserver portion
+(which is responsible for both the dashboard frontend and GitHub webhooks).
+Bors-NG also has a number of worker GenServers,
+to help isolate different projects from each other and perform background processing.</p>
+<p>You’ll also want to do some terminology mapping between what we say to users and what we say in the code:</p>
+<ul>
+<li>Project → Repo: A Bors “Project” corresponds to a GitHub “Repo.”
+We do this renaming because Ecto already has the concept of a Repo.
+</li>
+<li>Attempt → Try: Try is a keyword in Elixir, and in a lot of other languages besides,
+   so the code calls a try an attempt.
+</li>
+<li>Patch → PR: A Bors “Patch” corresponds to a GitHub “Pull Request.”
+</li>
+</ul>
+<!----><h2 id="the-frontend" class="section-heading">
+  <a href="#the-frontend" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  The frontend
+</h2>
+
+<p>In the source tree, you’ll find the frontend in the <code class="inline">lib/web</code> folder.
+There is also a webhook controller in the <code class="inline">lib/web/controllers</code> folder.
+This isn’t really part of the frontend, because the user won’t be interacting with it,
+but rather GitHub will POST to it when comments are left, builds are completed,
+and new GitHub repositories are associated with our integration.
+The webhook controller is on a separate Plug pipeline for this reason.</p>
+<h2 id="the-backend" class="section-heading">
+  <a href="#the-backend" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  The backend
+</h2>
+
+<p>In <code class="inline">lib/worker</code>, the worker GenServers are implemented.</p>
+<h3 id="worker-batcher-and-worker-attemptor" class="section-heading">
+  <a href="#worker-batcher-and-worker-attemptor" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">Worker.Batcher</code> and <code class="inline">Worker.Attemptor</code>
+</h3>
+
+<p>Batcher handles “r+”-ed patches, which the user is attempting to land in master.
+Attemptor handles “try”-ed patches.</p>
+<p>Batcher and Attemptor both have about the same structure:
+each project has zero or one instance of these workers at any time,
+and a registry GenServer lazily creates an instance if it’s needed and none exists.</p>
+<p>The webhook controller sends a message to the appropriate worker when the user
+posts the comment on a pull request.
+The webhook controller also delivers status notifications for running builds,
+and the server will poll GitHub every half-hour just in case.</p>
+<p>These servers also keep all their state written to Ecto,
+so bors can pick up where it left off if it’s restarted.</p>
+<h2 id="the-github-glue" class="section-heading">
+  <a href="#the-github-glue" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  The GitHub glue
+</h2>
+
+<p>Found in the folder <code class="inline">lib/github</code>.</p>
+<h3 id="github-server" class="section-heading">
+  <a href="#github-server" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  GitHub.Server
+</h3>
+
+<p>All requests made to GitHub’s REST API
+(except a couple things related to oAuth) go through the “GitHub API server.”
+This server keeps a cache of installation tokens
+(so we don’t constantly re-request them) and is responsible for rate limiting.
+It can be replaced with <code class="inline">GitHub.ServerMock</code>, for local testing.</p>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-a0c90688fa.js"></script>
+  
+  </body>
+</html>
+

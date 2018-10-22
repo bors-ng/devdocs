@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.19.1">
+    <title>BorsNG.Worker.Batcher – Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
+    <script src="dist/sidebar_items-21b8b543f3.js"></script>
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+    <div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  <a href="https://bors.tech/" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+Bors-NG      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+      <li><a id="exceptions-list" href="#full-list">Exceptions</a></li>
+
+      <li><a id="tasks-list" href="#full-list">Mix Tasks</a></li>
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">Bors-NG v0.1.0</small>
+BorsNG.Worker.Batcher        
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+      </h1>
+
+
+        <section id="moduledoc">
+<p>A “Batcher” manages the backlog of batches a project has.
+It implements this set of rules:</p>
+<ul>
+<li>When a patch is reviewed (“r+’ed”),
+it gets added to the project’s non-running batch.
+If no such batch exists, it creates it.
+</li>
+<li>After a short delay, if there is no currently running batch,
+the project’s non-running batch is started.
+</li>
+<li>The project’s CI is occasionally polled,
+if a batch is currently running.
+After polling, the completion logic is run.
+</li>
+<li>If a notification related to the underlying CI is received,
+the completion logic is run.
+</li>
+<li>When the completion logic is run, the batch is either
+bisected (if it failed and there are two or more patches in it),
+blocked (if it failed and there is only one patch in it),
+pushed to master (if it passed),
+or (if there are still CI jobs with no results) it is left alone.
+</li>
+</ul>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#cancel/2">cancel(pid, patch_id)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#cancel_all/1">cancel_all(pid)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#child_spec/1">child_spec(arg)</a>
+  </div>
+    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_handle_cast/2">do_handle_cast(arg, project_id)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#gather_co_authors/2">gather_co_authors(batch, patch_links)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_new_batch/3">get_new_batch(project_id, into_branch, priority)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#init/1">init(project_id)</a>
+  </div>
+    <div class="summary-synopsis"><p>Invoked when the server is started. <code class="inline">start_link/3</code> or <code class="inline">start/3</code> will
+block until it returns</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#poll/1">poll(pid)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#reviewed/3">reviewed(pid, patch_id, reviewer)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#set_priority/3">set_priority(pid, patch_id, priority)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#sort_batches/1">sort_batches(batches)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/1">start_link(project_id)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#status/2">status(pid, stat)</a>
+  </div>
+</div>
+  </div>
+          
+        </section>
+
+
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+<div class="detail" id="cancel/2">
+    <div class="detail-header">
+    <a href="#cancel/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">cancel(pid, patch_id)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L62" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="cancel_all/1">
+    <div class="detail-header">
+    <a href="#cancel_all/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">cancel_all(pid)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L66" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="child_spec/1">
+    <div class="detail-header">
+    <a href="#child_spec/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">child_spec(arg)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L23" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Returns a specification to start this module under a supervisor.</p>
+<p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
+  </section>
+</div>
+<div class="detail" id="do_handle_cast/2">
+    <div class="detail-header">
+    <a href="#do_handle_cast/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">do_handle_cast(arg, project_id)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L160" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="gather_co_authors/2">
+    <div class="detail-header">
+    <a href="#gather_co_authors/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">gather_co_authors(batch, patch_links)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L324" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="get_new_batch/3">
+    <div class="detail-header">
+    <a href="#get_new_batch/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">get_new_batch(project_id, into_branch, priority)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L556" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="init/1">
+    <div class="detail-header">
+    <a href="#init/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">init(project_id)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L72" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Invoked when the server is started. <code class="inline">start_link/3</code> or <code class="inline">start/3</code> will
+block until it returns.</p>
+<p><code class="inline">args</code> is the argument term (second argument) passed to <code class="inline">start_link/3</code>.</p>
+<p>Returning <code class="inline">{:ok, state}</code> will cause <code class="inline">start_link/3</code> to return
+<code class="inline">{:ok, pid}</code> and the process to enter its loop.</p>
+<p>Returning <code class="inline">{:ok, state, timeout}</code> is similar to <code class="inline">{:ok, state}</code>
+except <code class="inline">handle_info(:timeout, state)</code> will be called after <code class="inline">timeout</code>
+milliseconds if no messages are received within the timeout.</p>
+<p>Returning <code class="inline">{:ok, state, :hibernate}</code> is similar to <code class="inline">{:ok, state}</code>
+except the process is hibernated before entering the loop. See
+<code class="inline">c:handle_call/3</code> for more information on hibernation.</p>
+<p>Returning <code class="inline">{:ok, state, {:continue, continue}}</code> is similar to
+<code class="inline">{:ok, state}</code> except that immediately after entering the loop
+the <code class="inline">c:handle_continue/2</code> callback will be invoked with the value
+<code class="inline">continue</code> as first argument.</p>
+<p>Returning <code class="inline">:ignore</code> will cause <code class="inline">start_link/3</code> to return <code class="inline">:ignore</code> and
+the process will exit normally without entering the loop or calling
+<code class="inline">c:terminate/2</code>. If used when part of a supervision tree the parent
+supervisor will not fail to start nor immediately try to restart the
+<a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a>. The remainder of the supervision tree will be started
+and so the <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> should not be required by other processes.
+It can be started later with <a href="https://hexdocs.pm/elixir/Supervisor.html#restart_child/2"><code class="inline">Supervisor.restart_child/2</code></a> as the child
+specification is saved in the parent supervisor. The main use cases for
+this are:</p>
+<ul>
+<li>The <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> is disabled by configuration but might be enabled later.
+</li>
+<li>An error occurred and it will be handled by a different mechanism than the
+   <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>. Likely this approach involves calling <a href="https://hexdocs.pm/elixir/Supervisor.html#restart_child/2"><code class="inline">Supervisor.restart_child/2</code></a>
+after a delay to attempt a restart.
+</li>
+</ul>
+<p>Returning <code class="inline">{:stop, reason}</code> will cause <code class="inline">start_link/3</code> to return
+<code class="inline">{:error, reason}</code> and the process to exit with reason <code class="inline">reason</code> without
+entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>
+  </section>
+</div>
+<div class="detail" id="poll/1">
+    <div class="detail-header">
+    <a href="#poll/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">poll(pid)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L58" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="reviewed/3">
+    <div class="detail-header">
+    <a href="#reviewed/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">reviewed(pid, patch_id, reviewer)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L46" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="set_priority/3">
+    <div class="detail-header">
+    <a href="#set_priority/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">set_priority(pid, patch_id, priority)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L50" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="sort_batches/1">
+    <div class="detail-header">
+    <a href="#sort_batches/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">sort_batches(batches)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L207" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="start_link/1">
+    <div class="detail-header">
+    <a href="#start_link/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">start_link(project_id)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L42" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="status/2">
+    <div class="detail-header">
+    <a href="#status/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">status(pid, stat)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L54" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+        </section>
+
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-a0c90688fa.js"></script>
+  
+  </body>
+</html>
+

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.19.1">
+    <title>Getting started for contributors – Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
+    <script src="dist/sidebar_items-21b8b543f3.js"></script>
+    
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  <a href="https://bors.tech/" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+Bors-NG      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+      <li><a id="exceptions-list" href="#full-list">Exceptions</a></li>
+
+      <li><a id="tasks-list" href="#full-list">Mix Tasks</a></li>
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+<h1>Getting started for contributors</h1>
+<p>Thanks for wanting to help out with Bors-NG!</p>
+<h2 id="answering-support-questions" class="section-heading">
+  <a href="#answering-support-questions" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Answering support questions
+</h2>
+
+<p>If you’ve been using bors a lot,
+you can help other people use it by answering questions on the <a href="https://forum.bors.tech/" title="">support forum</a> and the <a href="https://gitter.im/bors-ng/Lobby" title="">gitter room</a>.
+You can log in to both using your Github account.
+The more you interact on the forum,
+the more tools you will have to help organize the discussion (for example, fixing other people’s categories).</p>
+<h2 id="submitting-bug-reports" class="section-heading">
+  <a href="#submitting-bug-reports" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Submitting bug reports
+</h2>
+
+<p>Go ahead and submit an issue report;
+we can’t fix a problem if we don’t know about it.
+Even if you’re not sure if it’s a bug,
+go ahead and submit it.
+If a lot of users think it’s a problem,
+even if we don’t think it’s “really a bug,”
+we’ll probably try to figure out a way to fix it anyway.
+Bors needs to be useful, not just correct.
+Besides, that’s why we call them “issue reports” instead of “bug reports.”</p>
+<p>If you get the chance,
+please use the search bar at the top of the issues list to see if somebody else already reported it.
+You don’t have to do that,
+if you don’t have time,
+or just can’t think of what to search for.
+Think of it as extra credit.
+If we find a duplicate,
+we’ll just leave a comment saying “Duplicate of #some-other-issue-number”
+(so that you know where the existing conversation is happening)
+and close it.</p>
+<p>Filing an issue is as easy as going to the <a href="https://github.com/bors-ng/bors-ng/issues/new" title="">new issue page</a> and filling out the fields.</p>
+<h2 id="sending-your-change-to-us" class="section-heading">
+  <a href="#sending-your-change-to-us" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Sending your change to us
+</h2>
+
+<p>The best way to send changes to Bors-NG is to fork our repo, then open a pull request.
+GitHub has a <a href="https://help.github.com/articles/fork-a-repo/" title="">howto for the fork-pull system</a> on their own website.</p>
+<p>BTW, the <a href="https://hub.github.com/" title="">hub</a> CLI is really cool.
+With it,
+you can make a pull request that modifies this file by running these commands:</p>
+<pre><code class="nohighlight makeup elixir"><span class="err">$</span><span class="w"> </span><span class="n">hub</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">hub</span><span class="w"> </span><span class="n">fork</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="n">fix_readme</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">vim</span><span class="w"> </span><span class="nc">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="nc">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">YOUR</span><span class="w"> </span><span class="nc">GITHUB</span><span class="w"> </span><span class="nc">USERNAME</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">HEAD</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">hub</span><span class="w"> </span><span class="n">pull</span><span class="o">-</span><span class="n">request</span></code></pre>
+<p>You don’t have to use anything like that if you don’t want to,
+though.</p>
+<h2 id="finding-something-to-work-on" class="section-heading">
+  <a href="#finding-something-to-work-on" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Finding something to work on
+</h2>
+
+<p>If you’re not sure what to work on,
+there’s a list of easy-to-fix problems to get you started at <a href="https://bors-ng.github.io/starters">https://bors-ng.github.io/starters</a>.
+After you pick an issue,
+you should mention that you’re working on it in a GitHub comment
+(so that we can mark it as assigned and avoid duplicate work).
+If you’re having trouble fixing the problem,
+go ahead and ask questions right in the issue’s comments section,
+even if your question seems unrelated to the issue itself.</p>
+<h2 id="what-do-the-tags-in-the-issue-tracker-mean" class="section-heading">
+  <a href="#what-do-the-tags-in-the-issue-tracker-mean" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  What do the tags in the issue tracker mean?
+</h2>
+
+<h3 id="a-area-tags" class="section-heading">
+  <a href="#a-area-tags" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  A: area tags
+</h3>
+
+<p>These refer to the component that the issue is in.</p>
+<ul>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/A-testing" title="">A-testing</a>: The test suite
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/A-frontend" title="">A-frontend</a>: The dashboard page
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/A-backend" title="">A-backend</a>: The backend task running stuff
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/A-docs" title="">A-docs</a>: Incorrect or missing documentation
+</li>
+</ul>
+<h3 id="e-entry-level-issues" class="section-heading">
+  <a href="#e-entry-level-issues" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  E: entry-level issues
+</h3>
+
+<p>If you want to get started hacking on Bors-NG, these are the issues to pick up. Whoever filed it knows how to fix it (they might’ve even already done it), and is willing to guide someone else through it. If you’re working on it, and have a question, ask please. We want to help.</p>
+<ul>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/E-easy" title="">E-easy</a>: Good first bugs. The filer should already know how to fix it; they may even have already fixed it in a private branch. Whichever it is, the point of working on a bug like this is to learn how to edit, deploy, and test an instance of bors-ng, and to file the pull request, get it reviewed, and merged. E-easy issues should be things that actually need done, but nothing is too easy for E-easy.
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/E-medium" title="">E-medium</a>: This tag exists to provide a gradual path from “fixing typos and minor appearance glitches” to “taking an active role in the ongoing development in bors-ng.” E-medium changes should be “good second bugs,” meaning they require the contributor to learn how stuff works under the hood. As before, the filer should know how to fix it.
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/E-hard" title="">E-hard</a>: The filer should have an idea about how it should be fixed, but an E-hard issue should require the contributor to know how bors-ng works.
+</li>
+</ul>
+<h3 id="c-do-not-work-on-this-issue" class="section-heading">
+  <a href="#c-do-not-work-on-this-issue" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  C: do not work on this issue
+</h3>
+
+<p>C-tags are “partially closed”; either there’s already somebody working on it, or it’s not possible right now.</p>
+<ul>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/C-assigned" title="">C-assigned</a>: A contributor, who does not have write access to the repo itself, is working on the issue. This is not needed if it’s assigned within GitHub itself (but that’s not always possible, unfortunately).
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/C-blocked-on-external" title="">C-blocked-on-external</a>: Something else needs to change before this issue can be completed.
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/C-has-pr" title="">C-has-pr</a>: There exists an open pull request for this issue.
+</li>
+</ul>
+<h3 id="i-issue-description" class="section-heading">
+  <a href="#i-issue-description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  I: issue description
+</h3>
+
+<p>I-tags describe the kind of issue.</p>
+<ul>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/I-crash" title="">I-crash</a>: Internal server error, etc
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/I-unsound" title="">I-unsound</a>: bors-ng is merging pull requests that break master!
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/I-ux" title="">I-ux</a>: Human factor failures
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/I-enhancement" title="">I-enhancement</a>: Features that would be nice to have
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/I-perf" title="">I-perf</a>: Always too slow
+</li>
+<li><a href="https://github.com/bors-ng/bors-ng/labels/I-intermittent" title="">I-intermittent</a>: an issue that only happens sometimes
+</li>
+</ul>
+<h3 id="l-language" class="section-heading">
+  <a href="#l-language" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  L: language
+</h3>
+
+<p>The primary programming language this will need to be implemented in. If none is specified, it’s Elixir.</p>
+<h3 id="s-pull-request-status" class="section-heading">
+  <a href="#s-pull-request-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  S: pull request status
+</h3>
+
+<p>This is the only type of tag that is added to pull requests.</p>
+<ul>
+<li>S-do-not-merge-yet: Do not merge this pull request.
+</li>
+</ul>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-a0c90688fa.js"></script>
+  
+  </body>
+</html>
+
