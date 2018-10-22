@@ -31,7 +31,7 @@ defmodule Devdocs.Mixfile do
   defp deps do
     [
       {:ex_link_header, "~> 0.0.5"},
-      {:poison, "~> 2.0"},
+      {:poison, "~> 3.1"},
       {:httpoison, "~> 1.4.0"},
       {:joken, "~> 1.1"},
       {:jose, "~> 1.8"},
