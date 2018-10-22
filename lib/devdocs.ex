@@ -12,7 +12,7 @@ defmodule DevDocs do
     integration_token
     |> DevDocs.GitHub.get_installations!()
     |> Enum.map(&document_installation(integration_token, &1))
-    document_all()
+    |> document_all()
     Task.start_link fn -> Application.stop(:devdocs) end
   end
 
