@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.1">
-    <title>BorsNG.Worker.Attemptor – Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-    <script src="dist/sidebar_items-5285d0f108.js"></script>
+    <meta name="generator" content="ExDoc v0.19.2">
+    <title>BorsNG.Worker.Attemptor — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-c1666276880c0f8e3769.css" />
+    <script src="dist/sidebar_items-ca37f5dca0.js"></script>
     
   </head>
   <body data-type="modules">
@@ -69,13 +69,13 @@ BorsNG.Worker.Attemptor
 
 
         <section id="moduledoc">
-<p>An “Attemptor” manages the set of running attempts (that is, “try jobs”).
+<p>An &quot;Attemptor&quot; manages the set of running attempts (that is, &quot;try jobs&quot;).
 It implements this set of rules:</p>
 <ul>
 <li>When a patch is tried,
 We immediately merge it with master into the trying branch.
 </li>
-<li>The project’s CI is occasionally polled,
+<li>The project&#39;s CI is occasionally polled,
 if a attempt is currently running.
 After polling, the completion logic is run.
 </li>
@@ -95,7 +95,6 @@ the completion logic is run.
             </a>
             Summary
           </h1>
-          
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
@@ -141,10 +140,7 @@ block until it returns</p>
   </div>
 </div>
   </div>
-          
         </section>
-
-
 
         <section id="functions" class="details-list">
           <h1 class="section-heading">
@@ -152,15 +148,15 @@ block until it returns</p>
               <span class="icon-link" aria-hidden="true"></span>
               <span class="sr-only">Link to this section</span>
             </a>
-            Functions
-          </h1>
-<div class="detail" id="child_spec/1">
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="child_spec/1">
     <div class="detail-header">
     <a href="#child_spec/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">child_spec(arg)</span>
+    <h1 class="signature">child_spec(arg)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L16" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -170,14 +166,14 @@ block until it returns</p>
 <p>Returns a specification to start this module under a supervisor.</p>
 <p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="do_handle_cast/2">
+</section>
+<section class="detail" id="do_handle_cast/2">
     <div class="detail-header">
     <a href="#do_handle_cast/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">do_handle_cast(arg, project_id)</span>
+    <h1 class="signature">do_handle_cast(arg, project_id)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L88" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -185,14 +181,14 @@ block until it returns</p>
           </div>
   <section class="docstring">
   </section>
-</div>
-<div class="detail" id="init/1">
+</section>
+<section class="detail" id="init/1">
     <div class="detail-header">
     <a href="#init/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">init(project_id)</span>
+    <h1 class="signature">init(project_id)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L49" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -236,14 +232,14 @@ after a delay to attempt a restart.
 entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
 <p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="poll/1">
+</section>
+<section class="detail" id="poll/1">
     <div class="detail-header">
     <a href="#poll/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">poll(pid)</span>
+    <h1 class="signature">poll(pid)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L43" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -251,14 +247,14 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
           </div>
   <section class="docstring">
   </section>
-</div>
-<div class="detail" id="start_link/1">
+</section>
+<section class="detail" id="start_link/1">
     <div class="detail-header">
     <a href="#start_link/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">start_link(project_id)</span>
+    <h1 class="signature">start_link(project_id)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L31" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -266,14 +262,14 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
           </div>
   <section class="docstring">
   </section>
-</div>
-<div class="detail" id="status/2">
+</section>
+<section class="detail" id="status/2">
     <div class="detail-header">
     <a href="#status/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">status(pid, stat)</span>
+    <h1 class="signature">status(pid, stat)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L39" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -281,14 +277,14 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
           </div>
   <section class="docstring">
   </section>
-</div>
-<div class="detail" id="tried/3">
+</section>
+<section class="detail" id="tried/3">
     <div class="detail-header">
     <a href="#tried/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">tried(pid, patch_id, arguments)</span>
+    <h1 class="signature">tried(pid, patch_id, arguments)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L35" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -296,14 +292,14 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
           </div>
   <section class="docstring">
   </section>
-</div>
+</section>
+          </div>
         </section>
-
           <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.2),
           </span>
           <span class="line">
             designed by
@@ -315,7 +311,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
   </div>
 </section>
 </div>
-  <script src="dist/app-a0c90688fa.js"></script>
+  <script src="dist/html-c1666276880c0f8e3769.js"></script>
   
   </body>
 </html>

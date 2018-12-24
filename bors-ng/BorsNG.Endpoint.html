@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.1">
-    <title>BorsNG.Endpoint – Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-    <script src="dist/sidebar_items-5285d0f108.js"></script>
+    <meta name="generator" content="ExDoc v0.19.2">
+    <title>BorsNG.Endpoint — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-c1666276880c0f8e3769.css" />
+    <script src="dist/sidebar_items-ca37f5dca0.js"></script>
     
   </head>
   <body data-type="modules">
@@ -82,7 +82,6 @@ including the websocket interceptor and the JSON parser.</p>
             </a>
             Summary
           </h1>
-          
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
@@ -96,13 +95,6 @@ including the websocket interceptor and the JSON parser.</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#broadcast!/3">broadcast!(topic, event, msg)</a>
-  </div>
-    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
-</div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
     <a href="#broadcast/3">broadcast(topic, event, msg)</a>
   </div>
     <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
@@ -110,14 +102,21 @@ including the websocket interceptor and the JSON parser.</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#broadcast_from!/4">broadcast_from!(from, topic, event, msg)</a>
+    <a href="#broadcast!/3">broadcast!(topic, event, msg)</a>
+  </div>
+    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#broadcast_from/4">broadcast_from(from, topic, event, msg)</a>
   </div>
     <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#broadcast_from/4">broadcast_from(from, topic, event, msg)</a>
+    <a href="#broadcast_from!/4">broadcast_from!(from, topic, event, msg)</a>
   </div>
     <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
 </div>
@@ -231,10 +230,7 @@ including the websocket interceptor and the JSON parser.</p>
 </div>
 </div>
   </div>
-          
         </section>
-
-
 
         <section id="functions" class="details-list">
           <h1 class="section-heading">
@@ -242,15 +238,15 @@ including the websocket interceptor and the JSON parser.</p>
               <span class="icon-link" aria-hidden="true"></span>
               <span class="sr-only">Link to this section</span>
             </a>
-            Functions
-          </h1>
-<div class="detail" id="__sockets__/0">
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="__sockets__/0">
     <div class="detail-header">
     <a href="#__sockets__/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">__sockets__()</span>
+    <h1 class="signature">__sockets__()</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L1" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -259,14 +255,31 @@ including the websocket interceptor and the JSON parser.</p>
   <section class="docstring">
 <p>Returns all sockets configured in this endpoint.</p>
   </section>
-</div>
-<div class="detail" id="broadcast!/3">
+</section>
+<section class="detail" id="broadcast/3">
+    <div class="detail-header">
+    <a href="#broadcast/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">broadcast(topic, event, msg)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Endpoint.html#c:broadcast/3"><code class="inline">Phoenix.Endpoint.broadcast/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="broadcast!/3">
     <div class="detail-header">
     <a href="#broadcast!/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">broadcast!(topic, event, msg)</span>
+    <h1 class="signature">broadcast!(topic, event, msg)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -277,31 +290,31 @@ including the websocket interceptor and the JSON parser.</p>
 <p>Raises in case of failures.</p>
 <p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Endpoint.html#c:broadcast!/3"><code class="inline">Phoenix.Endpoint.broadcast!/3</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="broadcast/3">
+</section>
+<section class="detail" id="broadcast_from/4">
     <div class="detail-header">
-    <a href="#broadcast/3" class="detail-link" title="Link to this function">
+    <a href="#broadcast_from/4" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">broadcast(topic, event, msg)</span>
+    <h1 class="signature">broadcast_from(from, topic, event, msg)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
-<p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Endpoint.html#c:broadcast/3"><code class="inline">Phoenix.Endpoint.broadcast/3</code></a>.</p>
+<p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Endpoint.html#c:broadcast_from/4"><code class="inline">Phoenix.Endpoint.broadcast_from/4</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="broadcast_from!/4">
+</section>
+<section class="detail" id="broadcast_from!/4">
     <div class="detail-header">
     <a href="#broadcast_from!/4" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">broadcast_from!(from, topic, event, msg)</span>
+    <h1 class="signature">broadcast_from!(from, topic, event, msg)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -312,31 +325,14 @@ including the websocket interceptor and the JSON parser.</p>
 <p>Raises in case of failures.</p>
 <p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Endpoint.html#c:broadcast_from!/4"><code class="inline">Phoenix.Endpoint.broadcast_from!/4</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="broadcast_from/4">
-    <div class="detail-header">
-    <a href="#broadcast_from/4" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">broadcast_from(from, topic, event, msg)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-<p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Endpoint.html#c:broadcast_from/4"><code class="inline">Phoenix.Endpoint.broadcast_from/4</code></a>.</p>
-  </section>
-</div>
-<div class="detail" id="call/2">
+</section>
+<section class="detail" id="call/2">
     <div class="detail-header">
     <a href="#call/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">call(conn, opts)</span>
+    <h1 class="signature">call(conn, opts)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L1" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -345,8 +341,8 @@ including the websocket interceptor and the JSON parser.</p>
   <section class="docstring">
 <p>Callback implementation for <a href="https://hexdocs.pm/plug/1.7.1/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="config/2">
+</section>
+<section class="detail" id="config/2">
   
     <span id="config/1"></span>
   <div class="detail-header">
@@ -354,7 +350,7 @@ including the websocket interceptor and the JSON parser.</p>
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">config(key, default \\ nil)</span>
+    <h1 class="signature">config(key, default \\ nil)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -364,14 +360,14 @@ including the websocket interceptor and the JSON parser.</p>
 <p>Returns the endpoint configuration for <code class="inline">key</code></p>
 <p>Returns <code class="inline">default</code> if the key does not exist.</p>
   </section>
-</div>
-<div class="detail" id="config_change/2">
+</section>
+<section class="detail" id="config_change/2">
     <div class="detail-header">
     <a href="#config_change/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">config_change(changed, removed)</span>
+    <h1 class="signature">config_change(changed, removed)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -380,14 +376,14 @@ including the websocket interceptor and the JSON parser.</p>
   <section class="docstring">
 <p>Reloads the configuration given the application environment changes.</p>
   </section>
-</div>
-<div class="detail" id="host/0">
+</section>
+<section class="detail" id="host/0">
     <div class="detail-header">
     <a href="#host/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">host()</span>
+    <h1 class="signature">host()</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -396,14 +392,14 @@ including the websocket interceptor and the JSON parser.</p>
   <section class="docstring">
 <p>Returns the host for the given endpoint.</p>
   </section>
-</div>
-<div class="detail" id="init/1">
+</section>
+<section class="detail" id="init/1">
     <div class="detail-header">
     <a href="#init/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">init(opts)</span>
+    <h1 class="signature">init(opts)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -412,8 +408,8 @@ including the websocket interceptor and the JSON parser.</p>
   <section class="docstring">
 <p>Callback implementation for <a href="https://hexdocs.pm/plug/1.7.1/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="instrument/3">
+</section>
+<section class="detail" id="instrument/3">
   
     <span id="instrument/2"></span>
   <div class="detail-header">
@@ -421,7 +417,7 @@ including the websocket interceptor and the JSON parser.</p>
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this macro</span>
     </a>
-    <span class="signature">instrument(event, runtime \\ Macro.escape(%{}), fun)</span>
+    <h1 class="signature">instrument(event, runtime \\ Macro.escape(%{}), fun)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L1" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -440,18 +436,18 @@ issued if the event to instrument is a DB query).</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="n">instrument</span><span class="w"> </span><span class="ss">:render_view</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2591796698-1">%{</span><span class="ss">view</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="2591796698-1">}</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="2591796698-2">fn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="n">instrument</span><span class="w"> </span><span class="ss">:render_view</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6966699532-1">%{</span><span class="ss">view</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="6966699532-1">}</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="6966699532-2">fn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
   </span><span class="n">render</span><span class="w"> </span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="w">
-</span><span class="k" data-group-id="2591796698-2">end</span></code></pre>
+</span><span class="k" data-group-id="6966699532-2">end</span></code></pre>
   </section>
-</div>
-<div class="detail" id="path/1">
+</section>
+<section class="detail" id="path/1">
     <div class="detail-header">
     <a href="#path/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">path(path)</span>
+    <h1 class="signature">path(path)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -460,14 +456,14 @@ issued if the event to instrument is a DB query).</p>
   <section class="docstring">
 <p>Generates the path information when routing to this endpoint.</p>
   </section>
-</div>
-<div class="detail" id="script_name/0">
+</section>
+<section class="detail" id="script_name/0">
     <div class="detail-header">
     <a href="#script_name/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">script_name()</span>
+    <h1 class="signature">script_name()</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -476,8 +472,8 @@ issued if the event to instrument is a DB query).</p>
   <section class="docstring">
 <p>Generates the script name.</p>
   </section>
-</div>
-<div class="detail" id="start_link/1">
+</section>
+<section class="detail" id="start_link/1">
   
     <span id="start_link/0"></span>
   <div class="detail-header">
@@ -485,7 +481,7 @@ issued if the event to instrument is a DB query).</p>
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">start_link(opts \\ [])</span>
+    <h1 class="signature">start_link(opts \\ [])</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -494,14 +490,14 @@ issued if the event to instrument is a DB query).</p>
   <section class="docstring">
 <p>Starts the endpoint supervision tree.</p>
   </section>
-</div>
-<div class="detail" id="static_path/1">
+</section>
+<section class="detail" id="static_path/1">
     <div class="detail-header">
     <a href="#static_path/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">static_path(path)</span>
+    <h1 class="signature">static_path(path)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -510,14 +506,14 @@ issued if the event to instrument is a DB query).</p>
   <section class="docstring">
 <p>Generates a route to a static file in <code class="inline">priv/static</code>.</p>
   </section>
-</div>
-<div class="detail" id="static_url/0">
+</section>
+<section class="detail" id="static_url/0">
     <div class="detail-header">
     <a href="#static_url/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">static_url()</span>
+    <h1 class="signature">static_url()</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -528,14 +524,14 @@ issued if the event to instrument is a DB query).</p>
 <p>It uses the configuration under <code class="inline">:static_url</code> to generate
 such. It falls back to <code class="inline">:url</code> if <code class="inline">:static_url</code> is not set.</p>
   </section>
-</div>
-<div class="detail" id="struct_url/0">
+</section>
+<section class="detail" id="struct_url/0">
     <div class="detail-header">
     <a href="#struct_url/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">struct_url()</span>
+    <h1 class="signature">struct_url()</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -547,14 +543,14 @@ such. It falls back to <code class="inline">:url</code> if <code class="inline">
 Useful for manipulating the URL data and passing it to
 URL helpers.</p>
   </section>
-</div>
-<div class="detail" id="subscribe/1">
+</section>
+<section class="detail" id="subscribe/1">
     <div class="detail-header">
     <a href="#subscribe/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">subscribe(topic)</span>
+    <h1 class="signature">subscribe(topic)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -562,14 +558,14 @@ URL helpers.</p>
           </div>
   <section class="docstring">
   </section>
-</div>
-<div class="detail" id="subscribe/3">
+</section>
+<section class="detail" id="subscribe/3">
     <div class="detail-header">
     <a href="#subscribe/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">subscribe(pid, topic, opts)</span>
+    <h1 class="signature">subscribe(pid, topic, opts)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -577,14 +573,14 @@ URL helpers.</p>
           </div>
   <section class="docstring">
   </section>
-</div>
-<div class="detail" id="unsubscribe/1">
+</section>
+<section class="detail" id="unsubscribe/1">
     <div class="detail-header">
     <a href="#unsubscribe/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">unsubscribe(topic)</span>
+    <h1 class="signature">unsubscribe(topic)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -594,14 +590,14 @@ URL helpers.</p>
 <p>Unsubscribes the caller from the given topic.</p>
 <p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Endpoint.html#c:unsubscribe/1"><code class="inline">Phoenix.Endpoint.unsubscribe/1</code></a>.</p>
   </section>
-</div>
-<div class="detail" id="url/0">
+</section>
+<section class="detail" id="url/0">
     <div class="detail-header">
     <a href="#url/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">url()</span>
+    <h1 class="signature">url()</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -611,14 +607,14 @@ URL helpers.</p>
 <p>Generates the endpoint base URL without any path information.</p>
 <p>It uses the configuration under <code class="inline">:url</code> to generate such.</p>
   </section>
-</div>
+</section>
+          </div>
         </section>
-
           <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.2),
           </span>
           <span class="line">
             designed by
@@ -630,7 +626,7 @@ URL helpers.</p>
   </div>
 </section>
 </div>
-  <script src="dist/app-a0c90688fa.js"></script>
+  <script src="dist/html-c1666276880c0f8e3769.js"></script>
   
   </body>
 </html>

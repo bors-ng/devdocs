@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.1">
-    <title>The innards of Bors-NG – Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-    <script src="dist/sidebar_items-5285d0f108.js"></script>
+    <meta name="generator" content="ExDoc v0.19.2">
+    <title>The innards of Bors-NG — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-c1666276880c0f8e3769.css" />
+    <script src="dist/sidebar_items-ca37f5dca0.js"></script>
     
   </head>
   <body data-type="extras">
@@ -64,15 +64,15 @@ and Phoenix to implement the webserver portion
 (which is responsible for both the dashboard frontend and GitHub webhooks).
 Bors-NG also has a number of worker GenServers,
 to help isolate different projects from each other and perform background processing.</p>
-<p>You’ll also want to do some terminology mapping between what we say to users and what we say in the code:</p>
+<p>You&#39;ll also want to do some terminology mapping between what we say to users and what we say in the code:</p>
 <ul>
-<li>Project → Repo: A Bors “Project” corresponds to a GitHub “Repo.”
+<li>Project → Repo: A Bors &quot;Project&quot; corresponds to a GitHub &quot;Repo.&quot;
 We do this renaming because Ecto already has the concept of a Repo.
 </li>
 <li>Attempt → Try: Try is a keyword in Elixir, and in a lot of other languages besides,
    so the code calls a try an attempt.
 </li>
-<li>Patch → PR: A Bors “Patch” corresponds to a GitHub “Pull Request.”
+<li>Patch → PR: A Bors &quot;Patch&quot; corresponds to a GitHub &quot;Pull Request.&quot;
 </li>
 </ul>
 <!----><h2 id="the-frontend" class="section-heading">
@@ -80,9 +80,9 @@ We do this renaming because Ecto already has the concept of a Repo.
   The frontend
 </h2>
 
-<p>In the source tree, you’ll find the frontend in the <code class="inline">lib/web</code> folder.
+<p>In the source tree, you&#39;ll find the frontend in the <code class="inline">lib/web</code> folder.
 There is also a webhook controller in the <code class="inline">lib/web/controllers</code> folder.
-This isn’t really part of the frontend, because the user won’t be interacting with it,
+This isn&#39;t really part of the frontend, because the user won&#39;t be interacting with it,
 but rather GitHub will POST to it when comments are left, builds are completed,
 and new GitHub repositories are associated with our integration.
 The webhook controller is on a separate Plug pipeline for this reason.</p>
@@ -97,17 +97,17 @@ The webhook controller is on a separate Plug pipeline for this reason.</p>
   <code class="inline">Worker.Batcher</code> and <code class="inline">Worker.Attemptor</code>
 </h3>
 
-<p>Batcher handles “r+”-ed patches, which the user is attempting to land in master.
-Attemptor handles “try”-ed patches.</p>
+<p>Batcher handles &quot;r+&quot;-ed patches, which the user is attempting to land in master.
+Attemptor handles &quot;try&quot;-ed patches.</p>
 <p>Batcher and Attemptor both have about the same structure:
 each project has zero or one instance of these workers at any time,
-and a registry GenServer lazily creates an instance if it’s needed and none exists.</p>
+and a registry GenServer lazily creates an instance if it&#39;s needed and none exists.</p>
 <p>The webhook controller sends a message to the appropriate worker when the user
 posts the comment on a pull request.
 The webhook controller also delivers status notifications for running builds,
 and the server will poll GitHub every half-hour just in case.</p>
 <p>These servers also keep all their state written to Ecto,
-so bors can pick up where it left off if it’s restarted.</p>
+so bors can pick up where it left off if it&#39;s restarted.</p>
 <h2 id="the-github-glue" class="section-heading">
   <a href="#the-github-glue" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   The GitHub glue
@@ -119,16 +119,16 @@ so bors can pick up where it left off if it’s restarted.</p>
   GitHub.Server
 </h3>
 
-<p>All requests made to GitHub’s REST API
-(except a couple things related to oAuth) go through the “GitHub API server.”
+<p>All requests made to GitHub&#39;s REST API
+(except a couple things related to oAuth) go through the &quot;GitHub API server.&quot;
 This server keeps a cache of installation tokens
-(so we don’t constantly re-request them) and is responsible for rate limiting.
+(so we don&#39;t constantly re-request them) and is responsible for rate limiting.
 It can be replaced with <code class="inline">GitHub.ServerMock</code>, for local testing.</p>
       <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.2),
           </span>
           <span class="line">
             designed by
@@ -140,7 +140,7 @@ It can be replaced with <code class="inline">GitHub.ServerMock</code>, for local
   </div>
 </section>
 </div>
-  <script src="dist/app-a0c90688fa.js"></script>
+  <script src="dist/html-c1666276880c0f8e3769.js"></script>
   
   </body>
 </html>
