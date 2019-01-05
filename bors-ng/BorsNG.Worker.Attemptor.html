@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.19.2">
     <title>BorsNG.Worker.Attemptor — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-c1666276880c0f8e3769.css" />
-    <script src="dist/sidebar_items-edba0045ee.js"></script>
+    <script src="dist/sidebar_items-22883160dd.js"></script>
     
   </head>
   <body data-type="modules">
@@ -101,6 +101,11 @@ the completion logic is run.
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
+    <a href="#cancel/2">cancel(pid, patch_id)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#child_spec/1">child_spec(arg)</a>
   </div>
     <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor</p>
@@ -150,6 +155,21 @@ block until it returns</p>
             </a>
 Functions          </h1>
           <div class="functions-list">
+<section class="detail" id="cancel/2">
+    <div class="detail-header">
+    <a href="#cancel/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">cancel(pid, patch_id)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L39" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
 <section class="detail" id="child_spec/1">
     <div class="detail-header">
     <a href="#child_spec/1" class="detail-link" title="Link to this function">
@@ -174,7 +194,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">do_handle_cast(arg, project_id)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L88" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L111" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -189,7 +209,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">init(project_id)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L49" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L53" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -240,7 +260,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">poll(pid)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L43" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L47" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -270,7 +290,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">status(pid, stat)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L39" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor.ex#L43" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
