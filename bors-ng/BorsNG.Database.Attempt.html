@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.19.2">
     <title>BorsNG.Database.Attempt — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-c1666276880c0f8e3769.css" />
-    <script src="dist/sidebar_items-22883160dd.js"></script>
+    <script src="dist/sidebar_items-52e7d25525.js"></script>
     
   </head>
   <body data-type="modules">
@@ -88,7 +88,7 @@ and it&#39;s CI result is reported, but it is not pushed to master.</p>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#all/1">all(atom)</a>
+    <a href="#all/1">all(state)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -132,7 +132,7 @@ and it&#39;s CI result is reported, but it is not pushed to master.</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#new/1">new(patch)</a>
+    <a href="#new/2">new(patch, arguments)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -167,8 +167,8 @@ Functions          </h1>
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">all(atom)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L32" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">all(state)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L40" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -183,7 +183,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">all_for_patch(patch_id)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L43" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L51" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -198,7 +198,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">all_for_patch(patch_id, state)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L60" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L68" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -213,7 +213,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">all_for_project(project_id, state)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L37" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L45" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -230,7 +230,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset(struct, params \\ %{})</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L93" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L101" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -248,7 +248,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset_state(struct, params \\ %{})</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L101" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L109" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -264,7 +264,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_by_commit(project_id, commit, state)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L65" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L73" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -279,7 +279,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_next_poll_unix_sec(attempt, project)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L86" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L94" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -287,14 +287,14 @@ Functions          </h1>
   <section class="docstring">
   </section>
 </section>
-<section class="detail" id="new/1">
+<section class="detail" id="new/2">
     <div class="detail-header">
-    <a href="#new/1" class="detail-link" title="Link to this function">
+    <a href="#new/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">new(patch)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L22" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">new(patch, arguments)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L23" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -309,7 +309,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">next_poll_is_past(attempt, project)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L71" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L79" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -324,7 +324,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">next_poll_is_past(attempt, project, now_utc_sec)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L76" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L84" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -339,7 +339,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">timeout_is_past(attempt)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L81" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt.ex#L89" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
