@@ -71,13 +71,13 @@ BorsNG.Worker.Batcher.BorsToml
 
         <section id="moduledoc">
 <p>The format for <code class="inline">bors.toml</code>. It looks like this:</p>
-<pre><code class="nohighlight makeup elixir"><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0929321738-1">[</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="6848975856-1">[</span><span class="w">
   </span><span class="s">&quot;continuous-integration/travis-ci/push&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s">&quot;continuous-integration/appveyor/branch&quot;</span><span class="p" data-group-id="0929321738-1">]</span><span class="w">
+  </span><span class="s">&quot;continuous-integration/appveyor/branch&quot;</span><span class="p" data-group-id="6848975856-1">]</span><span class="w">
 
-</span><span class="n">block_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0929321738-2">[</span><span class="w"> </span><span class="s">&quot;S-do-not-merge-yet&quot;</span><span class="w"> </span><span class="p" data-group-id="0929321738-2">]</span><span class="w">
+</span><span class="n">block_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="6848975856-2">[</span><span class="w"> </span><span class="s">&quot;S-do-not-merge-yet&quot;</span><span class="w"> </span><span class="p" data-group-id="6848975856-2">]</span><span class="w">
 
-</span><span class="n">pr_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0929321738-3">[</span><span class="w"> </span><span class="s">&quot;continuous-integration/travis-ci/pull&quot;</span><span class="w"> </span><span class="p" data-group-id="0929321738-3">]</span></code></pre>
+</span><span class="n">pr_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="6848975856-3">[</span><span class="w"> </span><span class="s">&quot;continuous-integration/travis-ci/pull&quot;</span><span class="w"> </span><span class="p" data-group-id="6848975856-3">]</span></code></pre>
         </section>
 
         <section id="summary" class="details-list">
@@ -175,7 +175,7 @@ Types          </h1>
   cut_body_after: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>() | nil,
   delete_merged_branches: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(),
   pr_status: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()],
-  required_approvals: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(),
+  required_approvals: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | nil,
   status: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()],
   timeout_sec: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()
 }</pre>
