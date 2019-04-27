@@ -4,42 +4,50 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.3">
+    <meta name="generator" content="ExDoc v0.20.2">
+    <meta name="project" content="Bors-NG v0.1.0">
     <title>API Reference — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
-    <script src="dist/sidebar_items-52e7d25525.js"></script>
-    <script async src="dist/html-399e30b9b028e3059575.js"></script>
+    <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
+    <script src="dist/sidebar_items-9c47ee6612.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
     
   </head>
   <body data-type="extras">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
 <div class="main">
+
 <button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Sidebar</span>
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
 </button>
-<button class="sidebar-button night-mode-toggle">
-  <span class="icon-theme" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Theme</span>
-</button>
+
 <section class="sidebar">
-
-  <a href="https://bors.tech/" class="sidebar-projectLink">
-    <div class="sidebar-projectDetails">
-      <h1 class="sidebar-projectName">
-Bors-NG      </h1>
-      <h2 class="sidebar-projectVersion">
-        v0.1.0
-      </h2>
-    </div>
-  </a>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
   </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG      </a>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </div>
 
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
@@ -60,7 +68,7 @@ Bors-NG      </h1>
 
 
 <h1>
-  <small class="visible-xs">Bors-NG v0.1.0</small>
+  <small class="app-vsn">Bors-NG v0.1.0</small>
   API Reference
 </h1>
 
@@ -75,8 +83,7 @@ Bors-NG      </h1>
   <div class="summary-signature">
     <a href="BorsNG.AdminController.html">BorsNG.AdminController</a>
   </div>
-    <div class="summary-synopsis"><p>Functionality that is specific to administrators</p>
-</div>
+    <div class="summary-synopsis"><p>Functionality that is specific to administrators.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -84,22 +91,19 @@ Bors-NG      </h1>
   </div>
     <div class="summary-synopsis"><p>The view portion of all administrator-specific functions,
 such as looking up an arbitrary project by name,
-or showing the results of red-flag queries</p>
-</div>
+or showing the results of red-flag queries.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Application.html">BorsNG.Application</a>
   </div>
-    <div class="summary-synopsis"><p>The top-level OPT application for Bors-NG</p>
-</div>
+    <div class="summary-synopsis"><p>The top-level OPT application for Bors-NG.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Attrs.html">BorsNG.Attrs</a>
   </div>
-    <div class="summary-synopsis"><p>Storage for different runtime constants, basically config evaled in runtime</p>
-</div>
+    <div class="summary-synopsis"><p>Storage for different runtime constants, basically config evaled in runtime</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -107,37 +111,32 @@ or showing the results of red-flag queries</p>
   </div>
     <div class="summary-synopsis"><p>Routing glue to allow authenticating with GitHub oAuth.
 <a href="BorsNG.Router.html"><code class="inline">BorsNG.Router</code></a> ensures that users have to go through here.
-When a user is authenticated, the following items are added to the session</p>
-</div>
+When a user is authenticated, the following items are added to the session</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.AuthView.html">BorsNG.AuthView</a>
   </div>
     <div class="summary-synopsis"><p>The view glue to perform oAuth authentication,
-and to get tokens for sockets and APIs from that</p>
-</div>
+and to get tokens for sockets and APIs from that.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Command.html">BorsNG.Command</a>
   </div>
-    <div class="summary-synopsis"><p>Resolve magic comments</p>
-</div>
+    <div class="summary-synopsis"><p>Resolve magic comments.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Attempt.html">BorsNG.Database.Attempt</a>
   </div>
-    <div class="summary-synopsis"><p>The database-level representation of a &quot;attempt&quot;</p>
-</div>
+    <div class="summary-synopsis"><p>The database-level representation of a &quot;attempt&quot;.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.AttemptState.html">BorsNG.Database.AttemptState</a>
   </div>
-    <div class="summary-synopsis"><p>A type to represent the attmept state</p>
-</div>
+    <div class="summary-synopsis"><p>A type to represent the attmept state.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -145,150 +144,129 @@ and to get tokens for sockets and APIs from that</p>
   </div>
     <div class="summary-synopsis"><p>A database record for an individual CI run.
 It corresponds to an item in the status = []
-array of bors.toml</p>
-</div>
+array of bors.toml.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.AttemptStatusState.html">BorsNG.Database.AttemptStatusState</a>
   </div>
-    <div class="summary-synopsis"><p>A type to represent the status state</p>
-</div>
+    <div class="summary-synopsis"><p>A type to represent the status state.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Batch.html">BorsNG.Database.Batch</a>
   </div>
-    <div class="summary-synopsis"><p>The database-level representation of a &quot;batch&quot;</p>
-</div>
+    <div class="summary-synopsis"><p>The database-level representation of a &quot;batch&quot;.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.BatchState.html">BorsNG.Database.BatchState</a>
   </div>
-    <div class="summary-synopsis"><p>A type to represent the batch state</p>
-</div>
+    <div class="summary-synopsis"><p>A type to represent the batch state.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Context.html">BorsNG.Database.Context</a>
   </div>
-    <div class="summary-synopsis"><p>A module that keeps using definitions for models</p>
-</div>
+    <div class="summary-synopsis"><p>A module that keeps using definitions for models.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Context.Dashboard.html">BorsNG.Database.Context.Dashboard</a>
   </div>
-    <div class="summary-synopsis"><p>Fetch lists by user (for the users&#39; dashboards)</p>
-</div>
+    <div class="summary-synopsis"><p>Fetch lists by user (for the users&#39; dashboards).</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Context.Logging.html">BorsNG.Database.Context.Logging</a>
   </div>
-    <div class="summary-synopsis"><p>Keeps user-accessible records of what happens to their repository</p>
-</div>
+    <div class="summary-synopsis"><p>Keeps user-accessible records of what happens to their repository.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Context.Permission.html">BorsNG.Database.Context.Permission</a>
   </div>
-    <div class="summary-synopsis"><p>The connection between a project and its reviewers</p>
-</div>
+    <div class="summary-synopsis"><p>The connection between a project and its reviewers.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Crash.html">BorsNG.Database.Crash</a>
   </div>
-    <div class="summary-synopsis"><p>Crash dumps</p>
-</div>
+    <div class="summary-synopsis"><p>Crash dumps.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Installation.html">BorsNG.Database.Installation</a>
   </div>
-    <div class="summary-synopsis"><p>A GitHub installation</p>
-</div>
+    <div class="summary-synopsis"><p>A GitHub installation.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.LinkMemberProject.html">BorsNG.Database.LinkMemberProject</a>
   </div>
-    <div class="summary-synopsis"><p>The connection between a project and its reviewers</p>
-</div>
+    <div class="summary-synopsis"><p>The connection between a project and its reviewers.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.LinkPatchBatch.html">BorsNG.Database.LinkPatchBatch</a>
   </div>
     <div class="summary-synopsis"><p>Linker table between the patches that are being run by a batch,
-and the batch itself</p>
-</div>
+and the batch itself.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.LinkUserProject.html">BorsNG.Database.LinkUserProject</a>
   </div>
-    <div class="summary-synopsis"><p>The connection between a project and its reviewers</p>
-</div>
+    <div class="summary-synopsis"><p>The connection between a project and its reviewers.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Log.html">BorsNG.Database.Log</a>
   </div>
-    <div class="summary-synopsis"><p>Detailed command log of every patch</p>
-</div>
+    <div class="summary-synopsis"><p>Detailed command log of every patch.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Log.Cmd.html">BorsNG.Database.Log.Cmd</a>
   </div>
-    <div class="summary-synopsis"><p>An already-parsed bors command. Represented as a binary Erlang term</p>
-</div>
+    <div class="summary-synopsis"><p>An already-parsed bors command. Represented as a binary Erlang term.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Migrate.html">BorsNG.Database.Migrate</a>
   </div>
-    <div class="summary-synopsis"><p>Custom Ecto database migration task to be used in compiled releases</p>
-</div>
+    <div class="summary-synopsis"><p>Custom Ecto database migration task to be used in compiled releases.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Model.html">BorsNG.Database.Model</a>
   </div>
-    <div class="summary-synopsis"><p>A module that keeps using definitions for models</p>
-</div>
+    <div class="summary-synopsis"><p>A module that keeps using definitions for models.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Patch.html">BorsNG.Database.Patch</a>
   </div>
-    <div class="summary-synopsis"><p>Corresponds to a pull request in GitHub</p>
-</div>
+    <div class="summary-synopsis"><p>Corresponds to a pull request in GitHub.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Project.html">BorsNG.Database.Project</a>
   </div>
-    <div class="summary-synopsis"><p>Corresponds to a repo in GitHub, as opposed to a repo in Ecto</p>
-</div>
+    <div class="summary-synopsis"><p>Corresponds to a repo in GitHub, as opposed to a repo in Ecto.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.ProjectPermission.html">BorsNG.Database.ProjectPermission</a>
   </div>
-    <div class="summary-synopsis"><p>A type to represent the permissions of a project member</p>
-</div>
+    <div class="summary-synopsis"><p>A type to represent the permissions of a project member.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.Repo.html">BorsNG.Database.Repo</a>
   </div>
     <div class="summary-synopsis"><p>An ecto data repository;
-this process interacts with your persistent database</p>
-</div>
+this process interacts with your persistent database.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -296,177 +274,153 @@ this process interacts with your persistent database</p>
   </div>
     <div class="summary-synopsis"><p>A database record for an individual CI run.
 It corresponds to an item in the status = []
-array of bors.toml</p>
-</div>
+array of bors.toml.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.StatusState.html">BorsNG.Database.StatusState</a>
   </div>
-    <div class="summary-synopsis"><p>A type to represent the status state</p>
-</div>
+    <div class="summary-synopsis"><p>A type to represent the status state.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.User.html">BorsNG.Database.User</a>
   </div>
     <div class="summary-synopsis"><p>A user account;
-each user account in our system has a corresponding GitHub account</p>
-</div>
+each user account in our system has a corresponding GitHub account.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Database.UserPatchDelegation.html">BorsNG.Database.UserPatchDelegation</a>
   </div>
     <div class="summary-synopsis"><p>The connection between a patch and users that have been
-delegated the permission to approve it</p>
-</div>
+delegated the permission to approve it.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Endpoint.html">BorsNG.Endpoint</a>
   </div>
     <div class="summary-synopsis"><p>The set of plugs that are always present,
-including the websocket interceptor and the JSON parser</p>
-</div>
+including the websocket interceptor and the JSON parser.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.ErrorHelpers.html">BorsNG.ErrorHelpers</a>
   </div>
-    <div class="summary-synopsis"><p>Conveniences for translating and building error messages</p>
-</div>
+    <div class="summary-synopsis"><p>Conveniences for translating and building error messages.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.ErrorView.html">BorsNG.ErrorView</a>
   </div>
     <div class="summary-synopsis"><p>Simple error messages, when things crash
-or no route is found</p>
-</div>
+or no route is found.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Gettext.html">BorsNG.Gettext</a>
   </div>
-    <div class="summary-synopsis"><p>A module providing Internationalization with a gettext-based API</p>
-</div>
+    <div class="summary-synopsis"><p>A module providing Internationalization with a gettext-based API.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.html">BorsNG.GitHub</a>
   </div>
-    <div class="summary-synopsis"><p>Wrappers around the GitHub REST API</p>
-</div>
+    <div class="summary-synopsis"><p>Wrappers around the GitHub REST API.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.Commit.html">BorsNG.GitHub.Commit</a>
   </div>
-    <div class="summary-synopsis"><p>The structure of GitHub commit data</p>
-</div>
+    <div class="summary-synopsis"><p>The structure of GitHub commit data.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.OAuth2.html">BorsNG.GitHub.OAuth2</a>
   </div>
-    <div class="summary-synopsis"><p>An OAuth2 strategy for GitHub</p>
-</div>
+    <div class="summary-synopsis"><p>An OAuth2 strategy for GitHub.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.OAuth2Mock.html">BorsNG.GitHub.OAuth2Mock</a>
   </div>
-    <div class="summary-synopsis"><p>This is only used for development and testing</p>
-</div>
+    <div class="summary-synopsis"><p>This is only used for development and testing.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.Pr.html">BorsNG.GitHub.Pr</a>
   </div>
-    <div class="summary-synopsis"><p>The structure of GitHub pull requests</p>
-</div>
+    <div class="summary-synopsis"><p>The structure of GitHub pull requests</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.Repo.html">BorsNG.GitHub.Repo</a>
   </div>
-    <div class="summary-synopsis"><p>The GitHub repository structure</p>
-</div>
+    <div class="summary-synopsis"><p>The GitHub repository structure.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.Reviews.html">BorsNG.GitHub.Reviews</a>
   </div>
-    <div class="summary-synopsis"><p>The GitHub repository structure</p>
-</div>
+    <div class="summary-synopsis"><p>The GitHub repository structure.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.Server.html">BorsNG.GitHub.Server</a>
   </div>
     <div class="summary-synopsis"><p>Provides a real connection to GitHub&#39;s REST API.
-This doesn&#39;t currently do rate limiting, but it will</p>
-</div>
+This doesn&#39;t currently do rate limiting, but it will.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.ServerMock.html">BorsNG.GitHub.ServerMock</a>
   </div>
-    <div class="summary-synopsis"><p>Provides a fake connection to GitHub&#39;s REST API</p>
-</div>
+    <div class="summary-synopsis"><p>Provides a fake connection to GitHub&#39;s REST API.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.GitHub.User.html">BorsNG.GitHub.User</a>
   </div>
-    <div class="summary-synopsis"><p>The GitHub structure of a user account</p>
-</div>
+    <div class="summary-synopsis"><p>The GitHub structure of a user account.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.LayoutView.html">BorsNG.LayoutView</a>
   </div>
     <div class="summary-synopsis"><p>The common wrapper for all pages; namely,
-the bar along the top and the disclaimer along the bottom</p>
-</div>
+the bar along the top and the disclaimer along the bottom.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.PageController.html">BorsNG.PageController</a>
   </div>
-    <div class="summary-synopsis"><p>The controller for the front-page / dashboard</p>
-</div>
+    <div class="summary-synopsis"><p>The controller for the front-page / dashboard.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.PageView.html">BorsNG.PageView</a>
   </div>
-    <div class="summary-synopsis"><p>The dashboard and greeting page</p>
-</div>
+    <div class="summary-synopsis"><p>The dashboard and greeting page.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.ProjectController.html">BorsNG.ProjectController</a>
   </div>
     <div class="summary-synopsis"><p>Shows a list of repositories, a single repository,
-and the repository&#39;s settings page</p>
-</div>
+and the repository&#39;s settings page.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.ProjectPingChannel.html">BorsNG.ProjectPingChannel</a>
   </div>
     <div class="summary-synopsis"><p>Phoenix channel for notifying users
-when a repository gets a visible change in its list of PRs</p>
-</div>
+when a repository gets a visible change in its list of PRs.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.ProjectView.html">BorsNG.ProjectView</a>
   </div>
-    <div class="summary-synopsis"><p>The list of repository&#39;s, and each individual repository page</p>
-</div>
+    <div class="summary-synopsis"><p>The list of repository&#39;s, and each individual repository page.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -475,15 +429,13 @@ when a repository gets a visible change in its list of PRs</p>
     <div class="summary-synopsis"><p>This module maps from URLs to controllers and plugs.
 It layers on pre-filters, primarily the session, flash,
 CSRF protection, secure headers,
-and user authentication part of the session</p>
-</div>
+and user authentication part of the session.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Router.Helpers.html">BorsNG.Router.Helpers</a>
   </div>
-    <div class="summary-synopsis"><p>Module with named helpers generated from BorsNG.Router</p>
-</div>
+    <div class="summary-synopsis"><p>Module with named helpers generated from BorsNG.Router.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -491,31 +443,27 @@ and user authentication part of the session</p>
   </div>
     <div class="summary-synopsis"><p>The router for push notifications.
 It goes from &quot;channel names&quot; to &quot;channel modules&quot;,
-and it implements most of the user authentication stuff</p>
-</div>
+and it implements most of the user authentication stuff.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Web.html">BorsNG.Web</a>
   </div>
     <div class="summary-synopsis"><p>A module that keeps using definitions for controllers,
-views and so on</p>
-</div>
+views and so on.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.WebhookController.html">BorsNG.WebhookController</a>
   </div>
     <div class="summary-synopsis"><p>The webhook controller responds to HTTP requests
-that are initiated from other services (currently, just GitHub)</p>
-</div>
+that are initiated from other services (currently, just GitHub).</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.WebhookParserPlug.html">BorsNG.WebhookParserPlug</a>
   </div>
-    <div class="summary-synopsis"><p>Parse the GitHub webhook payload (as JSON) and verify the HMAC-SHA1 signature</p>
-</div>
+    <div class="summary-synopsis"><p>Parse the GitHub webhook payload (as JSON) and verify the HMAC-SHA1 signature.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -524,16 +472,14 @@ that are initiated from other services (currently, just GitHub)</p>
     <div class="summary-synopsis"><p>An implementation of the wobserver security policy.
 This is necessary for one reason: Bors-NG runs on Heroku,
 which establishes every connection from a different load balancer IP.
-The default security policy rejects connections from a different IP than</p>
-</div>
+The default security policy rejects connections from a different IP than</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Worker.Attemptor.html">BorsNG.Worker.Attemptor</a>
   </div>
     <div class="summary-synopsis"><p>An &quot;Attemptor&quot; manages the set of running attempts (that is, &quot;try jobs&quot;).
-It implements this set of rules</p>
-</div>
+It implements this set of rules</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -543,30 +489,26 @@ It implements this set of rules</p>
 This is the registry of each individual attemptor.
 It starts the attemptor if it doesn&#39;t exist,
 restarts it if it crashes,
-and logs the crashes because that&#39;s needed sometimes</p>
-</div>
+and logs the crashes because that&#39;s needed sometimes.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Worker.Attemptor.Supervisor.html">BorsNG.Worker.Attemptor.Supervisor</a>
   </div>
-    <div class="summary-synopsis"><p>The supervisor of all of the batchers</p>
-</div>
+    <div class="summary-synopsis"><p>The supervisor of all of the batchers.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Worker.Batcher.html">BorsNG.Worker.Batcher</a>
   </div>
     <div class="summary-synopsis"><p>A &quot;Batcher&quot; manages the backlog of batches a project has.
-It implements this set of rules</p>
-</div>
+It implements this set of rules</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Worker.Batcher.BorsToml.html">BorsNG.Worker.Batcher.BorsToml</a>
   </div>
-    <div class="summary-synopsis"><p>The format for <code class="inline">bors.toml</code>. It looks like this</p>
-</div>
+    <div class="summary-synopsis"><p>The format for <code class="inline">bors.toml</code>. It looks like this</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -574,15 +516,13 @@ It implements this set of rules</p>
   </div>
     <div class="summary-synopsis"><p>Get the bors configuration from a repository.
 This will use <code class="inline">bors.toml</code>, if available,
-or it will attempt to infer it from other files in the repo</p>
-</div>
+or it will attempt to infer it from other files in the repo.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Worker.Batcher.Message.html">BorsNG.Worker.Batcher.Message</a>
   </div>
-    <div class="summary-synopsis"><p>User-readable strings that go in commit messages and comments</p>
-</div>
+    <div class="summary-synopsis"><p>User-readable strings that go in commit messages and comments.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -592,8 +532,7 @@ or it will attempt to infer it from other files in the repo</p>
 This is the registry of each individual batcher.
 It starts the batcher if it doesn&#39;t exist,
 restarts it if it crashes,
-and logs the crashes because that&#39;s needed sometimes</p>
-</div>
+and logs the crashes because that&#39;s needed sometimes.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -601,23 +540,20 @@ and logs the crashes because that&#39;s needed sometimes</p>
   </div>
     <div class="summary-synopsis"><p>The batcher state machine.
 It takes a list of status states,
-and emits a batch state</p>
-</div>
+and emits a batch state.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Worker.Batcher.Supervisor.html">BorsNG.Worker.Batcher.Supervisor</a>
   </div>
-    <div class="summary-synopsis"><p>The supervisor of all of the batchers</p>
-</div>
+    <div class="summary-synopsis"><p>The supervisor of all of the batchers.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="BorsNG.Worker.BranchDeleter.html">BorsNG.Worker.BranchDeleter</a>
   </div>
     <div class="summary-synopsis"><p>BranchDeleter controls merged branches removal
-if delete_merged_branches is true in bors.toml file</p>
-</div>
+if delete_merged_branches is true in bors.toml file.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -625,8 +561,7 @@ if delete_merged_branches is true in bors.toml file</p>
   </div>
     <div class="summary-synopsis"><p>A background task that pulls a full list of opened pull requests from a repo.
 Patches that don&#39;t come up get closed,
-and patches that don&#39;t exist get created</p>
-</div>
+and patches that don&#39;t exist get created.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -634,8 +569,7 @@ and patches that don&#39;t exist get created</p>
   </div>
     <div class="summary-synopsis"><p>A background task that pulls a full list of repositories that bors is on.
 Projects that don&#39;t come up get removed,
-and projects hat don&#39;t exist get created</p>
-</div>
+and projects hat don&#39;t exist get created.</p></div>
 </div>
     </div>
   </section>
@@ -652,8 +586,7 @@ and projects hat don&#39;t exist get created</p>
     <a href="BorsNG.PermissionDeniedError.html">BorsNG.PermissionDeniedError</a>
   </div>
     <div class="summary-synopsis"><p>When a controller detects that the user is doing something they shouldn&#39;t,
-it raises this error</p>
-</div>
+it raises this error.</p></div>
 </div>
     </div>
   </section>
@@ -667,10 +600,9 @@ it raises this error</p>
     <div class="summary">
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="Mix.Tasks.Bors.Cleanup.html">bors.cleanup</a>
+    <a href="Mix.Tasks.Bors.Cleanup.html">mix bors.cleanup</a>
   </div>
-    <div class="summary-synopsis"><p>Delete old batches and patches from the database</p>
-</div>
+    <div class="summary-synopsis"><p>Delete old batches and patches from the database.</p></div>
 </div>
     </div>
   </section>
@@ -678,12 +610,20 @@ it raises this error</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.20.2),
           </span>
           <span class="line">
             designed by
             <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
-            </span>
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
         </p>
       </footer>
     </div>

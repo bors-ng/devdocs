@@ -4,42 +4,50 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.3">
+    <meta name="generator" content="ExDoc v0.20.2">
+    <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Endpoint — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
-    <script src="dist/sidebar_items-52e7d25525.js"></script>
-    <script async src="dist/html-399e30b9b028e3059575.js"></script>
+    <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
+    <script src="dist/sidebar_items-9c47ee6612.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
     
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
     <div class="main">
+
 <button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Sidebar</span>
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
 </button>
-<button class="sidebar-button night-mode-toggle">
-  <span class="icon-theme" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Theme</span>
-</button>
+
 <section class="sidebar">
-
-  <a href="https://bors.tech/" class="sidebar-projectLink">
-    <div class="sidebar-projectDetails">
-      <h1 class="sidebar-projectName">
-Bors-NG      </h1>
-      <h2 class="sidebar-projectVersion">
-        v0.1.0
-      </h2>
-    </div>
-  </a>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
   </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG      </a>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </div>
 
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
@@ -60,7 +68,7 @@ Bors-NG      </h1>
 
 
       <h1>
-        <small class="visible-xs">Bors-NG v0.1.0</small>
+        <small class="app-vsn">Bors-NG v0.1.0</small>
 BorsNG.Endpoint        
           <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
@@ -91,120 +99,103 @@ including the websocket interceptor and the JSON parser.</p>
   <div class="summary-signature">
     <a href="#__sockets__/0">__sockets__()</a>
   </div>
-    <div class="summary-synopsis"><p>Returns all sockets configured in this endpoint</p>
-</div>
+    <div class="summary-synopsis"><p>Returns all sockets configured in this endpoint.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#broadcast/3">broadcast(topic, event, msg)</a>
   </div>
-    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
-</div>
+    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#broadcast!/3">broadcast!(topic, event, msg)</a>
   </div>
-    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
-</div>
+    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#broadcast_from/4">broadcast_from(from, topic, event, msg)</a>
   </div>
-    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
-</div>
+    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#broadcast_from!/4">broadcast_from!(from, topic, event, msg)</a>
   </div>
-    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code></p>
-</div>
+    <div class="summary-synopsis"><p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#call/2">call(conn, opts)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.7.1/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a></p>
-</div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.7.1/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#config/2">config(key, default \\ nil)</a>
   </div>
-    <div class="summary-synopsis"><p>Returns the endpoint configuration for <code class="inline">key</code></p>
-</div>
+    <div class="summary-synopsis"><p>Returns the endpoint configuration for <code class="inline">key</code></p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#config_change/2">config_change(changed, removed)</a>
   </div>
-    <div class="summary-synopsis"><p>Reloads the configuration given the application environment changes</p>
-</div>
+    <div class="summary-synopsis"><p>Reloads the configuration given the application environment changes.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#host/0">host()</a>
   </div>
-    <div class="summary-synopsis"><p>Returns the host for the given endpoint</p>
-</div>
+    <div class="summary-synopsis"><p>Returns the host for the given endpoint.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#init/1">init(opts)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.7.1/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a></p>
-</div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.7.1/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#instrument/3">instrument(event, runtime \\ Macro.escape(%{}), fun)</a>
   </div>
-    <div class="summary-synopsis"><p>Instruments the given function</p>
-</div>
+    <div class="summary-synopsis"><p>Instruments the given function.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#path/1">path(path)</a>
   </div>
-    <div class="summary-synopsis"><p>Generates the path information when routing to this endpoint</p>
-</div>
+    <div class="summary-synopsis"><p>Generates the path information when routing to this endpoint.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#script_name/0">script_name()</a>
   </div>
-    <div class="summary-synopsis"><p>Generates the script name</p>
-</div>
+    <div class="summary-synopsis"><p>Generates the script name.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#start_link/1">start_link(opts \\ [])</a>
   </div>
-    <div class="summary-synopsis"><p>Starts the endpoint supervision tree</p>
-</div>
+    <div class="summary-synopsis"><p>Starts the endpoint supervision tree.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#static_path/1">static_path(path)</a>
   </div>
-    <div class="summary-synopsis"><p>Generates a route to a static file in <code class="inline">priv/static</code></p>
-</div>
+    <div class="summary-synopsis"><p>Generates a route to a static file in <code class="inline">priv/static</code>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#static_url/0">static_url()</a>
   </div>
-    <div class="summary-synopsis"><p>Generates the static URL without any path information</p>
-</div>
+    <div class="summary-synopsis"><p>Generates the static URL without any path information.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#struct_url/0">struct_url()</a>
   </div>
-    <div class="summary-synopsis"><p>Generates the endpoint base URL but as a <a href="https://hexdocs.pm/elixir/URI.html"><code class="inline">URI</code></a> struct</p>
-</div>
+    <div class="summary-synopsis"><p>Generates the endpoint base URL but as a <a href="https://hexdocs.pm/elixir/URI.html"><code class="inline">URI</code></a> struct.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -220,15 +211,13 @@ including the websocket interceptor and the JSON parser.</p>
   <div class="summary-signature">
     <a href="#unsubscribe/1">unsubscribe(topic)</a>
   </div>
-    <div class="summary-synopsis"><p>Unsubscribes the caller from the given topic</p>
-</div>
+    <div class="summary-synopsis"><p>Unsubscribes the caller from the given topic.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#url/0">url()</a>
   </div>
-    <div class="summary-synopsis"><p>Generates the endpoint base URL without any path information</p>
-</div>
+    <div class="summary-synopsis"><p>Generates the endpoint base URL without any path information.</p></div>
 </div>
   </div>
         </section>
@@ -437,9 +426,9 @@ issued if the event to instrument is a DB query).</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="n">instrument</span><span class="w"> </span><span class="ss">:render_view</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3586448249-1">%{</span><span class="ss">view</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="3586448249-1">}</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="3586448249-2">fn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="n">instrument</span><span class="w"> </span><span class="ss">:render_view</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6683272109-1">%{</span><span class="ss">view</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="6683272109-1">}</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="6683272109-2">fn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
   </span><span class="n">render</span><span class="w"> </span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="w">
-</span><span class="k" data-group-id="3586448249-2">end</span></code></pre>
+</span><span class="k" data-group-id="6683272109-2">end</span></code></pre>
   </section>
 </section>
 <section class="detail" id="path/1">
@@ -615,12 +604,20 @@ URL helpers.</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.20.2),
           </span>
           <span class="line">
             designed by
             <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
-            </span>
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
         </p>
       </footer>
     </div>

@@ -4,42 +4,50 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.3">
+    <meta name="generator" content="ExDoc v0.20.2">
+    <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub.ServerMock — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
-    <script src="dist/sidebar_items-52e7d25525.js"></script>
-    <script async src="dist/html-399e30b9b028e3059575.js"></script>
+    <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
+    <script src="dist/sidebar_items-9c47ee6612.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
     
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
     <div class="main">
+
 <button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Sidebar</span>
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
 </button>
-<button class="sidebar-button night-mode-toggle">
-  <span class="icon-theme" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Theme</span>
-</button>
+
 <section class="sidebar">
-
-  <a href="https://bors.tech/" class="sidebar-projectLink">
-    <div class="sidebar-projectDetails">
-      <h1 class="sidebar-projectName">
-Bors-NG      </h1>
-      <h2 class="sidebar-projectVersion">
-        v0.1.0
-      </h2>
-    </div>
-  </a>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
   </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG      </a>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </div>
 
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
@@ -60,7 +68,7 @@ Bors-NG      </h1>
 
 
       <h1>
-        <small class="visible-xs">Bors-NG v0.1.0</small>
+        <small class="app-vsn">Bors-NG v0.1.0</small>
 BorsNG.GitHub.ServerMock        
           <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
@@ -80,56 +88,56 @@ and other functions will mutate or read subsets of it.</p>
 <pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="c1"># Push state to &quot;GitHub&quot;</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub.ServerMock</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">ServerMock</span><span class="o">.</span><span class="n">put_state</span><span class="p" data-group-id="8311955771-1">(</span><span class="p" data-group-id="8311955771-2">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="8311955771-3">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="8311955771-3">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="8311955771-4">%{</span><span class="w"> </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-5">[</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="p" data-group-id="8311955771-6">%</span><span class="nc" data-group-id="8311955771-6">GitHub.Repo</span><span class="p" data-group-id="8311955771-6">{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">ServerMock</span><span class="o">.</span><span class="n">put_state</span><span class="p" data-group-id="9470934075-1">(</span><span class="p" data-group-id="9470934075-2">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="9470934075-3">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="9470934075-3">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9470934075-4">%{</span><span class="w"> </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-5">[</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="p" data-group-id="9470934075-6">%</span><span class="nc" data-group-id="9470934075-6">GitHub.Repo</span><span class="p" data-group-id="9470934075-6">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;test/repo&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-7">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-7">%{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="ss">:user</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="8311955771-7">}</span><span class="p" data-group-id="8311955771-6">}</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="8311955771-5">]</span><span class="w"> </span><span class="p" data-group-id="8311955771-4">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="8311955771-8">{</span><span class="p" data-group-id="8311955771-9">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="8311955771-9">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="8311955771-8">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="8311955771-10">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-11">%{</span><span class="p" data-group-id="8311955771-11">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-12">%{</span><span class="p" data-group-id="8311955771-12">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-13">%{</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="8311955771-14">[</span><span class="p" data-group-id="8311955771-14">]</span><span class="p" data-group-id="8311955771-13">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-15">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="8311955771-16">%</span><span class="nc" data-group-id="8311955771-16">GitHub.Pr</span><span class="p" data-group-id="8311955771-16">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="9470934075-7">}</span><span class="p" data-group-id="9470934075-6">}</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="9470934075-5">]</span><span class="w"> </span><span class="p" data-group-id="9470934075-4">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="9470934075-8">{</span><span class="p" data-group-id="9470934075-9">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="9470934075-9">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="9470934075-8">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9470934075-10">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-11">%{</span><span class="p" data-group-id="9470934075-11">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-12">%{</span><span class="p" data-group-id="9470934075-12">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-13">%{</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9470934075-14">[</span><span class="p" data-group-id="9470934075-14">]</span><span class="p" data-group-id="9470934075-13">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-15">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9470934075-16">%</span><span class="nc" data-group-id="9470934075-16">GitHub.Pr</span><span class="p" data-group-id="9470934075-16">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mess&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">head_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-17">%</span><span class="nc" data-group-id="8311955771-17">GitHub.User</span><span class="p" data-group-id="8311955771-17">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-17">%</span><span class="nc" data-group-id="9470934075-17">GitHub.User</span><span class="p" data-group-id="9470934075-17">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="8311955771-17">}</span><span class="p" data-group-id="8311955771-16">}</span><span class="p" data-group-id="8311955771-15">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-18">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="8311955771-19">[</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="p" data-group-id="8311955771-20">%</span><span class="nc" data-group-id="8311955771-20">GitHub.Commit</span><span class="p" data-group-id="8311955771-20">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="9470934075-17">}</span><span class="p" data-group-id="9470934075-16">}</span><span class="p" data-group-id="9470934075-15">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-18">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9470934075-19">[</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="p" data-group-id="9470934075-20">%</span><span class="nc" data-group-id="9470934075-20">GitHub.Commit</span><span class="p" data-group-id="9470934075-20">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bors Fanboi&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi@example.com&quot;</span><span class="p" data-group-id="8311955771-20">}</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="8311955771-19">]</span><span class="w"> </span><span class="p" data-group-id="8311955771-18">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-21">%{</span><span class="p" data-group-id="8311955771-21">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-22">%{</span><span class="p" data-group-id="8311955771-22">}</span><span class="p" data-group-id="8311955771-10">}</span><span class="p" data-group-id="8311955771-2">}</span><span class="p" data-group-id="8311955771-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">GitHub</span><span class="o">.</span><span class="n">get_open_prs!</span><span class="p" data-group-id="8311955771-23">(</span><span class="p" data-group-id="8311955771-24">{</span><span class="p" data-group-id="8311955771-25">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="8311955771-25">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="8311955771-24">}</span><span class="p" data-group-id="8311955771-23">)</span><span class="w">
-</span><span class="p" data-group-id="8311955771-26">[</span><span class="w">
-  </span><span class="p" data-group-id="8311955771-27">%</span><span class="nc" data-group-id="8311955771-27">BorsNG.GitHub.Pr</span><span class="p" data-group-id="8311955771-27">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi@example.com&quot;</span><span class="p" data-group-id="9470934075-20">}</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="9470934075-19">]</span><span class="w"> </span><span class="p" data-group-id="9470934075-18">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-21">%{</span><span class="p" data-group-id="9470934075-21">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-22">%{</span><span class="p" data-group-id="9470934075-22">}</span><span class="p" data-group-id="9470934075-10">}</span><span class="p" data-group-id="9470934075-2">}</span><span class="p" data-group-id="9470934075-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">GitHub</span><span class="o">.</span><span class="n">get_open_prs!</span><span class="p" data-group-id="9470934075-23">(</span><span class="p" data-group-id="9470934075-24">{</span><span class="p" data-group-id="9470934075-25">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="9470934075-25">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="9470934075-24">}</span><span class="p" data-group-id="9470934075-23">)</span><span class="w">
+</span><span class="p" data-group-id="9470934075-26">[</span><span class="w">
+  </span><span class="p" data-group-id="9470934075-27">%</span><span class="nc" data-group-id="9470934075-27">BorsNG.GitHub.Pr</span><span class="p" data-group-id="9470934075-27">{</span><span class="w">
     </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w">
     </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mess&quot;</span><span class="p">,</span><span class="w">
     </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
     </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
     </span><span class="ss">head_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8311955771-28">%</span><span class="nc" data-group-id="8311955771-28">BorsNG.GitHub.User</span><span class="p" data-group-id="8311955771-28">{</span><span class="w">
+    </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9470934075-28">%</span><span class="nc" data-group-id="9470934075-28">BorsNG.GitHub.User</span><span class="p" data-group-id="9470934075-28">{</span><span class="w">
       </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="8311955771-28">}</span><span class="p" data-group-id="8311955771-27">}</span><span class="p" data-group-id="8311955771-26">]</span></code></pre>
+      </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="9470934075-28">}</span><span class="p" data-group-id="9470934075-27">}</span><span class="p" data-group-id="9470934075-26">]</span></code></pre>
         </section>
 
         <section id="summary" class="details-list">
@@ -198,8 +206,7 @@ and other functions will mutate or read subsets of it.</p>
   <div class="summary-signature">
     <a href="#child_spec/1">child_spec(arg)</a>
   </div>
-    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor</p>
-</div>
+    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -216,8 +223,7 @@ and other functions will mutate or read subsets of it.</p>
     <a href="#init/1">init(atom)</a>
   </div>
     <div class="summary-synopsis"><p>Invoked when the server is started. <code class="inline">start_link/3</code> or <code class="inline">start/3</code> will
-block until it returns</p>
-</div>
+block until it returns.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -571,12 +577,20 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.20.2),
           </span>
           <span class="line">
             designed by
             <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
-            </span>
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
         </p>
       </footer>
     </div>

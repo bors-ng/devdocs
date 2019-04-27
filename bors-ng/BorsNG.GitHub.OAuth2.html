@@ -4,42 +4,50 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.19.3">
+    <meta name="generator" content="ExDoc v0.20.2">
+    <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub.OAuth2 — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
-    <script src="dist/sidebar_items-52e7d25525.js"></script>
-    <script async src="dist/html-399e30b9b028e3059575.js"></script>
+    <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
+    <script src="dist/sidebar_items-9c47ee6612.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
     
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
     <div class="main">
+
 <button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Sidebar</span>
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
 </button>
-<button class="sidebar-button night-mode-toggle">
-  <span class="icon-theme" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Theme</span>
-</button>
+
 <section class="sidebar">
-
-  <a href="https://bors.tech/" class="sidebar-projectLink">
-    <div class="sidebar-projectDetails">
-      <h1 class="sidebar-projectName">
-Bors-NG      </h1>
-      <h2 class="sidebar-projectVersion">
-        v0.1.0
-      </h2>
-    </div>
-  </a>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
   </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG      </a>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </div>
 
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
@@ -60,7 +68,7 @@ Bors-NG      </h1>
 
 
       <h1>
-        <small class="visible-xs">Bors-NG v0.1.0</small>
+        <small class="app-vsn">Bors-NG v0.1.0</small>
 BorsNG.GitHub.OAuth2        
           <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
@@ -99,6 +107,7 @@ BorsNG.GitHub.OAuth2
   <div class="summary-signature">
     <a href="#authorize_url/2">authorize_url(client, params)</a>
   </div>
+    <div class="summary-synopsis"><p>Builds the URL to the authorization endpoint.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -114,6 +123,7 @@ BorsNG.GitHub.OAuth2
   <div class="summary-signature">
     <a href="#get_token/3">get_token(client, params, headers)</a>
   </div>
+    <div class="summary-synopsis"><p>Builds the URL to token endpoint.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -124,8 +134,7 @@ BorsNG.GitHub.OAuth2
   <div class="summary-signature">
     <a href="#get_user!/1">get_user!(client)</a>
   </div>
-    <div class="summary-synopsis"><p>Get info about the user we are now logged in as</p>
-</div>
+    <div class="summary-synopsis"><p>Get info about the user we are now logged in as</p></div>
 </div>
   </div>
         </section>
@@ -151,7 +160,7 @@ Types          </h1>
      </a>
         
       <div class="specs">
-          <pre>t() :: <a href="https://hexdocs.pm/oauth2/0.9.4/OAuth2.Client.html#t:t/0">OAuth2.Client.t</a>()</pre>
+          <pre>t() :: <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Client.html#t:t/0">OAuth2.Client.t</a>()</pre>
       </div>
   </div>
   <section class="docstring">
@@ -180,6 +189,20 @@ Functions          </h1>
      </a>
           </div>
   <section class="docstring">
+<p>Builds the URL to the authorization endpoint.</p>
+<h2 id="authorize_url/2-example" class="section-heading">
+  <a href="#authorize_url/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">authorize_url</span><span class="p" data-group-id="1918138704-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="1918138704-1">)</span><span class="w"> </span><span class="k" data-group-id="1918138704-2">do</span><span class="w">
+  </span><span class="n">client</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1918138704-3">(</span><span class="ss">:response_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p" data-group-id="1918138704-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1918138704-4">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="1918138704-4">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1918138704-5">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="1918138704-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="1918138704-6">(</span><span class="n">params</span><span class="p" data-group-id="1918138704-6">)</span><span class="w">
+</span><span class="k" data-group-id="1918138704-2">end</span></code></pre>
+<p>Callback implementation for <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Strategy.html#c:authorize_url/2"><code class="inline">OAuth2.Strategy.authorize_url/2</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="authorize_url!/0">
@@ -229,6 +252,23 @@ Functions          </h1>
      </a>
           </div>
   <section class="docstring">
+<p>Builds the URL to token endpoint.</p>
+<h2 id="get_token/3-example" class="section-heading">
+  <a href="#get_token/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">get_token</span><span class="p" data-group-id="7772855857-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="7772855857-1">)</span><span class="w"> </span><span class="k" data-group-id="7772855857-2">do</span><span class="w">
+  </span><span class="n">client</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-3">(</span><span class="ss">:code</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="7772855857-4">[</span><span class="ss">:code</span><span class="p" data-group-id="7772855857-4">]</span><span class="p" data-group-id="7772855857-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-5">(</span><span class="ss">:grant_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p" data-group-id="7772855857-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-6">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="7772855857-6">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-7">(</span><span class="ss">:client_secret</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_secret</span><span class="p" data-group-id="7772855857-7">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-8">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="7772855857-8">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="7772855857-9">(</span><span class="n">params</span><span class="p" data-group-id="7772855857-9">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_headers</span><span class="p" data-group-id="7772855857-10">(</span><span class="n">headers</span><span class="p" data-group-id="7772855857-10">)</span><span class="w">
+</span><span class="k" data-group-id="7772855857-2">end</span></code></pre>
+<p>Callback implementation for <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Strategy.html#c:get_token/3"><code class="inline">OAuth2.Strategy.get_token/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="get_token!/1">
@@ -278,12 +318,20 @@ Functions          </h1>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.20.2),
           </span>
           <span class="line">
             designed by
             <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
-            </span>
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
         </p>
       </footer>
     </div>
