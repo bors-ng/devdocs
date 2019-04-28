@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.ProjectPingChannel — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
-    <script src="dist/sidebar_items-9c47ee6612.js"></script>
+    <script src="dist/sidebar_items-3821f4d0f8.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
     
@@ -111,38 +111,20 @@ when a repository gets a visible change in its list of PRs.</p>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#code_change/3">code_change(old, socket, extra)</a>
-  </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:code_change/3"><code class="inline">Phoenix.Channel.code_change/3</code></a>.</p></div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#handle_in/3">handle_in(event, message, socket)</a>
-  </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:handle_in/3"><code class="inline">Phoenix.Channel.handle_in/3</code></a>.</p></div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#handle_info/2">handle_info(message, state)</a>
-  </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:handle_info/2"><code class="inline">Phoenix.Channel.handle_info/2</code></a>.</p></div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
     <a href="#handle_out/3">handle_out(topic, msg, socket)</a>
   </div>
+    <div class="summary-synopsis"><p>Intercepts outgoing <code class="inline">event</code>s.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#join/3">join(arg, message, socket)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:join/3"><code class="inline">Phoenix.Channel.join/3</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Handle channel joins by <code class="inline">topic</code>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#terminate/2">terminate(reason, socket)</a>
+    <a href="#start_link/1">start_link(triplet)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:terminate/2"><code class="inline">Phoenix.Channel.terminate/2</code></a>.</p></div>
 </div>
   </div>
         </section>
@@ -155,54 +137,6 @@ when a repository gets a visible change in its list of PRs.</p>
             </a>
 Functions          </h1>
           <div class="functions-list">
-<section class="detail" id="code_change/3">
-    <div class="detail-header">
-    <a href="#code_change/3" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">code_change(old, socket, extra)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/channels/project_ping_channel.ex#L16" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:code_change/3"><code class="inline">Phoenix.Channel.code_change/3</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="handle_in/3">
-    <div class="detail-header">
-    <a href="#handle_in/3" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">handle_in(event, message, socket)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/channels/project_ping_channel.ex#L16" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:handle_in/3"><code class="inline">Phoenix.Channel.handle_in/3</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="handle_info/2">
-    <div class="detail-header">
-    <a href="#handle_info/2" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">handle_info(message, state)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/channels/project_ping_channel.ex#L16" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:handle_info/2"><code class="inline">Phoenix.Channel.handle_info/2</code></a>.</p>
-  </section>
-</section>
 <section class="detail" id="handle_out/3">
     <div class="detail-header">
     <a href="#handle_out/3" class="detail-link" title="Link to this function">
@@ -216,6 +150,9 @@ Functions          </h1>
      </a>
           </div>
   <section class="docstring">
+<p>Intercepts outgoing <code class="inline">event</code>s.</p>
+<p>See <code class="inline">intercept/1</code>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.3/Phoenix.Channel.html#c:handle_out/3"><code class="inline">Phoenix.Channel.handle_out/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="join/3">
@@ -231,23 +168,37 @@ Functions          </h1>
      </a>
           </div>
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:join/3"><code class="inline">Phoenix.Channel.join/3</code></a>.</p>
+<p>Handle channel joins by <code class="inline">topic</code>.</p>
+<p>To authorize a socket, return <code class="inline">{:ok, socket}</code> or <code class="inline">{:ok, reply, socket}</code>. To
+refuse authorization, return <code class="inline">{:error, reason}</code>.</p>
+<h2 id="join/3-example" class="section-heading">
+  <a href="#join/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">join</span><span class="p" data-group-id="2559109497-1">(</span><span class="s">&quot;room:lobby&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="2559109497-1">)</span><span class="w"> </span><span class="k" data-group-id="2559109497-2">do</span><span class="w">
+  </span><span class="k">if</span><span class="w"> </span><span class="n">authorized?</span><span class="p" data-group-id="2559109497-3">(</span><span class="n">payload</span><span class="p" data-group-id="2559109497-3">)</span><span class="w"> </span><span class="k" data-group-id="2559109497-4">do</span><span class="w">
+    </span><span class="p" data-group-id="2559109497-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="2559109497-5">}</span><span class="w">
+  </span><span class="k" data-group-id="2559109497-4">else</span><span class="w">
+    </span><span class="p" data-group-id="2559109497-6">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2559109497-7">%{</span><span class="ss">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unauthorized&quot;</span><span class="p" data-group-id="2559109497-7">}</span><span class="p" data-group-id="2559109497-6">}</span><span class="w">
+  </span><span class="k" data-group-id="2559109497-4">end</span><span class="w">
+</span><span class="k" data-group-id="2559109497-2">end</span></code></pre>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.3/Phoenix.Channel.html#c:join/3"><code class="inline">Phoenix.Channel.join/3</code></a>.</p>
   </section>
 </section>
-<section class="detail" id="terminate/2">
+<section class="detail" id="start_link/1">
     <div class="detail-header">
-    <a href="#terminate/2" class="detail-link" title="Link to this function">
+    <a href="#start_link/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">terminate(reason, socket)</span>
+    <h1 class="signature">start_link(triplet)</span>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/channels/project_ping_channel.ex#L16" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.3.4/Phoenix.Channel.html#c:terminate/2"><code class="inline">Phoenix.Channel.terminate/2</code></a>.</p>
   </section>
 </section>
           </div>

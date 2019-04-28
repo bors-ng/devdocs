@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub.OAuth2 — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
-    <script src="dist/sidebar_items-9c47ee6612.js"></script>
+    <script src="dist/sidebar_items-3821f4d0f8.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
     
@@ -183,7 +183,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">authorize_url(client, params)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L54" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L55" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -195,13 +195,13 @@ Functions          </h1>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">authorize_url</span><span class="p" data-group-id="1918138704-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="1918138704-1">)</span><span class="w"> </span><span class="k" data-group-id="1918138704-2">do</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">authorize_url</span><span class="p" data-group-id="9256782852-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="9256782852-1">)</span><span class="w"> </span><span class="k" data-group-id="9256782852-2">do</span><span class="w">
   </span><span class="n">client</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1918138704-3">(</span><span class="ss">:response_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p" data-group-id="1918138704-3">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1918138704-4">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="1918138704-4">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1918138704-5">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="1918138704-5">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="1918138704-6">(</span><span class="n">params</span><span class="p" data-group-id="1918138704-6">)</span><span class="w">
-</span><span class="k" data-group-id="1918138704-2">end</span></code></pre>
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9256782852-3">(</span><span class="ss">:response_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p" data-group-id="9256782852-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9256782852-4">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="9256782852-4">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9256782852-5">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="9256782852-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="9256782852-6">(</span><span class="n">params</span><span class="p" data-group-id="9256782852-6">)</span><span class="w">
+</span><span class="k" data-group-id="9256782852-2">end</span></code></pre>
 <p>Callback implementation for <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Strategy.html#c:authorize_url/2"><code class="inline">OAuth2.Strategy.authorize_url/2</code></a>.</p>
   </section>
 </section>
@@ -212,7 +212,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">authorize_url!()</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L31" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L32" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -246,7 +246,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_token(client, params, headers)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L58" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L59" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -258,16 +258,16 @@ Functions          </h1>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">get_token</span><span class="p" data-group-id="7772855857-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="7772855857-1">)</span><span class="w"> </span><span class="k" data-group-id="7772855857-2">do</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">get_token</span><span class="p" data-group-id="2446628640-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="2446628640-1">)</span><span class="w"> </span><span class="k" data-group-id="2446628640-2">do</span><span class="w">
   </span><span class="n">client</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-3">(</span><span class="ss">:code</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="7772855857-4">[</span><span class="ss">:code</span><span class="p" data-group-id="7772855857-4">]</span><span class="p" data-group-id="7772855857-3">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-5">(</span><span class="ss">:grant_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p" data-group-id="7772855857-5">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-6">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="7772855857-6">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-7">(</span><span class="ss">:client_secret</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_secret</span><span class="p" data-group-id="7772855857-7">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7772855857-8">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="7772855857-8">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="7772855857-9">(</span><span class="n">params</span><span class="p" data-group-id="7772855857-9">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_headers</span><span class="p" data-group-id="7772855857-10">(</span><span class="n">headers</span><span class="p" data-group-id="7772855857-10">)</span><span class="w">
-</span><span class="k" data-group-id="7772855857-2">end</span></code></pre>
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="2446628640-3">(</span><span class="ss">:code</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="2446628640-4">[</span><span class="ss">:code</span><span class="p" data-group-id="2446628640-4">]</span><span class="p" data-group-id="2446628640-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="2446628640-5">(</span><span class="ss">:grant_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p" data-group-id="2446628640-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="2446628640-6">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="2446628640-6">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="2446628640-7">(</span><span class="ss">:client_secret</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_secret</span><span class="p" data-group-id="2446628640-7">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="2446628640-8">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="2446628640-8">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="2446628640-9">(</span><span class="n">params</span><span class="p" data-group-id="2446628640-9">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_headers</span><span class="p" data-group-id="2446628640-10">(</span><span class="n">headers</span><span class="p" data-group-id="2446628640-10">)</span><span class="w">
+</span><span class="k" data-group-id="2446628640-2">end</span></code></pre>
 <p>Callback implementation for <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Strategy.html#c:get_token/3"><code class="inline">OAuth2.Strategy.get_token/3</code></a>.</p>
   </section>
 </section>
@@ -280,7 +280,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_token!(params \\ [])</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L36" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L37" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -299,7 +299,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_user!(client)</span>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L45" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/oauth2/oauth2.ex#L46" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>

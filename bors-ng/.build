@@ -1,11 +1,11 @@
-dist/search_items-da2fb2eb43.js
+dist/search_items-f353575de6.js
 dist/html-d9f58a6320b5bfa6dd77.css
 dist/html-d9f58a6320b5bfa6dd77.js
 dist/html/fonts/icomoon.eot
 dist/html/fonts/icomoon.svg
 dist/html/fonts/icomoon.ttf
 dist/html/fonts/icomoon.woff
-dist/sidebar_items-9c47ee6612.js
+dist/sidebar_items-3821f4d0f8.js
 api-reference.html
 hacking.html
 contributing.html
@@ -72,7 +72,6 @@ BorsNG.UserSocket.html
 BorsNG.Web.html
 BorsNG.WebhookController.html
 BorsNG.WebhookParserPlug.html
-BorsNG.WobserverSecurity.html
 BorsNG.Worker.Attemptor.html
 BorsNG.Worker.Attemptor.Registry.html
 BorsNG.Worker.Attemptor.Supervisor.html
