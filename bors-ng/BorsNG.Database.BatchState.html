@@ -152,12 +152,12 @@ as long as the <a href="#dump/1"><code class="inline">dump/1</code></a> function
 value into an Ecto native type. There are two situations where
 this callback is called:</p>
 <ol>
-<li>When casting values by <a href="https://hexdocs.pm/ecto/2.2.11/Ecto.Changeset.html"><code class="inline">Ecto.Changeset</code></a>
+<li>When casting values by <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html"><code class="inline">Ecto.Changeset</code></a>
 </li>
-<li>When passing arguments to <a href="https://hexdocs.pm/ecto/2.2.11/Ecto.Query.html"><code class="inline">Ecto.Query</code></a>
+<li>When passing arguments to <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Query.html"><code class="inline">Ecto.Query</code></a>
 </li>
 </ol>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.11/Ecto.Type.html#c:cast/1"><code class="inline">Ecto.Type.cast/1</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:cast/1"><code class="inline">Ecto.Type.cast/1</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="dump/1">
@@ -176,7 +176,7 @@ this callback is called:</p>
 <p>Dumps the given term into an Ecto native type.</p>
 <p>This callback is called with any term that was stored in the struct
 and it needs to validate them and convert it to an Ecto native type.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.11/Ecto.Type.html#c:dump/1"><code class="inline">Ecto.Type.dump/1</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:dump/1"><code class="inline">Ecto.Type.dump/1</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="load/1">
@@ -197,7 +197,7 @@ and it needs to validate them and convert it to an Ecto native type.</p>
 receive an Ecto native type. It can return any type, as long as
 the <a href="#dump/1"><code class="inline">dump/1</code></a> function is able to convert the returned value back
 into an Ecto native type.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.11/Ecto.Type.html#c:load/1"><code class="inline">Ecto.Type.load/1</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:load/1"><code class="inline">Ecto.Type.load/1</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="numberize/1">
@@ -233,7 +233,7 @@ into an Ecto native type.</p>
 structures, the type function should return <code class="inline">:date</code>.</p>
 <p>Note this function is not required to return Ecto primitive
 types, the type is only required to be known by the adapter.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.11/Ecto.Type.html#c:type/0"><code class="inline">Ecto.Type.type/0</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:type/0"><code class="inline">Ecto.Type.type/0</code></a>.</p>
   </section>
 </section>
           </div>
