@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Endpoint — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
-    <script src="dist/sidebar_items-1a49be1afb.js"></script>
+    <script src="dist/sidebar_items-f518411a10.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
     
@@ -123,7 +123,7 @@ including the websocket interceptor and the JSON parser.</p>
   <div class="summary-signature">
     <a href="#call/2">call(conn, opts)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.0/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.2/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -154,7 +154,7 @@ under a supervision tree.</p></div>
   <div class="summary-signature">
     <a href="#init/1">init(opts)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.0/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.2/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -179,6 +179,20 @@ under a supervision tree.</p></div>
     <a href="#start_link/1">start_link(opts \\ [])</a>
   </div>
     <div class="summary-synopsis"><p>Starts the endpoint supervision tree.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#static_integrity/1">static_integrity(path)</a>
+  </div>
+    <div class="summary-synopsis"><p>Generates a base64-encoded cryptographic hash (sha512) to a static file
+in <code class="inline">priv/static</code>. Meant to be used for Subresource Integrity with CDNs.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#static_lookup/1">static_lookup(path)</a>
+  </div>
+    <div class="summary-synopsis"><p>Returns a two item tuple with the first item being the <code class="inline">static_path</code>
+and the second item being the <code class="inline">static_integrity</code>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -245,7 +259,7 @@ Functions          </h1>
           </div>
   <section class="docstring">
 <p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.3/Phoenix.Endpoint.html#c:broadcast/3"><code class="inline">Phoenix.Endpoint.broadcast/3</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.8/Phoenix.Endpoint.html#c:broadcast/3"><code class="inline">Phoenix.Endpoint.broadcast/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="broadcast!/3">
@@ -263,7 +277,7 @@ Functions          </h1>
   <section class="docstring">
 <p>Broadcasts a <code class="inline">msg</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
 <p>Raises in case of failures.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.3/Phoenix.Endpoint.html#c:broadcast!/3"><code class="inline">Phoenix.Endpoint.broadcast!/3</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.8/Phoenix.Endpoint.html#c:broadcast!/3"><code class="inline">Phoenix.Endpoint.broadcast!/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="broadcast_from/4">
@@ -280,7 +294,7 @@ Functions          </h1>
           </div>
   <section class="docstring">
 <p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.3/Phoenix.Endpoint.html#c:broadcast_from/4"><code class="inline">Phoenix.Endpoint.broadcast_from/4</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.8/Phoenix.Endpoint.html#c:broadcast_from/4"><code class="inline">Phoenix.Endpoint.broadcast_from/4</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="broadcast_from!/4">
@@ -298,7 +312,7 @@ Functions          </h1>
   <section class="docstring">
 <p>Broadcasts a <code class="inline">msg</code> from the given <code class="inline">from</code> as <code class="inline">event</code> in the given <code class="inline">topic</code>.</p>
 <p>Raises in case of failures.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.3/Phoenix.Endpoint.html#c:broadcast_from!/4"><code class="inline">Phoenix.Endpoint.broadcast_from!/4</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.8/Phoenix.Endpoint.html#c:broadcast_from!/4"><code class="inline">Phoenix.Endpoint.broadcast_from!/4</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="call/2">
@@ -314,7 +328,7 @@ Functions          </h1>
      </a>
           </div>
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.0/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.2/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="child_spec/1">
@@ -398,7 +412,7 @@ under a supervision tree.</p>
      </a>
           </div>
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.0/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/plug/1.8.2/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="instrument/3">
@@ -428,9 +442,9 @@ issued if the event to instrument is a DB query).</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="n">instrument</span><span class="w"> </span><span class="ss">:render_view</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5284523486-1">%{</span><span class="ss">view</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="5284523486-1">}</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="5284523486-2">fn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
-  </span><span class="n">render</span><span class="p" data-group-id="5284523486-3">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="5284523486-3">)</span><span class="w">
-</span><span class="k" data-group-id="5284523486-2">end</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="n">instrument</span><span class="w"> </span><span class="ss">:render_view</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3553848410-1">%{</span><span class="ss">view</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="3553848410-1">}</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="3553848410-2">fn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+  </span><span class="n">render</span><span class="p" data-group-id="3553848410-3">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;index.html&quot;</span><span class="p" data-group-id="3553848410-3">)</span><span class="w">
+</span><span class="k" data-group-id="3553848410-2">end</span></code></pre>
   </section>
 </section>
 <section class="detail" id="path/1">
@@ -481,6 +495,40 @@ issued if the event to instrument is a DB query).</p>
           </div>
   <section class="docstring">
 <p>Starts the endpoint supervision tree.</p>
+  </section>
+</section>
+<section class="detail" id="static_integrity/1">
+    <div class="detail-header">
+    <a href="#static_integrity/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">static_integrity(path)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L9" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Generates a base64-encoded cryptographic hash (sha512) to a static file
+in <code class="inline">priv/static</code>. Meant to be used for Subresource Integrity with CDNs.</p>
+  </section>
+</section>
+<section class="detail" id="static_lookup/1">
+    <div class="detail-header">
+    <a href="#static_lookup/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">static_lookup(path)</span>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/bors_ng/endpoint.ex#L9" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Returns a two item tuple with the first item being the <code class="inline">static_path</code>
+and the second item being the <code class="inline">static_integrity</code>.</p>
   </section>
 </section>
 <section class="detail" id="static_path/1">
@@ -580,7 +628,7 @@ URL helpers.</p>
           </div>
   <section class="docstring">
 <p>Unsubscribes the caller from the given topic.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.3/Phoenix.Endpoint.html#c:unsubscribe/1"><code class="inline">Phoenix.Endpoint.unsubscribe/1</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.8/Phoenix.Endpoint.html#c:unsubscribe/1"><code class="inline">Phoenix.Endpoint.unsubscribe/1</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="url/0">
