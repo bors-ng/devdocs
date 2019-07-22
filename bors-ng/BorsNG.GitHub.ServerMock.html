@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.20.2">
+    <meta name="generator" content="ExDoc v0.21.1">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub.ServerMock — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
+    <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
     <script src="dist/sidebar_items-9bd7799e82.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
+    <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
     
   </head>
   <body data-type="modules">
-    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
     <div class="main">
 
 <button class="sidebar-button sidebar-toggle">
@@ -88,56 +88,56 @@ and other functions will mutate or read subsets of it.</p>
 <pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="c1"># Push state to &quot;GitHub&quot;</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub.ServerMock</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">ServerMock</span><span class="o">.</span><span class="n">put_state</span><span class="p" data-group-id="6496483718-1">(</span><span class="p" data-group-id="6496483718-2">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="6496483718-3">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="6496483718-3">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6496483718-4">%{</span><span class="w"> </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-5">[</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="p" data-group-id="6496483718-6">%</span><span class="nc" data-group-id="6496483718-6">GitHub.Repo</span><span class="p" data-group-id="6496483718-6">{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">ServerMock</span><span class="o">.</span><span class="n">put_state</span><span class="p" data-group-id="4870797442-1">(</span><span class="p" data-group-id="4870797442-2">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="4870797442-3">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="4870797442-3">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4870797442-4">%{</span><span class="w"> </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-5">[</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="p" data-group-id="4870797442-6">%</span><span class="nc" data-group-id="4870797442-6">GitHub.Repo</span><span class="p" data-group-id="4870797442-6">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;test/repo&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-7">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-7">%{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="ss">:user</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="6496483718-7">}</span><span class="p" data-group-id="6496483718-6">}</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="6496483718-5">]</span><span class="w"> </span><span class="p" data-group-id="6496483718-4">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="6496483718-8">{</span><span class="p" data-group-id="6496483718-9">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="6496483718-9">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="6496483718-8">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6496483718-10">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-11">%{</span><span class="p" data-group-id="6496483718-11">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-12">%{</span><span class="p" data-group-id="6496483718-12">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-13">%{</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6496483718-14">[</span><span class="p" data-group-id="6496483718-14">]</span><span class="p" data-group-id="6496483718-13">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-15">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6496483718-16">%</span><span class="nc" data-group-id="6496483718-16">GitHub.Pr</span><span class="p" data-group-id="6496483718-16">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="4870797442-7">}</span><span class="p" data-group-id="4870797442-6">}</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="4870797442-5">]</span><span class="w"> </span><span class="p" data-group-id="4870797442-4">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="4870797442-8">{</span><span class="p" data-group-id="4870797442-9">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="4870797442-9">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="4870797442-8">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4870797442-10">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-11">%{</span><span class="p" data-group-id="4870797442-11">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-12">%{</span><span class="p" data-group-id="4870797442-12">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-13">%{</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4870797442-14">[</span><span class="p" data-group-id="4870797442-14">]</span><span class="p" data-group-id="4870797442-13">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-15">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4870797442-16">%</span><span class="nc" data-group-id="4870797442-16">GitHub.Pr</span><span class="p" data-group-id="4870797442-16">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mess&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">head_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-17">%</span><span class="nc" data-group-id="6496483718-17">GitHub.User</span><span class="p" data-group-id="6496483718-17">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-17">%</span><span class="nc" data-group-id="4870797442-17">GitHub.User</span><span class="p" data-group-id="4870797442-17">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="6496483718-17">}</span><span class="p" data-group-id="6496483718-16">}</span><span class="p" data-group-id="6496483718-15">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-18">%{</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6496483718-19">[</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="p" data-group-id="6496483718-20">%</span><span class="nc" data-group-id="6496483718-20">GitHub.Commit</span><span class="p" data-group-id="6496483718-20">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="4870797442-17">}</span><span class="p" data-group-id="4870797442-16">}</span><span class="p" data-group-id="4870797442-15">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-18">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4870797442-19">[</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="p" data-group-id="4870797442-20">%</span><span class="nc" data-group-id="4870797442-20">GitHub.Commit</span><span class="p" data-group-id="4870797442-20">{</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
 </span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bors Fanboi&quot;</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi@example.com&quot;</span><span class="p" data-group-id="6496483718-20">}</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="6496483718-19">]</span><span class="w"> </span><span class="p" data-group-id="6496483718-18">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-21">%{</span><span class="p" data-group-id="6496483718-21">}</span><span class="p">,</span><span class="w">
-</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-22">%{</span><span class="p" data-group-id="6496483718-22">}</span><span class="p" data-group-id="6496483718-10">}</span><span class="p" data-group-id="6496483718-2">}</span><span class="p" data-group-id="6496483718-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">GitHub</span><span class="o">.</span><span class="n">get_open_prs!</span><span class="p" data-group-id="6496483718-23">(</span><span class="p" data-group-id="6496483718-24">{</span><span class="p" data-group-id="6496483718-25">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="6496483718-25">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="6496483718-24">}</span><span class="p" data-group-id="6496483718-23">)</span><span class="w">
-</span><span class="p" data-group-id="6496483718-26">[</span><span class="w">
-  </span><span class="p" data-group-id="6496483718-27">%</span><span class="nc" data-group-id="6496483718-27">BorsNG.GitHub.Pr</span><span class="p" data-group-id="6496483718-27">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi@example.com&quot;</span><span class="p" data-group-id="4870797442-20">}</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="4870797442-19">]</span><span class="w"> </span><span class="p" data-group-id="4870797442-18">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-21">%{</span><span class="p" data-group-id="4870797442-21">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-22">%{</span><span class="p" data-group-id="4870797442-22">}</span><span class="p" data-group-id="4870797442-10">}</span><span class="p" data-group-id="4870797442-2">}</span><span class="p" data-group-id="4870797442-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">GitHub</span><span class="o">.</span><span class="n">get_open_prs!</span><span class="p" data-group-id="4870797442-23">(</span><span class="p" data-group-id="4870797442-24">{</span><span class="p" data-group-id="4870797442-25">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="4870797442-25">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="4870797442-24">}</span><span class="p" data-group-id="4870797442-23">)</span><span class="w">
+</span><span class="p" data-group-id="4870797442-26">[</span><span class="w">
+  </span><span class="p" data-group-id="4870797442-27">%</span><span class="nc" data-group-id="4870797442-27">BorsNG.GitHub.Pr</span><span class="p" data-group-id="4870797442-27">{</span><span class="w">
     </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w">
     </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mess&quot;</span><span class="p">,</span><span class="w">
     </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
     </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
     </span><span class="ss">head_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6496483718-28">%</span><span class="nc" data-group-id="6496483718-28">BorsNG.GitHub.User</span><span class="p" data-group-id="6496483718-28">{</span><span class="w">
+    </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4870797442-28">%</span><span class="nc" data-group-id="4870797442-28">BorsNG.GitHub.User</span><span class="p" data-group-id="4870797442-28">{</span><span class="w">
       </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="6496483718-28">}</span><span class="p" data-group-id="6496483718-27">}</span><span class="p" data-group-id="6496483718-26">]</span></code></pre>
+      </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="4870797442-28">}</span><span class="p" data-group-id="4870797442-27">}</span><span class="p" data-group-id="4870797442-26">]</span></code></pre>
         </section>
 
         <section id="summary" class="details-list">
@@ -247,12 +247,12 @@ block until it returns.</p></div>
 Types          </h1>
           <div class="types-list">
 <section class="detail" id="t:tbranch/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:tbranch/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">tbranch()</span>
+    <h1 class="signature">tbranch()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L80" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -266,12 +266,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:tcollaborator/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:tcollaborator/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">tcollaborator()</span>
+    <h1 class="signature">tcollaborator()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L78" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -285,12 +285,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:tcommit/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:tcommit/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">tcommit()</span>
+    <h1 class="signature">tcommit()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L81" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -304,12 +304,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:tconn/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:tconn/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">tconn()</span>
+    <h1 class="signature">tconn()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L74" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -323,12 +323,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:trepo/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:trepo/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">trepo()</span>
+    <h1 class="signature">trepo()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L76" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -342,12 +342,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:tstate/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:tstate/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">tstate()</span>
+    <h1 class="signature">tstate()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L88" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -377,12 +377,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:tsynthesized/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:tsynthesized/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">tsynthesized()</span>
+    <h1 class="signature">tsynthesized()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L83" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -396,12 +396,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:ttoken/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:ttoken/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">ttoken()</span>
+    <h1 class="signature">ttoken()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L75" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -415,12 +415,12 @@ Types          </h1>
   </section>
 </section>
 <section class="detail" id="t:tuser/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#t:tuser/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">tuser()</span>
+    <h1 class="signature">tuser()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L77" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -444,12 +444,12 @@ Types          </h1>
 Functions          </h1>
           <div class="functions-list">
 <section class="detail" id="child_spec/1">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#child_spec/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">child_spec(arg)</span>
+    <h1 class="signature">child_spec(arg)</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L2" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -461,12 +461,12 @@ Functions          </h1>
   </section>
 </section>
 <section class="detail" id="do_handle_call/4">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#do_handle_call/4" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">do_handle_call(atom, repo_conn, params, state)</span>
+    <h1 class="signature">do_handle_call(atom, repo_conn, params, state)</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L401" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -476,12 +476,12 @@ Functions          </h1>
   </section>
 </section>
 <section class="detail" id="get_state/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#get_state/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">get_state()</span>
+    <h1 class="signature">get_state()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L108" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -491,12 +491,12 @@ Functions          </h1>
   </section>
 </section>
 <section class="detail" id="init/1">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#init/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">init(atom)</span>
+    <h1 class="signature">init(atom)</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L112" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -542,12 +542,12 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
   </section>
 </section>
 <section class="detail" id="put_state/1">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#put_state/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">put_state(state)</span>
+    <h1 class="signature">put_state(state)</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L104" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -557,12 +557,12 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
   </section>
 </section>
 <section class="detail" id="start_link/0">
-    <div class="detail-header">
+  <div class="detail-header">
     <a href="#start_link/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">start_link()</span>
+    <h1 class="signature">start_link()</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L70" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -577,7 +577,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.20.2),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.1),
           </span>
           <span class="line">
             designed by
@@ -588,8 +588,15 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
           <button class="line footer-button night-mode-toggle">
             Toggle night mode
           </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
           </button>
         </p>
       </footer>
