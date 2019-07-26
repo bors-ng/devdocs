@@ -123,7 +123,7 @@ BorsNG.GitHub.OAuth2
   <div class="summary-signature">
     <a href="#get_token/3">get_token(client, params, headers)</a>
   </div>
-    <div class="summary-synopsis"><p>Builds the URL to token endpoint.</p></div>
+    <div class="summary-synopsis"><p>Builds the URL to the token endpoint.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -160,7 +160,7 @@ Types          </h1>
      </a>
         
       <div class="specs">
-          <pre>t() :: <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Client.html#t:t/0">OAuth2.Client.t</a>()</pre>
+          <pre>t() :: <a href="https://hexdocs.pm/oauth2/2.0.0/OAuth2.Client.html#t:t/0">OAuth2.Client.t</a>()</pre>
       </div>
   </div>
   <section class="docstring">
@@ -195,14 +195,14 @@ Functions          </h1>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">authorize_url</span><span class="p" data-group-id="9353099691-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="9353099691-1">)</span><span class="w"> </span><span class="k" data-group-id="9353099691-2">do</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">authorize_url</span><span class="p" data-group-id="1385656762-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="1385656762-1">)</span><span class="w"> </span><span class="k" data-group-id="1385656762-2">do</span><span class="w">
   </span><span class="n">client</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9353099691-3">(</span><span class="ss">:response_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p" data-group-id="9353099691-3">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9353099691-4">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="9353099691-4">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9353099691-5">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="9353099691-5">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="9353099691-6">(</span><span class="n">params</span><span class="p" data-group-id="9353099691-6">)</span><span class="w">
-</span><span class="k" data-group-id="9353099691-2">end</span></code></pre>
-<p>Callback implementation for <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Strategy.html#c:authorize_url/2"><code class="inline">OAuth2.Strategy.authorize_url/2</code></a>.</p>
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1385656762-3">(</span><span class="ss">:response_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p" data-group-id="1385656762-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1385656762-4">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="1385656762-4">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="1385656762-5">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="1385656762-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="1385656762-6">(</span><span class="n">params</span><span class="p" data-group-id="1385656762-6">)</span><span class="w">
+</span><span class="k" data-group-id="1385656762-2">end</span></code></pre>
+<p>Callback implementation for <a href="https://hexdocs.pm/oauth2/2.0.0/OAuth2.Strategy.html#c:authorize_url/2"><code class="inline">OAuth2.Strategy.authorize_url/2</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="authorize_url!/0">
@@ -252,23 +252,23 @@ Functions          </h1>
      </a>
           </div>
   <section class="docstring">
-<p>Builds the URL to token endpoint.</p>
+<p>Builds the URL to the token endpoint.</p>
 <h2 id="get_token/3-example" class="section-heading">
   <a href="#get_token/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">get_token</span><span class="p" data-group-id="7415307436-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="7415307436-1">)</span><span class="w"> </span><span class="k" data-group-id="7415307436-2">do</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">get_token</span><span class="p" data-group-id="4031628208-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="4031628208-1">)</span><span class="w"> </span><span class="k" data-group-id="4031628208-2">do</span><span class="w">
   </span><span class="n">client</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7415307436-3">(</span><span class="ss">:code</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="7415307436-4">[</span><span class="ss">:code</span><span class="p" data-group-id="7415307436-4">]</span><span class="p" data-group-id="7415307436-3">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7415307436-5">(</span><span class="ss">:grant_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p" data-group-id="7415307436-5">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7415307436-6">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="7415307436-6">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7415307436-7">(</span><span class="ss">:client_secret</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_secret</span><span class="p" data-group-id="7415307436-7">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7415307436-8">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="7415307436-8">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="7415307436-9">(</span><span class="n">params</span><span class="p" data-group-id="7415307436-9">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_headers</span><span class="p" data-group-id="7415307436-10">(</span><span class="n">headers</span><span class="p" data-group-id="7415307436-10">)</span><span class="w">
-</span><span class="k" data-group-id="7415307436-2">end</span></code></pre>
-<p>Callback implementation for <a href="https://hexdocs.pm/oauth2/1.0.1/OAuth2.Strategy.html#c:get_token/3"><code class="inline">OAuth2.Strategy.get_token/3</code></a>.</p>
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4031628208-3">(</span><span class="ss">:code</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="4031628208-4">[</span><span class="ss">:code</span><span class="p" data-group-id="4031628208-4">]</span><span class="p" data-group-id="4031628208-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4031628208-5">(</span><span class="ss">:grant_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p" data-group-id="4031628208-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4031628208-6">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="4031628208-6">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4031628208-7">(</span><span class="ss">:client_secret</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_secret</span><span class="p" data-group-id="4031628208-7">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4031628208-8">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="4031628208-8">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="4031628208-9">(</span><span class="n">params</span><span class="p" data-group-id="4031628208-9">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_headers</span><span class="p" data-group-id="4031628208-10">(</span><span class="n">headers</span><span class="p" data-group-id="4031628208-10">)</span><span class="w">
+</span><span class="k" data-group-id="4031628208-2">end</span></code></pre>
+<p>Callback implementation for <a href="https://hexdocs.pm/oauth2/2.0.0/OAuth2.Strategy.html#c:get_token/3"><code class="inline">OAuth2.Strategy.get_token/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="get_token!/1">
