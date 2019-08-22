@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Database.AttemptStatus — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
-    <script src="dist/sidebar_items-9bd7799e82.js"></script>
+    <script src="dist/sidebar_items-f790bf14c3.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
     
@@ -93,6 +93,16 @@ rather than a batch.</p>
             </a>
             Summary
           </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:t/0">t()</a>
+  </div>
+</div>
+  </div>
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
@@ -120,6 +130,45 @@ rather than a batch.</p>
   </div>
         </section>
 
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:t/0">
+  <div class="detail-header">
+    <a href="#t:t/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">t()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L14" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>t() :: %BorsNG.Database.AttemptStatus{
+  __meta__: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  attempt: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  attempt_id: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  id: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  identifier: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  inserted_at: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  state: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  updated_at: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  url: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()
+}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+          </div>
+        </section>
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
@@ -135,11 +184,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">all_for_attempt(attempt_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L33" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L38" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>all_for_attempt(<a href="BorsNG.Database.Attempt.html#t:id/0">BorsNG.Database.Attempt.id</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -150,11 +203,18 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">all_for_attempt(attempt_id, state)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L43" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L49" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>all_for_attempt(
+  <a href="BorsNG.Database.Attempt.html#t:id/0">BorsNG.Database.Attempt.id</a>(),
+  <a href="BorsNG.Database.AttemptStatusState.html#t:t/0">BorsNG.Database.AttemptStatusState.t</a>() | :incomplete
+) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -166,11 +226,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L22" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L25" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>changeset(<a href="#t:t/0">t</a>() | <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -181,11 +245,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_for_attempt(attempt_id, identifier)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L27" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_status.ex#L31" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>get_for_attempt(<a href="BorsNG.Database.Attempt.html#t:id/0">BorsNG.Database.Attempt.id</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>

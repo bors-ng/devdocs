@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Database.AttemptState — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
-    <script src="dist/sidebar_items-9bd7799e82.js"></script>
+    <script src="dist/sidebar_items-f790bf14c3.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
     
@@ -89,6 +89,16 @@ BorsNG.Database.AttemptState
             </a>
             Summary
           </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:t/0">t()</a>
+  </div>
+</div>
+  </div>
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
@@ -120,6 +130,35 @@ BorsNG.Database.AttemptState
   </div>
         </section>
 
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:t/0">
+  <div class="detail-header">
+    <a href="#t:t/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">t()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L7" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>t() :: :waiting | :running | :ok | :error | :canceled</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+          </div>
+        </section>
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
@@ -135,11 +174,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">cast(state)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L33" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L37" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>cast(<a href="#t:t/0">t</a>() | internal()) :: {:ok, <a href="#t:t/0">t</a>()}</pre>
+      </div>
+  </div>
   <section class="docstring">
 <p>Casts the given input to the custom type.</p>
 <p>This callback is called on external input and can return any type,
@@ -162,11 +205,15 @@ this callback is called:</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">dump(term)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L50" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L56" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>dump(<a href="#t:t/0">t</a>() | internal()) :: {:ok, internal()}</pre>
+      </div>
+  </div>
   <section class="docstring">
 <p>Dumps the given term into an Ecto native type.</p>
 <p>This callback is called with any term that was stored in the struct
@@ -181,11 +228,15 @@ and it needs to validate them and convert it to an Ecto native type.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">load(int)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L35" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L40" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>load(internal()) :: {:ok, <a href="#t:t/0">t</a>()}</pre>
+      </div>
+  </div>
   <section class="docstring">
 <p>Loads the given term into a custom type.</p>
 <p>This callback is called when loading data from the database and
@@ -202,7 +253,7 @@ into an Ecto native type.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">type()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L8" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/attempt_state.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>

@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Database.Crash — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
-    <script src="dist/sidebar_items-9bd7799e82.js"></script>
+    <script src="dist/sidebar_items-f790bf14c3.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
     
@@ -78,7 +78,9 @@ BorsNG.Database.Crash
 
 
         <section id="moduledoc">
-<p>Crash dumps.</p>
+<p>A Crash Dump from a Bors Agent.</p>
+<p>Allows an admin to see that a crash happened for a certain build thus
+allowing it to be reacted upon.</p>
         </section>
 
         <section id="summary" class="details-list">
@@ -137,7 +139,7 @@ Types          </h1>
       <span class="sr-only">Link to this type</span>
     </a>
     <h1 class="signature">t()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L8" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -175,11 +177,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">all_for_project(project_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L25" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L30" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>all_for_project(<a href="BorsNG.Database.Project.html#t:id/0">BorsNG.Database.Project.id</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -191,11 +197,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L20" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L24" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>changeset(<a href="#t:t/0">t</a>() | <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
 <p>Builds a changeset based on the <code class="inline">struct</code> and <code class="inline">params</code>.</p>
   </section>
@@ -207,11 +217,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">days(d)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L30" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/crash.ex#L36" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>days(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>

@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Database.Project — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
-    <script src="dist/sidebar_items-9bd7799e82.js"></script>
+    <script src="dist/sidebar_items-f790bf14c3.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
     
@@ -96,6 +96,11 @@ BorsNG.Database.Project
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
+    <a href="#t:id/0">id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#t:t/0">t()</a>
   </div>
 </div>
@@ -163,6 +168,25 @@ call this to notify the UI.</p></div>
             </a>
 Types          </h1>
           <div class="types-list">
+<section class="detail" id="t:id/0">
+  <div class="detail-header">
+    <a href="#t:id/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">id()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L12" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>id() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pos_integer</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
 <section class="detail" id="t:t/0">
   <div class="detail-header">
     <a href="#t:t/0" class="detail-link" title="Link to this type">
@@ -217,11 +241,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">active()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L43" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L46" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>active() :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -233,11 +261,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L71" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L79" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>changeset(<a href="#t:t/0">t</a>() | <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
 <p>Builds a changeset based on the <code class="inline">struct</code> and <code class="inline">params</code>.</p>
   </section>
@@ -250,11 +282,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset_branches(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L76" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L86" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>changeset_branches(<a href="#t:t/0">t</a>() | <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -266,11 +302,16 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset_member_settings(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L85" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L99" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>changeset_member_settings(<a href="#t:t/0">t</a>() | <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) ::
+  <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -282,11 +323,16 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">changeset_reviewer_settings(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L81" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L93" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>changeset_reviewer_settings(<a href="#t:t/0">t</a>() | <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) ::
+  <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html#t:t/0">Ecto.Changeset.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -297,11 +343,17 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">installation_connection(repo_xref, repo)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L59" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L66" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>installation_connection(repo_xref, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">module</a>()) ::
+  {{:installation, <a href="BorsNG.Database.Installation.html#t:xref/0">BorsNG.Database.Installation.xref</a>()}, repo_xref}
+when repo_xref: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -312,11 +364,16 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">installation_project_connection(project_id, repo)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L50" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L55" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>installation_project_connection(<a href="#t:id/0">id</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">module</a>()) ::
+  {{:installation, <a href="BorsNG.Database.Installation.html#t:xref/0">BorsNG.Database.Installation.xref</a>()}, repo_xref :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -327,11 +384,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">orphans()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L93" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L108" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>orphans() :: <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </section>
@@ -342,11 +403,15 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">ping!(project_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L20" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project.ex#L22" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>ping!(<a href="#t:id/0">id</a>()) :: :ok | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
 <p>After modifying the underlying model,
 call this to notify the UI.</p>
