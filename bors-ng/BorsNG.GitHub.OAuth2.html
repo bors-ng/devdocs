@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.21.1">
+    <meta name="generator" content="ExDoc v0.21.2">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub.OAuth2 — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
+    <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
     <script src="dist/sidebar_items-6947250a36.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
+    <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
     
   </head>
   <body data-type="modules">
@@ -195,13 +195,13 @@ Functions          </h1>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">authorize_url</span><span class="p" data-group-id="7465524027-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="7465524027-1">)</span><span class="w"> </span><span class="k" data-group-id="7465524027-2">do</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">authorize_url</span><span class="p" data-group-id="9927796059-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="9927796059-1">)</span><span class="w"> </span><span class="k" data-group-id="9927796059-2">do</span><span class="w">
   </span><span class="n">client</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7465524027-3">(</span><span class="ss">:response_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p" data-group-id="7465524027-3">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7465524027-4">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="7465524027-4">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="7465524027-5">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="7465524027-5">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="7465524027-6">(</span><span class="n">params</span><span class="p" data-group-id="7465524027-6">)</span><span class="w">
-</span><span class="k" data-group-id="7465524027-2">end</span></code></pre>
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9927796059-3">(</span><span class="ss">:response_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;code&quot;</span><span class="p" data-group-id="9927796059-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9927796059-4">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="9927796059-4">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="9927796059-5">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="9927796059-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="9927796059-6">(</span><span class="n">params</span><span class="p" data-group-id="9927796059-6">)</span><span class="w">
+</span><span class="k" data-group-id="9927796059-2">end</span></code></pre>
 <p>Callback implementation for <a href="https://hexdocs.pm/oauth2/2.0.0/OAuth2.Strategy.html#c:authorize_url/2"><code class="inline">OAuth2.Strategy.authorize_url/2</code></a>.</p>
   </section>
 </section>
@@ -258,16 +258,16 @@ Functions          </h1>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">get_token</span><span class="p" data-group-id="4482792741-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="4482792741-1">)</span><span class="w"> </span><span class="k" data-group-id="4482792741-2">do</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">get_token</span><span class="p" data-group-id="3141383681-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="3141383681-1">)</span><span class="w"> </span><span class="k" data-group-id="3141383681-2">do</span><span class="w">
   </span><span class="n">client</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4482792741-3">(</span><span class="ss">:code</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="4482792741-4">[</span><span class="ss">:code</span><span class="p" data-group-id="4482792741-4">]</span><span class="p" data-group-id="4482792741-3">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4482792741-5">(</span><span class="ss">:grant_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p" data-group-id="4482792741-5">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4482792741-6">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="4482792741-6">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4482792741-7">(</span><span class="ss">:client_secret</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_secret</span><span class="p" data-group-id="4482792741-7">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="4482792741-8">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="4482792741-8">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="4482792741-9">(</span><span class="n">params</span><span class="p" data-group-id="4482792741-9">)</span><span class="w">
-  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_headers</span><span class="p" data-group-id="4482792741-10">(</span><span class="n">headers</span><span class="p" data-group-id="4482792741-10">)</span><span class="w">
-</span><span class="k" data-group-id="4482792741-2">end</span></code></pre>
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="3141383681-3">(</span><span class="ss">:code</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p" data-group-id="3141383681-4">[</span><span class="ss">:code</span><span class="p" data-group-id="3141383681-4">]</span><span class="p" data-group-id="3141383681-3">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="3141383681-5">(</span><span class="ss">:grant_type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span><span class="p" data-group-id="3141383681-5">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="3141383681-6">(</span><span class="ss">:client_id</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_id</span><span class="p" data-group-id="3141383681-6">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="3141383681-7">(</span><span class="ss">:client_secret</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">client_secret</span><span class="p" data-group-id="3141383681-7">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_param</span><span class="p" data-group-id="3141383681-8">(</span><span class="ss">:redirect_uri</span><span class="p">,</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p" data-group-id="3141383681-8">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">merge_params</span><span class="p" data-group-id="3141383681-9">(</span><span class="n">params</span><span class="p" data-group-id="3141383681-9">)</span><span class="w">
+  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_headers</span><span class="p" data-group-id="3141383681-10">(</span><span class="n">headers</span><span class="p" data-group-id="3141383681-10">)</span><span class="w">
+</span><span class="k" data-group-id="3141383681-2">end</span></code></pre>
 <p>Callback implementation for <a href="https://hexdocs.pm/oauth2/2.0.0/OAuth2.Strategy.html#c:get_token/3"><code class="inline">OAuth2.Strategy.get_token/3</code></a>.</p>
   </section>
 </section>
@@ -317,7 +317,7 @@ Functions          </h1>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.1),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.2),
           </span>
           <span class="line">
             designed by

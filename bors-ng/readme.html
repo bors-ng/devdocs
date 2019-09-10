@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.21.1">
+    <meta name="generator" content="ExDoc v0.21.2">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>A merge bot for GitHub pull requests — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
+    <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
     <script src="dist/sidebar_items-6947250a36.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
+    <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
     
   </head>
   <body data-type="extras">
@@ -68,7 +68,7 @@ Bors-NG      </a>
 
 
 <h1>A merge bot for GitHub pull requests</h1>
-<p><a href="https://app.bors.tech/repositories/3"><img src="https://bors.tech/images/badge_small.svg" alt="Bors enabled"/></a></p>
+<p><a href="https://app.bors.tech/repositories/3"><img src="https://bors.tech/images/badge_small.svg" alt="Bors enabled" /></a></p>
 <p><a href="https://bors.tech/" title="">Bors-NG</a> implements a continuous-testing workflow where the master branch never breaks.
 It integrates GitHub pull requests with a tool like <a href="https://travis-ci.org/" title="">Travis CI</a> that runs your tests.</p>
 <ul>
@@ -134,7 +134,7 @@ this workflow.</p>
 <li>Add the app to your repo in GitHub.
 </li>
 <li><p>Commit a bors.toml with these contents:</p>
-<p>status = [&quot;continuous-integration/travis-ci/push&quot;]</p>
+<pre><code class="nohighlight makeup elixir"><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="5352587040-1">[</span><span class="s">&quot;continuous-integration/travis-ci/push&quot;</span><span class="p" data-group-id="5352587040-1">]</span></code></pre>
 </li>
 </ol>
 <p>To use it, you need to stop clicking the big green merge button, and instead leave a comment with this in it on any pull request that looks good to you:</p>
@@ -143,28 +143,28 @@ this workflow.</p>
 <p>To run a batch, bors creates a merge commit, merging master with all the pull requests that make up the batch. Instead of pushing the merge commit to <code class="inline">master</code> immediately, however, it will instead push it to the <code class="inline">staging</code> branch. They&#39;ll look like this:</p>
 <pre><code class="nohighlight makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#5 #7 #8</span><span class="w">
 
-</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="7090243447-1">(</span><span class="p" data-group-id="7090243447-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="7090243447-2">(</span><span class="p" data-group-id="7090243447-2">)</span><span class="err">`</span><span class="w">
-</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="7090243447-3">(</span><span class="p" data-group-id="7090243447-3">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span><span class="w">
-</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="nc">Fix</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">`</span><span class="n">drive</span><span class="p" data-group-id="7090243447-4">(</span><span class="p" data-group-id="7090243447-4">)</span><span class="err">`</span></code></pre>
+</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="3847332052-1">(</span><span class="p" data-group-id="3847332052-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="3847332052-2">(</span><span class="p" data-group-id="3847332052-2">)</span><span class="err">`</span><span class="w">
+</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="3847332052-3">(</span><span class="p" data-group-id="3847332052-3">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span><span class="w">
+</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="nc">Fix</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">`</span><span class="n">drive</span><span class="p" data-group-id="3847332052-4">(</span><span class="p" data-group-id="3847332052-4">)</span><span class="err">`</span></code></pre>
 <p>If the build passes, the master branch gets fast-forwarded to meet the staging branch. Since the master branch contains the exact contents that were just tested, bit-for-bit, it&#39;s not broken. (at least, not in any way that the automated tests are able to detect)</p>
 <p>If the build fails, bors will follow a strategy called &quot;bisecting&quot;. Namely, it splits the batch into two batches, and pushes those to the queue. In this example, the first batch will look like this:</p>
 <pre><code class="nohighlight makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#5 #7</span><span class="w">
 
-</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="7917621298-1">(</span><span class="p" data-group-id="7917621298-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="7917621298-2">(</span><span class="p" data-group-id="7917621298-2">)</span><span class="err">`</span><span class="w">
-</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="7917621298-3">(</span><span class="p" data-group-id="7917621298-3">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span></code></pre>
+</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="0197150476-1">(</span><span class="p" data-group-id="0197150476-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="0197150476-2">(</span><span class="p" data-group-id="0197150476-2">)</span><span class="err">`</span><span class="w">
+</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="0197150476-3">(</span><span class="p" data-group-id="0197150476-3">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span></code></pre>
 <p>This batch will still fail, because the second patch inserts a call to a function that the first patch removes. It will get bisected again, as a result.</p>
 <p>The second will still pass, though.</p>
 <pre><code class="nohighlight makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#8</span><span class="w">
 
-</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="nc">Fix</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">`</span><span class="n">drive</span><span class="p" data-group-id="2445367350-1">(</span><span class="p" data-group-id="2445367350-1">)</span><span class="err">`</span></code></pre>
+</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="nc">Fix</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">`</span><span class="n">drive</span><span class="p" data-group-id="4507058256-1">(</span><span class="p" data-group-id="4507058256-1">)</span><span class="err">`</span></code></pre>
 <p>This one will work, causing it to land in master, leaving the first two still in the backlog.</p>
 <pre><code class="nohighlight makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#5</span><span class="w">
 
-</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="3123530275-1">(</span><span class="p" data-group-id="3123530275-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="3123530275-2">(</span><span class="p" data-group-id="3123530275-2">)</span><span class="err">`</span></code></pre>
+</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="7082679425-1">(</span><span class="p" data-group-id="7082679425-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="7082679425-2">(</span><span class="p" data-group-id="7082679425-2">)</span><span class="err">`</span></code></pre>
 <p>This one will pass, since the PR it conflicts with (#7) is sitting behind it in the queue.</p>
 <pre><code class="nohighlight makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#7</span><span class="w">
 
-</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="9142517882-1">(</span><span class="p" data-group-id="9142517882-1">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span></code></pre>
+</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="3341355854-1">(</span><span class="p" data-group-id="3341355854-1">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span></code></pre>
 <p>When a batch cannot be bisected (because it only contains one PR), it gets kicked back to the creator so they can fix it.</p>
 <p>Note that you can watch this process running on the <a href="https://app.bors.tech/" title="">dashboard page</a> if you want.</p>
 <p>As a convenience, you can also run <code class="inline">bors try</code>, which will kick off a build the same way <code class="inline">r+</code> would, but without actually pushing it to master even if it does succeed. To help keep them separate, <code class="inline">r+</code> merge commits go in <code class="inline">staging</code> and <code class="inline">try</code> builds go in <code class="inline">trying</code>.</p>
@@ -363,7 +363,7 @@ Whatever machine you plan to run it on needs to have both of those installed.</p
 
 <p>The config file in the repository is already set up to pull the needed information from the environment, so you can configure bors by setting the right env variables and deploy the app from this repository into Heroku:</p>
 <p>You can do using Heroku&#39;s one-button-deploy system:</p>
-<p><a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku"/></a></p>
+<p><a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku" /></a></p>
 <p>Or you can do it manually:</p>
 <p><strong>Note</strong>: The <code class="inline">GITHUB_INTEGRATION_ID</code> is now called the App ID on GitHub.</p>
 <pre><code class="nohighlight makeup elixir"><span class="err">$</span><span class="w"> </span><span class="n">heroku</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">buildpack</span><span class="w"> </span><span class="s">&quot;https://github.com/HashNuke/heroku-buildpack-elixir.git&quot;</span><span class="w"> </span><span class="n">bors</span><span class="o">-</span><span class="n">app</span><span class="w">
@@ -405,31 +405,31 @@ All the same recommendations apply, with some extra notes:</p>
 <li><code class="inline">DATABASE_URL</code> <em>must</em> contain the database port, as it will be used at container startup to wait until the database is reachable. <a href="https://hexdocs.pm/ecto/Ecto.Repo.html#module-urls">The format is documented here</a>.
 </li>
 <li>The database schema will be automatically created and migrated at container startup, unless the <code class="inline">DATABASE_AUTO_MIGRATE</code>  env. var.
-  is set to <code class="inline">false</code>. Make that change if the database state is managed externally, or if you are using a database that cannot safely handle
-  concurrent schema changes (such as older MariaDB/MySQL versions).
+is set to <code class="inline">false</code>. Make that change if the database state is managed externally, or if you are using a database that cannot safely handle
+concurrent schema changes (such as older MariaDB/MySQL versions).
 </li>
 <li>Database migrations can be manually applied from a container using the <code class="inline">migrate</code> release command. Example:
-  <code class="inline">docker run borsng/bors-ng:latest /app/bors/bin/bors migrate</code>.
-  Unfortunately other <code class="inline">mix</code> tasks are not available, as they cannot be run from compiled releases.
+<code class="inline">docker run borsng/bors-ng:latest /app/bors/bin/bors migrate</code>.
+Unfortunately other <code class="inline">mix</code> tasks are not available, as they cannot be run from compiled releases.
 </li>
 <li>The <code class="inline">PORT</code> environment variable is set to <code class="inline">4000</code> by default.
 </li>
 <li><p><code class="inline">GITHUB_URL_ROOT_API</code> and <code class="inline">GITHUB_URL_ROOT_HTML</code> should allow you to connect bors-ng to an instance of GitHub Enterprise.
-  Note: I&#39;ve never actually used GitHub Enterprise, so I&#39;m kinda guessing about what you&#39;d need here.</p>
-<p>  docker create --name bors --restart=unless-stopped \</p>
-<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">PUBLIC_HOST</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">bors</span><span class="o">.</span><span class="n">tech</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">SECRET_KEY_BASE</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_CLIENT_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_CLIENT_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_INTEGRATION_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_INTEGRATION_PEM</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_WEBHOOK_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_URL</span><span class="o">=</span><span class="s">&quot;postgresql://postgres:&lt;secret&gt;@db:5432/bors_ng&quot;</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_USE_SSL</span><span class="o">=</span><span class="no">false</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_AUTO_MIGRATE</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">COMMAND_TRIGGER</span><span class="o">=</span><span class="n">bors</span><span class="w"> </span><span class="err">\</span><span class="w">
-  </span><span class="n">borsng</span><span class="o">/</span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span></code></pre>
-<p>  docker start bors</p>
+Note: I&#39;ve never actually used GitHub Enterprise, so I&#39;m kinda guessing about what you&#39;d need here.</p>
+<pre><code class="nohighlight makeup elixir"><span class="n">docker</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="w"> </span><span class="n">bors</span><span class="w"> </span><span class="o">--</span><span class="n">restart</span><span class="o">=</span><span class="k">unless</span><span class="o">-</span><span class="n">stopped</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">PUBLIC_HOST</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">bors</span><span class="o">.</span><span class="n">tech</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">SECRET_KEY_BASE</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_CLIENT_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_CLIENT_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_INTEGRATION_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_INTEGRATION_PEM</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_WEBHOOK_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_URL</span><span class="o">=</span><span class="s">&quot;postgresql://postgres:&lt;secret&gt;@db:5432/bors_ng&quot;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_USE_SSL</span><span class="o">=</span><span class="no">false</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_AUTO_MIGRATE</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">COMMAND_TRIGGER</span><span class="o">=</span><span class="n">bors</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="n">borsng</span><span class="o">/</span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="w">
+</span><span class="n">docker</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">bors</span></code></pre>
 </li>
 </ul>
 <h3 id="deploying-on-your-own-cluster" class="section-heading">
@@ -448,7 +448,7 @@ All the same recommendations apply, with some extra notes:</p>
 <p>You can do it from the iex prompt, like this:</p>
 <pre><code class="nohighlight makeup elixir"><span class="n">shell</span><span class="err">$</span><span class="w"> </span><span class="n">iex</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="c1"># or `heroku run bash -c &quot;POOL_SIZE=1 iex -S mix&quot;`</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">me</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">BorsNG.Database.Repo</span><span class="o">.</span><span class="n">get_by!</span><span class="w"> </span><span class="nc">BorsNG.Database.User</span><span class="p">,</span><span class="w"> </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;your login&gt;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">BorsNG.Database.Repo</span><span class="o">.</span><span class="n">update!</span><span class="w"> </span><span class="nc">BorsNG.Database.User</span><span class="o">.</span><span class="n">changeset</span><span class="p" data-group-id="7045247693-1">(</span><span class="n">me</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7045247693-2">%{</span><span class="ss">is_admin</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="7045247693-2">}</span><span class="p" data-group-id="7045247693-1">)</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">BorsNG.Database.Repo</span><span class="o">.</span><span class="n">update!</span><span class="w"> </span><span class="nc">BorsNG.Database.User</span><span class="o">.</span><span class="n">changeset</span><span class="p" data-group-id="4588344174-1">(</span><span class="n">me</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4588344174-2">%{</span><span class="ss">is_admin</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="4588344174-2">}</span><span class="p" data-group-id="4588344174-1">)</span></code></pre>
 <p>You can do it from a PostgreSQL prompt like this:</p>
 <pre><code class="nohighlight makeup elixir"><span class="n">postgres</span><span class="o">=</span><span class="c1"># \c bors_dev -- or bors_prod</span><span class="w">
 </span><span class="n">bors_dev</span><span class="o">=</span><span class="c1"># update users set is_admin = true where login = &#39;&lt;your login&gt;&#39;;</span></code></pre>
@@ -460,7 +460,7 @@ If it is missing, it is at <a href="http://www.apache.org/licenses/LICENSE-2.0">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.1),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.2),
           </span>
           <span class="line">
             designed by
