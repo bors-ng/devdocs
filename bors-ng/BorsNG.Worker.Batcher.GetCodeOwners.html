@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.21.2">
     <meta name="project" content="Bors-NG v0.1.0">
-    <title>BorsNG.Database.UserPatchDelegation — Bors-NG v0.1.0</title>
+    <title>BorsNG.Worker.Batcher.GetCodeOwners — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
     <script src="dist/sidebar_items-c56341a657.js"></script>
       <script src="docs_config.js"></script>
@@ -69,8 +69,8 @@ Bors-NG      </a>
 
       <h1>
         <small class="app-vsn">Bors-NG v0.1.0</small>
-BorsNG.Database.UserPatchDelegation        
-          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/user_patch_delegation.ex#L1" title="View Source" class="view-source" rel="help">
+BorsNG.Worker.Batcher.GetCodeOwners        
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/get_code_owners.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
           </a>
@@ -78,8 +78,7 @@ BorsNG.Database.UserPatchDelegation
 
 
         <section id="moduledoc">
-<p>The connection between a patch and users that have been
-delegated the permission to approve it.</p>
+<p>Get the CODEOWNERS file from the repository</p>
         </section>
 
         <section id="summary" class="details-list">
@@ -90,19 +89,57 @@ delegated the permission to approve it.</p>
             </a>
             Summary
           </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:terror/0">terror()</a>
+  </div>
+</div>
+  </div>
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#changeset/2">changeset(struct, params \\ %{})</a>
+    <a href="#get/2">get(repo_conn, branch)</a>
   </div>
-    <div class="summary-synopsis"><p>Builds a changeset based on the <code class="inline">struct</code> and <code class="inline">params</code>.</p></div>
 </div>
   </div>
         </section>
 
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:terror/0">
+  <div class="detail-header">
+    <a href="#t:terror/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">terror()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/get_code_owners.ex#L8" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>terror() :: :fetch_failed | :parse_failed | :status | :timeout_sec</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+          </div>
+        </section>
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
@@ -111,21 +148,24 @@ delegated the permission to approve it.</p>
             </a>
 Functions          </h1>
           <div class="functions-list">
-<section class="detail" id="changeset/2">
-    <span id="changeset/1"></span>
+<section class="detail" id="get/2">
   <div class="detail-header">
-    <a href="#changeset/2" class="detail-link" title="Link to this function">
+    <a href="#get/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">changeset(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/user_patch_delegation.ex#L18" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">get(repo_conn, branch)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/get_code_owners.ex#L11" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>get(<a href="BorsNG.GitHub.html#t:tconn/0">BorsNG.GitHub.tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) ::
+  {:ok, <a href="BorsNG.CodeOwners.html#t:t/0">BorsNG.CodeOwners.t</a>()} | {:error, <a href="#t:terror/0">terror</a>()}</pre>
+      </div>
+  </div>
   <section class="docstring">
-<p>Builds a changeset based on the <code class="inline">struct</code> and <code class="inline">params</code>.</p>
   </section>
 </section>
           </div>

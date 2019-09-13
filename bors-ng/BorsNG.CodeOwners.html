@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.21.2">
     <meta name="project" content="Bors-NG v0.1.0">
-    <title>BorsNG.Database.UserPatchDelegation — Bors-NG v0.1.0</title>
+    <title>BorsNG.CodeOwners — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
     <script src="dist/sidebar_items-c56341a657.js"></script>
       <script src="docs_config.js"></script>
@@ -69,18 +69,14 @@ Bors-NG      </a>
 
       <h1>
         <small class="app-vsn">Bors-NG v0.1.0</small>
-BorsNG.Database.UserPatchDelegation        
-          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/user_patch_delegation.ex#L1" title="View Source" class="view-source" rel="help">
+BorsNG.CodeOwners        
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/parse_owner.ex#L3" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
           </a>
       </h1>
 
 
-        <section id="moduledoc">
-<p>The connection between a patch and users that have been
-delegated the permission to approve it.</p>
-        </section>
 
         <section id="summary" class="details-list">
           <h1 class="section-heading">
@@ -90,42 +86,67 @@ delegated the permission to approve it.</p>
             </a>
             Summary
           </h1>
-  <div class="summary-functions summary">
+  <div class="summary-types summary">
     <h2>
-      <a href="#functions">Functions</a>
+      <a href="#types">Types</a>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#changeset/2">changeset(struct, params \\ %{})</a>
+    <a href="#t:t/0">t()</a>
   </div>
-    <div class="summary-synopsis"><p>Builds a changeset based on the <code class="inline">struct</code> and <code class="inline">params</code>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tjson/0">tjson()</a>
+  </div>
 </div>
   </div>
         </section>
 
-        <section id="functions" class="details-list">
+        <section id="types" class="details-list">
           <h1 class="section-heading">
-            <a class="hover-link" href="#functions">
+            <a class="hover-link" href="#types">
               <span class="icon-link" aria-hidden="true"></span>
               <span class="sr-only">Link to this section</span>
             </a>
-Functions          </h1>
-          <div class="functions-list">
-<section class="detail" id="changeset/2">
-    <span id="changeset/1"></span>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:t/0">
   <div class="detail-header">
-    <a href="#changeset/2" class="detail-link" title="Link to this function">
+    <a href="#t:t/0" class="detail-link" title="Link to this type">
       <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
+      <span class="sr-only">Link to this type</span>
     </a>
-    <h1 class="signature">changeset(struct, params \\ %{})</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/user_patch_delegation.ex#L18" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">t()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/parse_owner.ex#L5" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>t() :: %BorsNG.CodeOwners{patterns: [BorsNG.FilePattern]}</pre>
+      </div>
+  </div>
   <section class="docstring">
-<p>Builds a changeset based on the <code class="inline">struct</code> and <code class="inline">params</code>.</p>
+  </section>
+</section>
+<section class="detail" id="t:tjson/0">
+  <div class="detail-header">
+    <a href="#t:tjson/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tjson()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/parse_owner.ex#L4" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>tjson() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
   </section>
 </section>
           </div>
