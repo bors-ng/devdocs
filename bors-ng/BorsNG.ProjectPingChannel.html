@@ -152,7 +152,7 @@ Functions          </h1>
   <section class="docstring">
 <p>Intercepts outgoing <code class="inline">event</code>s.</p>
 <p>See <code class="inline">intercept/1</code>.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.9/Phoenix.Channel.html#c:handle_out/3"><code class="inline">Phoenix.Channel.handle_out/3</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.10/Phoenix.Channel.html#c:handle_out/3"><code class="inline">Phoenix.Channel.handle_out/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="join/3">
@@ -176,14 +176,14 @@ refuse authorization, return <code class="inline">{:error, reason}</code>.</p>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">join</span><span class="p" data-group-id="2175521516-1">(</span><span class="s">&quot;room:lobby&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="2175521516-1">)</span><span class="w"> </span><span class="k" data-group-id="2175521516-2">do</span><span class="w">
-  </span><span class="k">if</span><span class="w"> </span><span class="n">authorized?</span><span class="p" data-group-id="2175521516-3">(</span><span class="n">payload</span><span class="p" data-group-id="2175521516-3">)</span><span class="w"> </span><span class="k" data-group-id="2175521516-4">do</span><span class="w">
-    </span><span class="p" data-group-id="2175521516-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="2175521516-5">}</span><span class="w">
-  </span><span class="k" data-group-id="2175521516-4">else</span><span class="w">
-    </span><span class="p" data-group-id="2175521516-6">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2175521516-7">%{</span><span class="ss">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unauthorized&quot;</span><span class="p" data-group-id="2175521516-7">}</span><span class="p" data-group-id="2175521516-6">}</span><span class="w">
-  </span><span class="k" data-group-id="2175521516-4">end</span><span class="w">
-</span><span class="k" data-group-id="2175521516-2">end</span></code></pre>
-<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.9/Phoenix.Channel.html#c:join/3"><code class="inline">Phoenix.Channel.join/3</code></a>.</p>
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">join</span><span class="p" data-group-id="7211367081-1">(</span><span class="s">&quot;room:lobby&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="7211367081-1">)</span><span class="w"> </span><span class="k" data-group-id="7211367081-2">do</span><span class="w">
+  </span><span class="k">if</span><span class="w"> </span><span class="n">authorized?</span><span class="p" data-group-id="7211367081-3">(</span><span class="n">payload</span><span class="p" data-group-id="7211367081-3">)</span><span class="w"> </span><span class="k" data-group-id="7211367081-4">do</span><span class="w">
+    </span><span class="p" data-group-id="7211367081-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="7211367081-5">}</span><span class="w">
+  </span><span class="k" data-group-id="7211367081-4">else</span><span class="w">
+    </span><span class="p" data-group-id="7211367081-6">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7211367081-7">%{</span><span class="ss">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unauthorized&quot;</span><span class="p" data-group-id="7211367081-7">}</span><span class="p" data-group-id="7211367081-6">}</span><span class="w">
+  </span><span class="k" data-group-id="7211367081-4">end</span><span class="w">
+</span><span class="k" data-group-id="7211367081-2">end</span></code></pre>
+<p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.10/Phoenix.Channel.html#c:join/3"><code class="inline">Phoenix.Channel.join/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="start_link/1">
