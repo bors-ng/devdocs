@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.CodeOwnerParser — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
-    <script src="dist/sidebar_items-c56341a657.js"></script>
+    <script src="dist/sidebar_items-55d1d6685c.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
     
@@ -100,6 +100,11 @@ BorsNG.CodeOwnerParser
     <a href="#parse_file/1">parse_file(file_contents)</a>
   </div>
 </div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#process_double_asterisk/2">process_double_asterisk(file_name, file_pattern)</a>
+  </div>
+</div>
   </div>
         </section>
 
@@ -139,13 +144,32 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse_file(file_contents)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/parse_owner.ex#L68" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/parse_owner.ex#L88" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
         
       <div class="specs">
           <pre>parse_file(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: {:ok, %BorsNG.CodeOwners{patterns: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="process_double_asterisk/2">
+  <div class="detail-header">
+    <a href="#process_double_asterisk/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">process_double_asterisk(file_name, file_pattern)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/parse_owner.ex#L72" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>process_double_asterisk(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
       </div>
   </div>
   <section class="docstring">
