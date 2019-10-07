@@ -33,7 +33,7 @@ defmodule Devdocs.Mixfile do
       {:ex_link_header, "~> 0.0.5"},
       {:poison, "~> 3.1"},
       {:httpoison, "~> 1.6.0"},
-      {:joken, "~> 1.1"},
+      {:joken, "~> 2.1"},
       {:jose, "~> 1.8"},
       {:libsodium, "~> 0.0.3"},
       {:etoml, [git: "git://github.com/kalta/etoml.git"]},
