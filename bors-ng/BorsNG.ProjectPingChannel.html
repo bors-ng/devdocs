@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.ProjectPingChannel — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
-    <script src="dist/sidebar_items-55d1d6685c.js"></script>
+    <script src="dist/sidebar_items-59a54c19b7.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
     
@@ -176,13 +176,13 @@ refuse authorization, return <code class="inline">{:error, reason}</code>.</p>
   Example
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">join</span><span class="p" data-group-id="8369752261-1">(</span><span class="s">&quot;room:lobby&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="8369752261-1">)</span><span class="w"> </span><span class="k" data-group-id="8369752261-2">do</span><span class="w">
-  </span><span class="k">if</span><span class="w"> </span><span class="n">authorized?</span><span class="p" data-group-id="8369752261-3">(</span><span class="n">payload</span><span class="p" data-group-id="8369752261-3">)</span><span class="w"> </span><span class="k" data-group-id="8369752261-4">do</span><span class="w">
-    </span><span class="p" data-group-id="8369752261-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="8369752261-5">}</span><span class="w">
-  </span><span class="k" data-group-id="8369752261-4">else</span><span class="w">
-    </span><span class="p" data-group-id="8369752261-6">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="8369752261-7">%{</span><span class="ss">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unauthorized&quot;</span><span class="p" data-group-id="8369752261-7">}</span><span class="p" data-group-id="8369752261-6">}</span><span class="w">
-  </span><span class="k" data-group-id="8369752261-4">end</span><span class="w">
-</span><span class="k" data-group-id="8369752261-2">end</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">join</span><span class="p" data-group-id="2414384371-1">(</span><span class="s">&quot;room:lobby&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="2414384371-1">)</span><span class="w"> </span><span class="k" data-group-id="2414384371-2">do</span><span class="w">
+  </span><span class="k">if</span><span class="w"> </span><span class="n">authorized?</span><span class="p" data-group-id="2414384371-3">(</span><span class="n">payload</span><span class="p" data-group-id="2414384371-3">)</span><span class="w"> </span><span class="k" data-group-id="2414384371-4">do</span><span class="w">
+    </span><span class="p" data-group-id="2414384371-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="2414384371-5">}</span><span class="w">
+  </span><span class="k" data-group-id="2414384371-4">else</span><span class="w">
+    </span><span class="p" data-group-id="2414384371-6">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2414384371-7">%{</span><span class="ss">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unauthorized&quot;</span><span class="p" data-group-id="2414384371-7">}</span><span class="p" data-group-id="2414384371-6">}</span><span class="w">
+  </span><span class="k" data-group-id="2414384371-4">end</span><span class="w">
+</span><span class="k" data-group-id="2414384371-2">end</span></code></pre>
 <p>Callback implementation for <a href="https://hexdocs.pm/phoenix/1.4.10/Phoenix.Channel.html#c:join/3"><code class="inline">Phoenix.Channel.join/3</code></a>.</p>
   </section>
 </section>

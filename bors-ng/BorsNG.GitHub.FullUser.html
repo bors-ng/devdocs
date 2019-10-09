@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.21.2">
     <meta name="project" content="Bors-NG v0.1.0">
-    <title>BorsNG.Worker.Batcher.State — Bors-NG v0.1.0</title>
+    <title>BorsNG.GitHub.FullUser — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
     <script src="dist/sidebar_items-59a54c19b7.js"></script>
       <script src="docs_config.js"></script>
@@ -69,8 +69,8 @@ Bors-NG      </a>
 
       <h1>
         <small class="app-vsn">Bors-NG v0.1.0</small>
-BorsNG.Worker.Batcher.State        
-          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/state.ex#L1" title="View Source" class="view-source" rel="help">
+BorsNG.GitHub.FullUser        
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/full_user.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
           </a>
@@ -78,9 +78,8 @@ BorsNG.Worker.Batcher.State
 
 
         <section id="moduledoc">
-<p>The batcher state machine.
-It takes a list of status states,
-and emits a batch state.</p>
+<p>The GitHub structure of a detailed user account.</p>
+<p>See <a href="https://developer.github.com/v3/users/#get-a-single-user">https://developer.github.com/v3/users/#get-a-single-user</a></p>
         </section>
 
         <section id="summary" class="details-list">
@@ -91,28 +90,93 @@ and emits a batch state.</p>
             </a>
             Summary
           </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:t/0">t()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tjson/0">tjson()</a>
+  </div>
+</div>
+  </div>
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#summarize/2">summarize(self, rest)</a>
+    <a href="#from_json/1">from_json(arg1)</a>
   </div>
+    <div class="summary-synopsis"><p>Convert from Poison-decoded JSON to a User struct.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#summary_database_statuses/1">summary_database_statuses(statuses)</a>
+    <a href="#from_json!/1">from_json!(json)</a>
   </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#summary_states/1">summary_states(states)</a>
-  </div>
+    <div class="summary-synopsis"><p>Convert from Poison-decoded JSON to a User struct.</p></div>
 </div>
   </div>
         </section>
 
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:t/0">
+  <div class="detail-header">
+    <a href="#t:t/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">t()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/full_user.ex#L12" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>t() :: %BorsNG.GitHub.FullUser{
+  avatar_url: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  email: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  id: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(),
+  login: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()
+}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="t:tjson/0">
+  <div class="detail-header">
+    <a href="#t:tjson/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tjson()</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/full_user.ex#L10" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>tjson() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+          </div>
+        </section>
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
@@ -121,61 +185,44 @@ and emits a batch state.</p>
             </a>
 Functions          </h1>
           <div class="functions-list">
-<section class="detail" id="summarize/2">
+<section class="detail" id="from_json/1">
   <div class="detail-header">
-    <a href="#summarize/2" class="detail-link" title="Link to this function">
+    <a href="#from_json/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">summarize(self, rest)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/state.ex#L25" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">from_json(arg1)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/full_user.ex#L47" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
         
       <div class="specs">
-          <pre>summarize(state(), state()) :: state()</pre>
+          <pre>from_json(<a href="#t:tjson/0">tjson</a>()) :: {:ok, <a href="#t:t/0">t</a>()} | :err</pre>
       </div>
   </div>
   <section class="docstring">
+<p>Convert from Poison-decoded JSON to a User struct.</p>
   </section>
 </section>
-<section class="detail" id="summary_database_statuses/1">
+<section class="detail" id="from_json!/1">
   <div class="detail-header">
-    <a href="#summary_database_statuses/1" class="detail-link" title="Link to this function">
+    <a href="#from_json!/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">summary_database_statuses(statuses)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/state.ex#L12" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">from_json!(json)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/full_user.ex#L24" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
         
       <div class="specs">
-          <pre>summary_database_statuses([status()]) :: state()</pre>
+          <pre>from_json!(<a href="#t:tjson/0">tjson</a>()) :: <a href="#t:t/0">t</a>()</pre>
       </div>
   </div>
   <section class="docstring">
-  </section>
-</section>
-<section class="detail" id="summary_states/1">
-  <div class="detail-header">
-    <a href="#summary_states/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">summary_states(states)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/state.ex#L19" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-        
-      <div class="specs">
-          <pre>summary_states([state()]) :: state()</pre>
-      </div>
-  </div>
-  <section class="docstring">
+<p>Convert from Poison-decoded JSON to a User struct.</p>
   </section>
 </section>
           </div>
