@@ -1,11 +1,11 @@
-dist/search_items-3dfafec0e7.js
+dist/search_items-ce932b166f.js
 dist/html-de2388dc2f8074b0a4db.css
 dist/html-de2388dc2f8074b0a4db.js
 dist/html/fonts/icomoon.eot
 dist/html/fonts/icomoon.svg
 dist/html/fonts/icomoon.ttf
 dist/html/fonts/icomoon.woff
-dist/sidebar_items-59a54c19b7.js
+dist/sidebar_items-85809c4bfe.js
 api-reference.html
 hacking.html
 contributing.html
@@ -56,6 +56,7 @@ BorsNG.Gettext.html
 BorsNG.GitHub.html
 BorsNG.GitHub.Commit.html
 BorsNG.GitHub.File.html
+BorsNG.GitHub.FriendlyMock.html
 BorsNG.GitHub.FullUser.html
 BorsNG.GitHub.OAuth2.html
 BorsNG.GitHub.OAuth2Mock.html
