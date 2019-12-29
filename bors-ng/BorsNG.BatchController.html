@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.21.2">
     <meta name="project" content="Bors-NG v0.1.0">
-    <title>BorsNG.Database.Log.Cmd — Bors-NG v0.1.0</title>
+    <title>BorsNG.BatchController — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
     <script src="dist/sidebar_items-159cbdcf2d.js"></script>
       <script src="docs_config.js"></script>
@@ -69,8 +69,8 @@ Bors-NG      </a>
 
       <h1>
         <small class="app-vsn">Bors-NG v0.1.0</small>
-BorsNG.Database.Log.Cmd        
-          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/log.ex#L1" title="View Source" class="view-source" rel="help">
+BorsNG.BatchController        
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/controllers/batch_controller.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
           </a>
@@ -78,7 +78,8 @@ BorsNG.Database.Log.Cmd
 
 
         <section id="moduledoc">
-<p>An already-parsed bors command. Represented as a binary Erlang term.</p>
+<p>The controller for the batches</p>
+<p>This will either show a batch detail page</p>
         </section>
 
         <section id="summary" class="details-list">
@@ -95,22 +96,7 @@ BorsNG.Database.Log.Cmd
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#cast/1">cast(binary)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#dump/1">dump(any)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#load/1">load(any)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#type/0">type()</a>
+    <a href="#show/2">show(conn, map)</a>
   </div>
 </div>
   </div>
@@ -124,59 +110,14 @@ BorsNG.Database.Log.Cmd
             </a>
 Functions          </h1>
           <div class="functions-list">
-<section class="detail" id="cast/1">
+<section class="detail" id="show/2">
   <div class="detail-header">
-    <a href="#cast/1" class="detail-link" title="Link to this function">
+    <a href="#show/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">cast(binary)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/log.ex#L10" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-  </section>
-</section>
-<section class="detail" id="dump/1">
-  <div class="detail-header">
-    <a href="#dump/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">dump(any)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/log.ex#L11" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-  </section>
-</section>
-<section class="detail" id="load/1">
-  <div class="detail-header">
-    <a href="#load/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">load(any)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/log.ex#L6" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-  </section>
-</section>
-<section class="detail" id="type/0">
-  <div class="detail-header">
-    <a href="#type/0" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">type()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/log.ex#L5" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">show(conn, map)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/controllers/batch_controller.ex#L17" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
