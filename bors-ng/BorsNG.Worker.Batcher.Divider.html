@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.21.2">
     <meta name="project" content="Bors-NG v0.1.0">
-    <title>BorsNG.Database.ProjectPermission — Bors-NG v0.1.0</title>
+    <title>BorsNG.Worker.Batcher.Divider — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
     <script src="dist/sidebar_items-9246601392.js"></script>
       <script src="docs_config.js"></script>
@@ -69,17 +69,14 @@ Bors-NG      </a>
 
       <h1>
         <small class="app-vsn">Bors-NG v0.1.0</small>
-BorsNG.Database.ProjectPermission        
-          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project_permission.ex#L1" title="View Source" class="view-source" rel="help">
+BorsNG.Worker.Batcher.Divider        
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/divider.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
           </a>
       </h1>
 
 
-        <section id="moduledoc">
-<p>A type to represent the permissions of a project member.</p>
-        </section>
 
         <section id="summary" class="details-list">
           <h1 class="section-heading">
@@ -95,32 +92,18 @@ BorsNG.Database.ProjectPermission
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#cast/1">cast(data)</a>
-  </div>
-    <div class="summary-synopsis"><p>Casts the given input to the custom type.</p></div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#dump/1">dump(data)</a>
-  </div>
-    <div class="summary-synopsis"><p>Dumps the given term into an Ecto native type.</p></div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#load/1">load(data)</a>
-  </div>
-    <div class="summary-synopsis"><p>Loads the given term into a custom type.</p></div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#select_list/0">select_list()</a>
+    <a href="#clone_batch/3">clone_batch(patch_links, project_id, into_branch)</a>
   </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#type/0">type()</a>
+    <a href="#split_batch/2">split_batch(patch_links, batch)</a>
   </div>
-    <div class="summary-synopsis"><p>Returns the underlying schema type for the custom type.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#split_batch_with_conflicts/2">split_batch_with_conflicts(patch_links, batch)</a>
+  </div>
 </div>
   </div>
         </section>
@@ -133,81 +116,14 @@ BorsNG.Database.ProjectPermission
             </a>
 Functions          </h1>
           <div class="functions-list">
-<section class="detail" id="cast/1">
+<section class="detail" id="clone_batch/3">
   <div class="detail-header">
-    <a href="#cast/1" class="detail-link" title="Link to this function">
+    <a href="#clone_batch/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">cast(data)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project_permission.ex#L27" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-<p>Casts the given input to the custom type.</p>
-<p>This callback is called on external input and can return any type,
-as long as the <a href="#dump/1"><code class="inline">dump/1</code></a> function is able to convert the returned
-value into an Ecto native type. There are two situations where
-this callback is called:</p>
-<ol>
-<li>When casting values by <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html"><code class="inline">Ecto.Changeset</code></a>
-</li>
-<li>When passing arguments to <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Query.html"><code class="inline">Ecto.Query</code></a>
-</li>
-</ol>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:cast/1"><code class="inline">Ecto.Type.cast/1</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="dump/1">
-  <div class="detail-header">
-    <a href="#dump/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">dump(data)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project_permission.ex#L37" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-<p>Dumps the given term into an Ecto native type.</p>
-<p>This callback is called with any term that was stored in the struct
-and it needs to validate them and convert it to an Ecto native type.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:dump/1"><code class="inline">Ecto.Type.dump/1</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="load/1">
-  <div class="detail-header">
-    <a href="#load/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">load(data)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project_permission.ex#L29" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
-<p>Loads the given term into a custom type.</p>
-<p>This callback is called when loading data from the database and
-receive an Ecto native type. It can return any type, as long as
-the <a href="#dump/1"><code class="inline">dump/1</code></a> function is able to convert the returned value back
-into an Ecto native type.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:load/1"><code class="inline">Ecto.Type.load/1</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="select_list/0">
-  <div class="detail-header">
-    <a href="#select_list/0" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">select_list()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project_permission.ex#L9" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">clone_batch(patch_links, project_id, into_branch)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/divider.ex#L59" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -215,25 +131,34 @@ into an Ecto native type.</p>
   <section class="docstring">
   </section>
 </section>
-<section class="detail" id="type/0">
+<section class="detail" id="split_batch/2">
   <div class="detail-header">
-    <a href="#type/0" class="detail-link" title="Link to this function">
+    <a href="#split_batch/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">type()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/database/project_permission.ex#L7" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">split_batch(patch_links, batch)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/divider.ex#L9" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
-<p>Returns the underlying schema type for the custom type.</p>
-<p>For example, if you want to provide your own date
-structures, the type function should return <code class="inline">:date</code>.</p>
-<p>Note this function is not required to return Ecto primitive
-types, the type is only required to be known by the adapter.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:type/0"><code class="inline">Ecto.Type.type/0</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="split_batch_with_conflicts/2">
+  <div class="detail-header">
+    <a href="#split_batch_with_conflicts/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">split_batch_with_conflicts(patch_links, batch)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/divider.ex#L19" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
   </section>
 </section>
           </div>

@@ -1,11 +1,11 @@
-dist/search_items-257a85ca67.js
+dist/search_items-47e1ee3cd5.js
 dist/html-de2388dc2f8074b0a4db.css
 dist/html-de2388dc2f8074b0a4db.js
 dist/html/fonts/icomoon.eot
 dist/html/fonts/icomoon.svg
 dist/html/fonts/icomoon.ttf
 dist/html/fonts/icomoon.woff
-dist/sidebar_items-93f95da391.js
+dist/sidebar_items-9246601392.js
 api-reference.html
 hacking.html
 contributing.html
@@ -86,6 +86,7 @@ BorsNG.Worker.Attemptor.Registry.html
 BorsNG.Worker.Attemptor.Supervisor.html
 BorsNG.Worker.Batcher.html
 BorsNG.Worker.Batcher.BorsToml.html
+BorsNG.Worker.Batcher.Divider.html
 BorsNG.Worker.Batcher.GetBorsToml.html
 BorsNG.Worker.Batcher.GetCodeOwners.html
 BorsNG.Worker.Batcher.Message.html
