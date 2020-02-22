@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Gettext — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
-    <script src="dist/sidebar_items-9246601392.js"></script>
+    <script src="dist/sidebar_items-4abf962514.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
     
@@ -130,6 +130,26 @@ your module gains a set of macros for translations, for example:</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
+    <a href="#dpgettext/4">dpgettext(domain, msgctxt, msgid, bindings \\ Macro.escape(%{}))</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#dpgettext_noop/3">dpgettext_noop(domain, msgctxt, msgid)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#dpngettext/6">dpngettext(domain, msgctxt, msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#dpngettext_noop/4">dpngettext_noop(domain, msgctxt, msgid, msgid_plural)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#gettext/2">gettext(msgid, bindings \\ Macro.escape(%{}))</a>
   </div>
 </div>
@@ -163,12 +183,12 @@ your module gains a set of macros for translations, for example:</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#lgettext/4">lgettext(locale, domain, msgid, bindings)</a>
+    <a href="#lgettext/5">lgettext(locale, domain, msgctxt \\ nil, msgid, bindings)</a>
   </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#lngettext/6">lngettext(locale, domain, msgid, msgid_plural, n, bindings)</a>
+    <a href="#lngettext/7">lngettext(locale, domain, msgctxt \\ nil, msgid, msgid_plural, n, bindings)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -179,6 +199,26 @@ your module gains a set of macros for translations, for example:</p>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#ngettext_noop/2">ngettext_noop(msgid, msgid_plural)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pgettext/3">pgettext(msgctxt, msgid, bindings \\ Macro.escape(%{}))</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pgettext_noop/2">pgettext_noop(msgid, context)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pngettext/5">pngettext(msgctxt, msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pngettext_noop/3">pngettext_noop(msgctxt, msgid, msgid_plural)</a>
   </div>
 </div>
   </div>
@@ -262,6 +302,76 @@ Functions          </h1>
   <section class="docstring">
   </section>
 </section>
+<section class="detail" id="dpgettext/4">
+    <span id="dpgettext/3"></span>
+  <div class="detail-header">
+    <a href="#dpgettext/4" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">dpgettext(domain, msgctxt, msgid, bindings \\ Macro.escape(%{}))</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="dpgettext_noop/3">
+  <div class="detail-header">
+    <a href="#dpgettext_noop/3" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">dpgettext_noop(domain, msgctxt, msgid)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="dpngettext/6">
+    <span id="dpngettext/5"></span>
+  <div class="detail-header">
+    <a href="#dpngettext/6" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">dpngettext(domain, msgctxt, msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="dpngettext_noop/4">
+  <div class="detail-header">
+    <a href="#dpngettext_noop/4" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">dpngettext_noop(domain, msgctxt, msgid, msgid_plural)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
 <section class="detail" id="gettext/2">
     <span id="gettext/1"></span>
   <div class="detail-header">
@@ -329,23 +439,23 @@ Functions          </h1>
   <section class="docstring">
 <p>Default handling for missing bindings.</p>
 <p>This function is called when there are missing bindings in a translation. It
-takes a <a href="https://hexdocs.pm/gettext/0.17.1/Gettext.MissingBindingsError.html"><code class="inline">Gettext.MissingBindingsError</code></a> struct and the translation with the
+takes a <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.MissingBindingsError.html"><code class="inline">Gettext.MissingBindingsError</code></a> struct and the translation with the
 wrong bindings left as is with the <code class="inline">%{}</code> syntax.</p>
 <p>For example, if something like this is called:</p>
-<pre><code class="nohighlight makeup elixir"><span class="nc">MyApp.Gettext</span><span class="o">.</span><span class="n">gettext</span><span class="p" data-group-id="6345391332-1">(</span><span class="s">&quot;Hello %{name}, welcome to %{country}&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Jane&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">country</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Italy&quot;</span><span class="p" data-group-id="6345391332-1">)</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="nc">MyApp.Gettext</span><span class="o">.</span><span class="n">gettext</span><span class="p" data-group-id="0672441271-1">(</span><span class="s">&quot;Hello %{name}, welcome to %{country}&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Jane&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">country</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Italy&quot;</span><span class="p" data-group-id="0672441271-1">)</span></code></pre>
 <p>and our <code class="inline">it/LC_MESSAGES/default.po</code> looks like this:</p>
 <pre><code class="nohighlight makeup elixir"><span class="n">msgid</span><span class="w"> </span><span class="s">&quot;Hello %{name}, welcome to %{country}&quot;</span><span class="w">
 </span><span class="n">msgstr</span><span class="w"> </span><span class="s">&quot;Ciao %{name}, benvenuto in %{cowntry}&quot;</span><span class="w"> </span><span class="c1"># (typo)</span></code></pre>
 <p>then Gettext will call:</p>
-<pre><code class="nohighlight makeup elixir"><span class="nc">MyApp.Gettext</span><span class="o">.</span><span class="n">handle_missing_bindings</span><span class="p" data-group-id="8162497553-1">(</span><span class="n">exception</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ciao Jane, benvenuto in %{cowntry}&quot;</span><span class="p" data-group-id="8162497553-1">)</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="nc">MyApp.Gettext</span><span class="o">.</span><span class="n">handle_missing_bindings</span><span class="p" data-group-id="3006144246-1">(</span><span class="n">exception</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ciao Jane, benvenuto in %{cowntry}&quot;</span><span class="p" data-group-id="3006144246-1">)</span></code></pre>
 <p>where <code class="inline">exception</code> is a struct that looks like this:</p>
-<pre><code class="nohighlight makeup elixir"><span class="p" data-group-id="6502772711-1">%</span><span class="nc" data-group-id="6502772711-1">Gettext.MissingBindingsError</span><span class="p" data-group-id="6502772711-1">{</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="p" data-group-id="6359089585-1">%</span><span class="nc" data-group-id="6359089585-1">Gettext.MissingBindingsError</span><span class="p" data-group-id="6359089585-1">{</span><span class="w">
   </span><span class="ss">backend</span><span class="p">:</span><span class="w"> </span><span class="nc">MyApp.Gettext</span><span class="p">,</span><span class="w">
   </span><span class="ss">domain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">,</span><span class="w">
   </span><span class="ss">locale</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;it&quot;</span><span class="p">,</span><span class="w">
   </span><span class="ss">msgid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hello %{name}, welcome to %{country}&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">bindings</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6502772711-2">[</span><span class="ss">:country</span><span class="p" data-group-id="6502772711-2">]</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="6502772711-1">}</span></code></pre>
+  </span><span class="ss">bindings</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6359089585-2">[</span><span class="ss">:country</span><span class="p" data-group-id="6359089585-2">]</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="6359089585-1">}</span></code></pre>
 <p>The return value of the <code class="inline">c:handle_missing_bindings/2</code> callback is used as the
 translated string that the translation macros and functions return.</p>
 <p>The default implementation for this function uses <a href="https://hexdocs.pm/logger/Logger.html#error/1"><code class="inline">Logger.error/1</code></a> to warn
@@ -353,10 +463,10 @@ about the missing binding and returns the translated message with the
 incomplete bindings.</p>
 <p>This function can be overridden. For example, to raise when there are missing
 bindings:</p>
-<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">handle_missing_bindings</span><span class="p" data-group-id="6024576771-1">(</span><span class="n">exception</span><span class="p">,</span><span class="w"> </span><span class="c">_incomplete</span><span class="p" data-group-id="6024576771-1">)</span><span class="w"> </span><span class="k" data-group-id="6024576771-2">do</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nf">handle_missing_bindings</span><span class="p" data-group-id="7750576042-1">(</span><span class="n">exception</span><span class="p">,</span><span class="w"> </span><span class="c">_incomplete</span><span class="p" data-group-id="7750576042-1">)</span><span class="w"> </span><span class="k" data-group-id="7750576042-2">do</span><span class="w">
   </span><span class="k">raise</span><span class="w"> </span><span class="n">exception</span><span class="w">
-</span><span class="k" data-group-id="6024576771-2">end</span></code></pre>
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.1/Gettext.Backend.html#c:handle_missing_bindings/2"><code class="inline">Gettext.Backend.handle_missing_bindings/2</code></a>.</p>
+</span><span class="k" data-group-id="7750576042-2">end</span></code></pre>
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_bindings/2"><code class="inline">Gettext.Backend.handle_missing_bindings/2</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="handle_missing_plural_translation/6">
@@ -375,7 +485,7 @@ bindings:</p>
 <p>Default handling for plural translations with a missing translation.</p>
 <p>Same as <code class="inline">c:handle_missing_translation/4</code>, but for plural translations. In this case, <code class="inline">n</code> is
 the number used for pluralizing the translated string.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.1/Gettext.Backend.html#c:handle_missing_plural_translation/6"><code class="inline">Gettext.Backend.handle_missing_plural_translation/6</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_plural_translation/6"><code class="inline">Gettext.Backend.handle_missing_plural_translation/6</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="handle_missing_translation/4">
@@ -397,16 +507,17 @@ locale doesn&#39;t provide a translation for that string, this callback is invok
 string that Gettext tried to translate.</p>
 <p>This function should return <code class="inline">{:ok, translated}</code> if a translation can be fetched or constructed
 for the given string, or <code class="inline">{:default, msgid}</code> otherwise.</p>
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.1/Gettext.Backend.html#c:handle_missing_translation/4"><code class="inline">Gettext.Backend.handle_missing_translation/4</code></a>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_translation/4"><code class="inline">Gettext.Backend.handle_missing_translation/4</code></a>.</p>
   </section>
 </section>
-<section class="detail" id="lgettext/4">
+<section class="detail" id="lgettext/5">
+    <span id="lgettext/4"></span>
   <div class="detail-header">
-    <a href="#lgettext/4" class="detail-link" title="Link to this function">
+    <a href="#lgettext/5" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">lgettext(locale, domain, msgid, bindings)</h1>
+    <h1 class="signature">lgettext(locale, domain, msgctxt \\ nil, msgid, bindings)</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -415,13 +526,14 @@ for the given string, or <code class="inline">{:default, msgid}</code> otherwise
   <section class="docstring">
   </section>
 </section>
-<section class="detail" id="lngettext/6">
+<section class="detail" id="lngettext/7">
+    <span id="lngettext/6"></span>
   <div class="detail-header">
-    <a href="#lngettext/6" class="detail-link" title="Link to this function">
+    <a href="#lngettext/7" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">lngettext(locale, domain, msgid, msgid_plural, n, bindings)</h1>
+    <h1 class="signature">lngettext(locale, domain, msgctxt \\ nil, msgid, msgid_plural, n, bindings)</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
@@ -455,6 +567,76 @@ for the given string, or <code class="inline">{:default, msgid}</code> otherwise
       <span class="sr-only">Link to this macro</span>
     </a>
     <h1 class="signature">ngettext_noop(msgid, msgid_plural)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="pgettext/3">
+    <span id="pgettext/2"></span>
+  <div class="detail-header">
+    <a href="#pgettext/3" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">pgettext(msgctxt, msgid, bindings \\ Macro.escape(%{}))</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="pgettext_noop/2">
+  <div class="detail-header">
+    <a href="#pgettext_noop/2" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">pgettext_noop(msgid, context)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="pngettext/5">
+    <span id="pngettext/4"></span>
+  <div class="detail-header">
+    <a href="#pngettext/5" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">pngettext(msgctxt, msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+      <span class="note">(macro)</span>
+      </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="pngettext_noop/3">
+  <div class="detail-header">
+    <a href="#pngettext_noop/3" class="detail-link" title="Link to this macro">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature">pngettext_noop(msgctxt, msgid, msgid_plural)</h1>
       <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/gettext.ex#L1" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
