@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Command — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
-    <script src="dist/sidebar_items-4abf962514.js"></script>
+    <script src="dist/sidebar_items-182bc9a2e1.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
     
@@ -179,6 +179,11 @@ This will not re-sync from GitHub unless it isn&#39;t even in the database.</p><
 </div>
 <div class="summary-row">
   <div class="summary-signature">
+    <a href="#parse_single_patch/1">parse_single_patch(binary)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#permission_denied/1">permission_denied(c)</a>
   </div>
 </div>
@@ -241,6 +246,7 @@ Types          </h1>
   {:try, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}
   | :try_cancel
   | {:activate_by, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}
+  | {:set_is_single, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}
   | {:set_priority, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}
   | :activate
   | :deactivate
@@ -297,7 +303,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">delegate_to(c, delegatee)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L440" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L456" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -353,7 +359,7 @@ This will not re-sync from GitHub unless it isn&#39;t even in the database.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">log(c, cmd)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L368" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L380" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -372,7 +378,7 @@ This will not re-sync from GitHub unless it isn&#39;t even in the database.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse(comment)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L111" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L112" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -393,7 +399,7 @@ This will not re-sync from GitHub unless it isn&#39;t even in the database.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse_activation_args(arguments)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L215" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L218" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -408,7 +414,7 @@ This will not re-sync from GitHub unless it isn&#39;t even in the database.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse_activation_args(binary, string)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L180" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L183" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -453,7 +459,7 @@ iex&gt; Command.parse_activation_args(&quot;somebody p=10&quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse_cmd(arg1)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L150" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L153" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -468,7 +474,7 @@ iex&gt; Command.parse_activation_args(&quot;somebody p=10&quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse_delegation_args(arguments)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L276" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L279" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -483,7 +489,7 @@ iex&gt; Command.parse_activation_args(&quot;somebody p=10&quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse_delegation_args(l, nick, arg3)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L273" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L276" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -529,7 +535,22 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">parse_priority(binary)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L286" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L289" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="parse_single_patch/1">
+  <div class="detail-header">
+    <a href="#parse_single_patch/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_single_patch(binary)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L295" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -544,7 +565,7 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">permission_denied(c)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L349" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L361" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -559,7 +580,7 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">regex()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L119" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L120" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -574,7 +595,7 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">required_permission_level(cmd_list)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L335" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L347" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -589,7 +610,7 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">required_permission_level_cmd(arg1)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L331" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L343" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -604,7 +625,7 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">run(c)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L296" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L308" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -624,7 +645,7 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">run(c, arg2)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L433" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L449" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -643,7 +664,7 @@ iex&gt; Command.parse_delegation_args(&quot;  &quot;)
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">trim_and_parse_cmd(arg1)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L129" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L130" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>

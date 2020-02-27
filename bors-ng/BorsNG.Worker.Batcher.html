@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Worker.Batcher — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
-    <script src="dist/sidebar_items-4abf962514.js"></script>
+    <script src="dist/sidebar_items-182bc9a2e1.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
     
@@ -144,7 +144,7 @@ or (if there are still CI jobs with no results) it is left alone.
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_new_batch/3">get_new_batch(project_id, into_branch, priority)</a>
+    <a href="#get_new_batch/4">get_new_batch(project_id, into_branch, priority, arg4)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -162,6 +162,11 @@ block until it returns.</p></div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#reviewed/3">reviewed(pid, patch_id, reviewer)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#set_is_single/3">set_is_single(pid, patch_id, is_single)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -202,7 +207,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">cancel(pid, patch_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L66" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L70" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -217,7 +222,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">cancel_all(pid)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L70" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L74" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -249,7 +254,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">do_handle_cast(arg, project_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L165" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L182" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -264,7 +269,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">gather_co_authors(batch, patch_links)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L475" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L493" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -272,14 +277,14 @@ Functions          </h1>
   <section class="docstring">
   </section>
 </section>
-<section class="detail" id="get_new_batch/3">
+<section class="detail" id="get_new_batch/4">
   <div class="detail-header">
-    <a href="#get_new_batch/3" class="detail-link" title="Link to this function">
+    <a href="#get_new_batch/4" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">get_new_batch(project_id, into_branch, priority)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L851" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">get_new_batch(project_id, into_branch, priority, arg4)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L873" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -294,7 +299,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">init(project_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L76" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L80" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -345,7 +350,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">poll(pid)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L62" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L66" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -368,6 +373,21 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
   <section class="docstring">
   </section>
 </section>
+<section class="detail" id="set_is_single/3">
+  <div class="detail-header">
+    <a href="#set_is_single/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">set_is_single(pid, patch_id, is_single)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L54" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
 <section class="detail" id="set_priority/3">
   <div class="detail-header">
     <a href="#set_priority/3" class="detail-link" title="Link to this function">
@@ -375,7 +395,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">set_priority(pid, patch_id, priority)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L54" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L58" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -390,7 +410,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">sort_batches(batches)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L270" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L288" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -420,7 +440,7 @@ entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">status(pid, stat)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L58" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher.ex#L62" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
