@@ -4,14 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.21.2">
+    <meta name="generator" content="ExDoc v0.21.3">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Database.AttemptStatusState — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/html-de2388dc2f8074b0a4db.css" />
-    <script src="dist/sidebar_items-182bc9a2e1.js"></script>
+    <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
+    <script src="dist/sidebar_items-9696ed4f23.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/html-de2388dc2f8074b0a4db.js"></script>
-    
+    <script async src="dist/app-a225d03098e64fef431a.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -53,8 +52,6 @@ Bors-NG      </a>
     <li><a id="extras-list" href="#full-list">Pages</a></li>
 
       <li><a id="modules-list" href="#full-list">Modules</a></li>
-
-      <li><a id="exceptions-list" href="#full-list">Exceptions</a></li>
 
       <li><a id="tasks-list" href="#full-list">Mix Tasks</a></li>
   </ul>
@@ -107,25 +104,25 @@ BorsNG.Database.AttemptStatusState
   <div class="summary-signature">
     <a href="#cast/1">cast(state)</a>
   </div>
-    <div class="summary-synopsis"><p>Casts the given input to the custom type.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:cast/1"><code class="inline">Ecto.Type.cast/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#dump/1">dump(term)</a>
   </div>
-    <div class="summary-synopsis"><p>Dumps the given term into an Ecto native type.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:dump/1"><code class="inline">Ecto.Type.dump/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#load/1">load(int)</a>
   </div>
-    <div class="summary-synopsis"><p>Loads the given term into a custom type.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:load/1"><code class="inline">Ecto.Type.load/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#type/0">type()</a>
   </div>
-    <div class="summary-synopsis"><p>Returns the underlying schema type for the custom type.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:type/0"><code class="inline">Ecto.Type.type/0</code></a>.</p></div>
 </div>
   </div>
         </section>
@@ -184,17 +181,6 @@ Functions          </h1>
       </div>
   </div>
   <section class="docstring">
-<p>Casts the given input to the custom type.</p>
-<p>This callback is called on external input and can return any type,
-as long as the <a href="#dump/1"><code class="inline">dump/1</code></a> function is able to convert the returned
-value into an Ecto native type. There are two situations where
-this callback is called:</p>
-<ol>
-<li>When casting values by <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Changeset.html"><code class="inline">Ecto.Changeset</code></a>
-</li>
-<li>When passing arguments to <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Query.html"><code class="inline">Ecto.Query</code></a>
-</li>
-</ol>
 <p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:cast/1"><code class="inline">Ecto.Type.cast/1</code></a>.</p>
   </section>
 </section>
@@ -215,9 +201,6 @@ this callback is called:</p>
       </div>
   </div>
   <section class="docstring">
-<p>Dumps the given term into an Ecto native type.</p>
-<p>This callback is called with any term that was stored in the struct
-and it needs to validate them and convert it to an Ecto native type.</p>
 <p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:dump/1"><code class="inline">Ecto.Type.dump/1</code></a>.</p>
   </section>
 </section>
@@ -238,11 +221,6 @@ and it needs to validate them and convert it to an Ecto native type.</p>
       </div>
   </div>
   <section class="docstring">
-<p>Loads the given term into a custom type.</p>
-<p>This callback is called when loading data from the database and
-receive an Ecto native type. It can return any type, as long as
-the <a href="#dump/1"><code class="inline">dump/1</code></a> function is able to convert the returned value back
-into an Ecto native type.</p>
 <p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:load/1"><code class="inline">Ecto.Type.load/1</code></a>.</p>
   </section>
 </section>
@@ -259,11 +237,6 @@ into an Ecto native type.</p>
      </a>
           </div>
   <section class="docstring">
-<p>Returns the underlying schema type for the custom type.</p>
-<p>For example, if you want to provide your own date
-structures, the type function should return <code class="inline">:date</code>.</p>
-<p>Note this function is not required to return Ecto primitive
-types, the type is only required to be known by the adapter.</p>
 <p>Callback implementation for <a href="https://hexdocs.pm/ecto/2.2.12/Ecto.Type.html#c:type/0"><code class="inline">Ecto.Type.type/0</code></a>.</p>
   </section>
 </section>
@@ -273,7 +246,7 @@ types, the type is only required to be known by the adapter.</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.2),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.3),
           </span>
           <span class="line">
             designed by
@@ -281,18 +254,18 @@ types, the type is only required to be known by the adapter.</p>
           </span>
         </p>
         <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
           <button class="line footer-button night-mode-toggle">
             Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
           </button>
           <button class="line footer-button tooltips-toggle">
             <span class="tooltips-option-disable">Disable tooltips</span>
             <span class="tooltips-option-enable">Enable tooltips</span>
-          </button>
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
           </button>
         </p>
       </footer>
@@ -300,7 +273,6 @@ types, the type is only required to be known by the adapter.</p>
   </div>
 </section>
 </div>
-  
   </body>
 </html>
 
