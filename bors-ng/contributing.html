@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>Getting started for contributors — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
-    <script src="dist/sidebar_items-5738754851.js"></script>
+    <script src="dist/sidebar_items-38b1daa7c3.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/app-a225d03098e64fef431a.js"></script>
   </head>
@@ -224,6 +224,51 @@ head over to the <a href="https://forum.bors.tech/t/about-the-draft-rfcs-categor
 <li>S-do-not-merge-yet: Do not merge this pull request.
 </li>
 </ul>
+<h2 id="developing-locally" class="section-heading">
+  <a href="#developing-locally" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Developing locally
+</h2>
+
+<p>To work on bors-ng you will need:</p>
+<ol>
+<li>Erlang and Elixir installed and in PATH
+</li>
+<li>a local database instance, bors uses Postgres by default
+</li>
+</ol>
+<p>You can install Erlang and Elixir as you prefer, one way to do it without
+affecting other development environments is with <a href="https://asdf-vm.com/#/">asdf</a>. The following shows you how to use asdf. If you already have Erlang and Elixir installed
+or prefer to install them in another way just skip to the next section.</p>
+<p><strong>NOTE</strong>: please check the Erlang and Elixir versions against <code class="inline">.travis.yml</code> to make sure you are using a supported version.</p>
+<h3 id="installing-erlang-and-elixir-with-asdf" class="section-heading">
+  <a href="#installing-erlang-and-elixir-with-asdf" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Installing Erlang and Elixir with asdf
+</h3>
+
+<p>To get started developing on bors with asdf install it as per the docs, then
+install Erlang and Elixir with the following commands (we assume you&#39;re on linux,
+YMMV on other OSs):</p>
+<pre><code class="sh">asdf plugin-add erlang
+asdf install erlang 21.0.9
+asdf plugin-add elixir
+asdf install elixir 1.8.1
+# in the parent directory
+cat&lt;&lt;EOF &gt; ../.tool-versions
+elixir 1.8.1
+erlang 21.0.9
+EOF</code></pre>
+<p><strong>NOTE</strong>: please double check the Erlang and Elixir versions against <code class="inline">.travis.yml</code> to make sure you are using a supported version.</p>
+<h3 id="running-tests-locally" class="section-heading">
+  <a href="#running-tests-locally" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Running tests locally
+</h3>
+
+<p>You are now set for developing locally. For example to run the tests you will just have to start a postgres instance on localhost, using docker is the simplest way:</p>
+<pre><code class="sh">docker run -it --rm --net=host -e POSTGRES_PASSWORD=Postgres1234 postgres:11.2</code></pre>
+<p>then in another shell you can run the tests as simply as:</p>
+<pre><code class="sh">mix test</code></pre>
+<p>to run a single test suite/case just pass the relative path to the test name and optionally the line number:</p>
+<pre><code class="sh">mix test test/batcher/batcher_test.exs:3878</code></pre>
       <footer class="footer">
         <p>
           <span class="line">
