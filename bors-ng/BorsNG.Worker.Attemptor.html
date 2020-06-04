@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.21.3">
+    <meta name="generator" content="ExDoc v0.22.1">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Worker.Attemptor — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
-    <script src="dist/sidebar_items-38b1daa7c3.js"></script>
+    <link rel="stylesheet" href="dist/elixir-e589b8fad3dab6230c65.css" />
+    <script src="dist/sidebar_items-30d117c478.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/app-a225d03098e64fef431a.js"></script>
+    <script async src="dist/app-5c0c23dfec2d63ae33a2.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -76,22 +76,11 @@ BorsNG.Worker.Attemptor
 
         <section id="moduledoc">
 <p>An &quot;Attemptor&quot; manages the set of running attempts (that is, &quot;try jobs&quot;).
-It implements this set of rules:</p>
-<ul>
-<li>When a patch is tried,
-We immediately merge it with master into the trying branch.
-</li>
-<li>The project&#39;s CI is occasionally polled,
+It implements this set of rules:</p><ul><li>When a patch is tried,
+We immediately merge it with master into the trying branch.</li><li>The project's CI is occasionally polled,
 if a attempt is currently running.
-After polling, the completion logic is run.
-</li>
-<li>If a notification related to the underlying CI is received,
-the completion logic is run.
-</li>
-<li>When the completion logic is run, the either succeeded or failed.
-</li>
-</ul>
-        </section>
+After polling, the completion logic is run.</li><li>If a notification related to the underlying CI is received,
+the completion logic is run.</li><li>When the completion logic is run, the either succeeded or failed.</li></ul>        </section>
 
         <section id="summary" class="details-list">
           <h1 class="section-heading">
@@ -169,8 +158,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="child_spec/1">
@@ -184,11 +175,11 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Returns a specification to start this module under a supervisor.</p>
-<p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
-  </section>
+
+<p>Returns a specification to start this module under a supervisor.</p><p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>  </section>
 </section>
 <section class="detail" id="do_handle_cast/2">
   <div class="detail-header">
@@ -201,8 +192,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="init/1">
@@ -216,10 +209,11 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>  </section>
 </section>
 <section class="detail" id="poll/1">
   <div class="detail-header">
@@ -232,8 +226,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="start_link/1">
@@ -247,8 +243,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="status/2">
@@ -262,8 +260,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="tried/3">
@@ -277,8 +277,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
           </div>
@@ -287,7 +289,7 @@ Functions          </h1>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.22.1),
           </span>
           <span class="line">
             designed by

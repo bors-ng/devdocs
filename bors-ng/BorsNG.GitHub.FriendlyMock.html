@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.21.3">
+    <meta name="generator" content="ExDoc v0.22.1">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub.FriendlyMock — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
-    <script src="dist/sidebar_items-38b1daa7c3.js"></script>
+    <link rel="stylesheet" href="dist/elixir-e589b8fad3dab6230c65.css" />
+    <script src="dist/sidebar_items-30d117c478.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/app-a225d03098e64fef431a.js"></script>
+    <script async src="dist/app-5c0c23dfec2d63ae33a2.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -76,66 +76,55 @@ BorsNG.GitHub.FriendlyMock
 
         <section id="moduledoc">
 <p>Helper functions for ServerMock for common operations without having to
-modify state by hand.</p>
-<p>Tries to lookup values instead of requiring full %{} associative arrays.</p>
-<p>Assumes a single GitHub instance with a single repository and single user.</p>
-<p>Does everything through webhook notifications. Does not use
+modify state by hand.</p><p>Tries to lookup values instead of requiring full %{} associative arrays.</p><p>Assumes a single GitHub instance with a single repository and single user.</p><p>Does everything through webhook notifications. Does not use
 Database.Repo.insert directly! (One exception: adding a reviewer,
-which is normally done through Bors&#39; web UI.)</p>
-<p>For example, I can run <code class="inline">iex -S mix phx.server</code> and do this:</p>
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub.FriendlyMock</span><span class="w">
+which is normally done through Bors' web UI.)</p><p>For example, I can run <code class="inline">iex -S mix phx.server</code> and do this:</p><pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub.FriendlyMock</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">init_state</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">make_admin</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">pr_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_pr</span><span class="w"> </span><span class="s">&quot;first&quot;</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_reviewer</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">ci_status</span><span class="p" data-group-id="3677900357-1">(</span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ci&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:running</span><span class="p" data-group-id="3677900357-1">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_comment</span><span class="p" data-group-id="3677900357-2">(</span><span class="n">pr_num</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors ping&quot;</span><span class="p" data-group-id="3677900357-2">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_comment</span><span class="p" data-group-id="3677900357-3">(</span><span class="n">pr_num</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors r+&quot;</span><span class="p" data-group-id="3677900357-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">ci_status</span><span class="p" data-group-id="3124157615-1">(</span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ci&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:running</span><span class="p" data-group-id="3124157615-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_comment</span><span class="p" data-group-id="3124157615-2">(</span><span class="n">pr_num</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors ping&quot;</span><span class="p" data-group-id="3124157615-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_comment</span><span class="p" data-group-id="3124157615-3">(</span><span class="n">pr_num</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors r+&quot;</span><span class="p" data-group-id="3124157615-3">)</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">get_state</span><span class="w">
   </span><span class="p">%</span><span class="err">{</span><span class="w">
-    </span><span class="p" data-group-id="3677900357-4">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="3677900357-4">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3677900357-5">%{</span><span class="w">
-          </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3677900357-6">[</span><span class="w">
-            </span><span class="p" data-group-id="3677900357-7">%</span><span class="nc" data-group-id="3677900357-7">BorsNG.GitHub.Repo</span><span class="p" data-group-id="3677900357-7">{</span><span class="w">
+    </span><span class="p" data-group-id="3124157615-4">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="3124157615-4">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3124157615-5">%{</span><span class="w">
+          </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3124157615-6">[</span><span class="w">
+            </span><span class="p" data-group-id="3124157615-7">%</span><span class="nc" data-group-id="3124157615-7">BorsNG.GitHub.Repo</span><span class="p" data-group-id="3124157615-7">{</span><span class="w">
               </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
               </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;test/repo&quot;</span><span class="p">,</span><span class="w">
-              </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3677900357-8">%{</span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tester&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="ss">:user</span><span class="p" data-group-id="3677900357-8">}</span><span class="p">,</span><span class="w">
+              </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3124157615-8">%{</span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tester&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="ss">:user</span><span class="p" data-group-id="3124157615-8">}</span><span class="p">,</span><span class="w">
               </span><span class="ss">private</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="w">
-            </span><span class="p" data-group-id="3677900357-7">}</span><span class="w">
-          </span><span class="p" data-group-id="3677900357-6">]</span><span class="w">
-    </span><span class="p" data-group-id="3677900357-5">}</span><span class="p">,</span><span class="w">
-    </span><span class="p" data-group-id="3677900357-9">{</span><span class="p" data-group-id="3677900357-10">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="3677900357-10">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="3677900357-9">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
-          </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3677900357-11">%{</span><span class="s">&quot;first&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;ini&quot;</span><span class="p" data-group-id="3677900357-11">}</span><span class="p">,</span><span class="w">
-          </span><span class="ss">collaborators</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3677900357-12">%{</span><span class="p" data-group-id="3677900357-12">}</span><span class="p">,</span><span class="w">
-          </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3677900357-13">%{</span><span class="w">
-            </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3677900357-14">[</span><span class="s">&quot;:-1: Rejected by PR status&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors r+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pong&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors ping&quot;</span><span class="p" data-group-id="3677900357-14">]</span><span class="w">
-          </span><span class="p" data-group-id="3677900357-13">}</span><span class="p">,</span><span class="w">
-          </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3677900357-15">%{</span><span class="p" data-group-id="3677900357-15">}</span><span class="p">,</span><span class="w">
+            </span><span class="p" data-group-id="3124157615-7">}</span><span class="w">
+          </span><span class="p" data-group-id="3124157615-6">]</span><span class="w">
+    </span><span class="p" data-group-id="3124157615-5">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="3124157615-9">{</span><span class="p" data-group-id="3124157615-10">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="3124157615-10">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="3124157615-9">}</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
+          </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3124157615-11">%{</span><span class="s">&quot;first&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;ini&quot;</span><span class="p" data-group-id="3124157615-11">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">collaborators</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3124157615-12">%{</span><span class="p" data-group-id="3124157615-12">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3124157615-13">%{</span><span class="w">
+            </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3124157615-14">[</span><span class="s">&quot;:-1: Rejected by PR status&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors r+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pong&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors ping&quot;</span><span class="p" data-group-id="3124157615-14">]</span><span class="w">
+          </span><span class="p" data-group-id="3124157615-13">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3124157615-15">%{</span><span class="p" data-group-id="3124157615-15">}</span><span class="p">,</span><span class="w">
           </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
             </span><span class="s">&quot;SHA-1&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
-              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre>
-<p>pr_status = [ &quot;ci&quot; ]
+              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre><p>pr_status = [ &quot;ci&quot; ]
 prerun_timeout_sec = 5
 delete_merged_branches = true
-&quot;</p>
-<pre><code class="nohighlight makeup elixir"><span class="w">            </span><span class="err">}</span><span class="p">,</span><span class="w">
+&quot;</p><pre><code class="nohighlight makeup elixir"><span class="w">            </span><span class="err">}</span><span class="p">,</span><span class="w">
             </span><span class="s">&quot;master&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
-              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre>
-<p>pr_status = [ &quot;ci&quot; ]
+              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre><p>pr_status = [ &quot;ci&quot; ]
 prerun_timeout_sec = 5
 delete_merged_branches = true
-&quot;</p>
-<pre><code class="nohighlight makeup elixir"><span class="w">            </span><span class="err">}</span><span class="p">,</span><span class="w">
+&quot;</p><pre><code class="nohighlight makeup elixir"><span class="w">            </span><span class="err">}</span><span class="p">,</span><span class="w">
             </span><span class="s">&quot;staging.tmp&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
-              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre>
-<p>pr_status = [ &quot;ci&quot; ]
+              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre><p>pr_status = [ &quot;ci&quot; ]
 prerun_timeout_sec = 5
 delete_merged_branches = true
-&quot;</p>
-<pre><code class="nohighlight makeup elixir"><span class="w">            </span><span class="err">}</span><span class="w">
+&quot;</p><pre><code class="nohighlight makeup elixir"><span class="w">            </span><span class="err">}</span><span class="w">
           </span><span class="err">}</span><span class="p">,</span><span class="w">
-          </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3757513146-1">%{</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3757513146-2">[</span><span class="p" data-group-id="3757513146-2">]</span><span class="p" data-group-id="3757513146-1">}</span><span class="p">,</span><span class="w">
-          </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3757513146-3">%{</span><span class="w">
-            </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3757513146-4">%</span><span class="nc" data-group-id="3757513146-4">BorsNG.GitHub.Pr</span><span class="p" data-group-id="3757513146-4">{</span><span class="w">
+          </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4701543081-1">%{</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4701543081-2">[</span><span class="p" data-group-id="4701543081-2">]</span><span class="p" data-group-id="4701543081-1">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4701543081-3">%{</span><span class="w">
+            </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4701543081-4">%</span><span class="nc" data-group-id="4701543081-4">BorsNG.GitHub.Pr</span><span class="p" data-group-id="4701543081-4">{</span><span class="w">
               </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
               </span><span class="ss">base_repo_id</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
               </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
@@ -146,16 +135,12 @@ delete_merged_branches = true
               </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
               </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
               </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;first&quot;</span><span class="p">,</span><span class="w">
-              </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3757513146-5">%{</span><span class="s">&quot;avatar_url&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;login&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;tester&quot;</span><span class="p" data-group-id="3757513146-5">}</span><span class="w">
-            </span><span class="p" data-group-id="3757513146-4">}</span><span class="w">
-          </span><span class="p" data-group-id="3757513146-3">}</span><span class="p">,</span><span class="w">
-          </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3757513146-6">%{</span><span class="s">&quot;SHA-1&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3757513146-7">%{</span><span class="s">&quot;ci&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="ss">:running</span><span class="p" data-group-id="3757513146-7">}</span><span class="p" data-group-id="3757513146-6">}</span><span class="w">
+              </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4701543081-5">%{</span><span class="s">&quot;avatar_url&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;login&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;tester&quot;</span><span class="p" data-group-id="4701543081-5">}</span><span class="w">
+            </span><span class="p" data-group-id="4701543081-4">}</span><span class="w">
+          </span><span class="p" data-group-id="4701543081-3">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4701543081-6">%{</span><span class="s">&quot;SHA-1&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4701543081-7">%{</span><span class="s">&quot;ci&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="ss">:running</span><span class="p" data-group-id="4701543081-7">}</span><span class="p" data-group-id="4701543081-6">}</span><span class="w">
     </span><span class="err">}</span><span class="w">
-  </span><span class="err">}</span></code></pre>
-<p>Now try</p>
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">ci_status</span><span class="p" data-group-id="1435389875-1">(</span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ci&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="1435389875-1">)</span></code></pre>
-<p>instead of :running above.</p>
-        </section>
+  </span><span class="err">}</span></code></pre><p>Now try</p><pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">ci_status</span><span class="p" data-group-id="7244534917-1">(</span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ci&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="7244534917-1">)</span></code></pre><p>instead of :running above.</p>        </section>
 
         <section id="summary" class="details-list">
           <h1 class="section-heading">
@@ -269,10 +254,11 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Adds a reviewer comment.</p>
-  </section>
+
+<p>Adds a reviewer comment.</p>  </section>
 </section>
 <section class="detail" id="add_commit/3">
   <div class="detail-header">
@@ -285,8 +271,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="add_pr/2">
@@ -301,8 +289,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="add_reviewer/2">
@@ -318,8 +308,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="ci_status/3">
@@ -333,10 +325,11 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Set CI status</p>
-  </section>
+
+<p>Set CI status</p>  </section>
 </section>
 <section class="detail" id="comments/2">
     <span id="comments/0"></span>
@@ -351,8 +344,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="commits/3">
@@ -368,8 +363,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="full_example/0">
@@ -383,13 +380,12 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
 <p>An example function.
-Call from iex with</p>
-<p>   iex&gt; FriendlyMock.full_example</p>
-<p>Then modify, <code class="inline">recompile()</code> and run again.</p>
-  </section>
+Call from iex with</p><p>   iex&gt; FriendlyMock.full_example</p><p>Then modify, <code class="inline">recompile()</code> and run again.</p>  </section>
 </section>
 <section class="detail" id="get_state/0">
   <div class="detail-header">
@@ -402,8 +398,10 @@ Call from iex with</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="init_state/0">
@@ -417,11 +415,12 @@ Call from iex with</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
 <p>Creates a single installation with a single repo where
-nothing has happened yet.</p>
-  </section>
+nothing has happened yet.</p>  </section>
 </section>
 <section class="detail" id="make_admin/1">
     <span id="make_admin/0"></span>
@@ -435,8 +434,10 @@ nothing has happened yet.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="pr_to_json/1">
@@ -450,8 +451,10 @@ nothing has happened yet.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="prs/2">
@@ -467,10 +470,11 @@ nothing has happened yet.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Get open PRs</p>
-  </section>
+
+<p>Get open PRs</p>  </section>
 </section>
 <section class="detail" id="update_mock/4">
     <span id="update_mock/2"></span>
@@ -485,8 +489,10 @@ nothing has happened yet.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
           </div>
@@ -495,7 +501,7 @@ nothing has happened yet.</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.22.1),
           </span>
           <span class="line">
             designed by

@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.21.3">
+    <meta name="generator" content="ExDoc v0.22.1">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Gettext — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
-    <script src="dist/sidebar_items-38b1daa7c3.js"></script>
+    <link rel="stylesheet" href="dist/elixir-e589b8fad3dab6230c65.css" />
+    <script src="dist/sidebar_items-30d117c478.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/app-a225d03098e64fef431a.js"></script>
+    <script async src="dist/app-5c0c23dfec2d63ae33a2.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -75,10 +75,8 @@ BorsNG.Gettext
 
 
         <section id="moduledoc">
-<p>A module providing Internationalization with a gettext-based API.</p>
-<p>By using <a href="https://hexdocs.pm/gettext">Gettext</a>,
-your module gains a set of macros for translations, for example:</p>
-<pre><code class="nohighlight makeup elixir"><span class="kn">import</span><span class="w"> </span><span class="nc">BorsNG.Gettext</span><span class="w">
+<p>A module providing Internationalization with a gettext-based API.</p><p>By using <a href="https://hexdocs.pm/gettext">Gettext</a>,
+your module gains a set of macros for translations, for example:</p><pre><code class="nohighlight makeup elixir"><span class="kn">import</span><span class="w"> </span><span class="nc">BorsNG.Gettext</span><span class="w">
 
 </span><span class="c1"># Simple translation</span><span class="w">
 </span><span class="n">gettext</span><span class="w"> </span><span class="s">&quot;Here is the string to translate&quot;</span><span class="w">
@@ -89,9 +87,7 @@ your module gains a set of macros for translations, for example:</p>
          </span><span class="mi">3</span><span class="w">
 
 </span><span class="c1"># Domain-based translation</span><span class="w">
-</span><span class="n">dgettext</span><span class="w"> </span><span class="s">&quot;errors&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Here is the error message to translate&quot;</span></code></pre>
-<p>See the <a href="https://hexdocs.pm/gettext">Gettext Docs</a> for detailed usage.</p>
-        </section>
+</span><span class="n">dgettext</span><span class="w"> </span><span class="s">&quot;errors&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Here is the error message to translate&quot;</span></code></pre><p>See the <a href="https://hexdocs.pm/gettext">Gettext Docs</a> for detailed usage.</p>        </section>
 
         <section id="summary" class="details-list">
           <h1 class="section-heading">
@@ -109,31 +105,31 @@ your module gains a set of macros for translations, for example:</p>
   <div class="summary-signature">
     <a href="#dgettext/3">dgettext(domain, msgid, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dgettext/3"><code class="inline">Gettext.Backend.dgettext/3</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dgettext/3"><code class="inline">Gettext.Backend.dgettext/3</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#dgettext_noop/2">dgettext_noop(domain, msgid)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dgettext_noop/2"><code class="inline">Gettext.Backend.dgettext_noop/2</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dgettext_noop/2"><code class="inline">Gettext.Backend.dgettext_noop/2</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#dngettext/5">dngettext(domain, msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dngettext/5"><code class="inline">Gettext.Backend.dngettext/5</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dngettext/5"><code class="inline">Gettext.Backend.dngettext/5</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#dngettext_noop/3">dngettext_noop(domain, msgid, msgid_plural)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dngettext_noop/3"><code class="inline">Gettext.Backend.dngettext_noop/3</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dngettext_noop/3"><code class="inline">Gettext.Backend.dngettext_noop/3</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#dpgettext/4">dpgettext(domain, msgctxt, msgid, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dpgettext/4"><code class="inline">Gettext.Backend.dpgettext/4</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dpgettext/4"><code class="inline">Gettext.Backend.dpgettext/4</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -144,7 +140,7 @@ your module gains a set of macros for translations, for example:</p>
   <div class="summary-signature">
     <a href="#dpngettext/6">dpngettext(domain, msgctxt, msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dpngettext/6"><code class="inline">Gettext.Backend.dpngettext/6</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dpngettext/6"><code class="inline">Gettext.Backend.dpngettext/6</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -155,37 +151,37 @@ your module gains a set of macros for translations, for example:</p>
   <div class="summary-signature">
     <a href="#gettext/2">gettext(msgid, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:gettext/2"><code class="inline">Gettext.Backend.gettext/2</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:gettext/2"><code class="inline">Gettext.Backend.gettext/2</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#gettext_comment/1">gettext_comment(comment)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:gettext_comment/1"><code class="inline">Gettext.Backend.gettext_comment/1</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:gettext_comment/1"><code class="inline">Gettext.Backend.gettext_comment/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#gettext_noop/1">gettext_noop(msgid)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:gettext_noop/1"><code class="inline">Gettext.Backend.gettext_noop/1</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:gettext_noop/1"><code class="inline">Gettext.Backend.gettext_noop/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#handle_missing_bindings/2">handle_missing_bindings(exception, incomplete)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_bindings/2"><code class="inline">Gettext.Backend.handle_missing_bindings/2</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:handle_missing_bindings/2"><code class="inline">Gettext.Backend.handle_missing_bindings/2</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#handle_missing_plural_translation/6">handle_missing_plural_translation(locale, domain, msgid, msgid_plural, n, bindings)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_plural_translation/6"><code class="inline">Gettext.Backend.handle_missing_plural_translation/6</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:handle_missing_plural_translation/6"><code class="inline">Gettext.Backend.handle_missing_plural_translation/6</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#handle_missing_translation/4">handle_missing_translation(locale, domain, msgid, bindings)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_translation/4"><code class="inline">Gettext.Backend.handle_missing_translation/4</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:handle_missing_translation/4"><code class="inline">Gettext.Backend.handle_missing_translation/4</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -201,19 +197,19 @@ your module gains a set of macros for translations, for example:</p>
   <div class="summary-signature">
     <a href="#ngettext/4">ngettext(msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:ngettext/4"><code class="inline">Gettext.Backend.ngettext/4</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:ngettext/4"><code class="inline">Gettext.Backend.ngettext/4</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#ngettext_noop/2">ngettext_noop(msgid, msgid_plural)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:ngettext_noop/2"><code class="inline">Gettext.Backend.ngettext_noop/2</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:ngettext_noop/2"><code class="inline">Gettext.Backend.ngettext_noop/2</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#pgettext/3">pgettext(msgctxt, msgid, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:pgettext/3"><code class="inline">Gettext.Backend.pgettext/3</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:pgettext/3"><code class="inline">Gettext.Backend.pgettext/3</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -224,7 +220,7 @@ your module gains a set of macros for translations, for example:</p>
   <div class="summary-signature">
     <a href="#pngettext/5">pngettext(msgctxt, msgid, msgid_plural, n, bindings \\ Macro.escape(%{}))</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:pngettext/5"><code class="inline">Gettext.Backend.pngettext/5</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:pngettext/5"><code class="inline">Gettext.Backend.pngettext/5</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -256,10 +252,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dgettext/3"><code class="inline">Gettext.Backend.dgettext/3</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dgettext/3"><code class="inline">Gettext.Backend.dgettext/3</code></a>.</p>  </section>
 </section>
 <section class="detail" id="dgettext_noop/2">
   <div class="detail-header">
@@ -274,10 +271,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dgettext_noop/2"><code class="inline">Gettext.Backend.dgettext_noop/2</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dgettext_noop/2"><code class="inline">Gettext.Backend.dgettext_noop/2</code></a>.</p>  </section>
 </section>
 <section class="detail" id="dngettext/5">
     <span id="dngettext/4"></span>
@@ -293,10 +291,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dngettext/5"><code class="inline">Gettext.Backend.dngettext/5</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dngettext/5"><code class="inline">Gettext.Backend.dngettext/5</code></a>.</p>  </section>
 </section>
 <section class="detail" id="dngettext_noop/3">
   <div class="detail-header">
@@ -311,10 +310,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dngettext_noop/3"><code class="inline">Gettext.Backend.dngettext_noop/3</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dngettext_noop/3"><code class="inline">Gettext.Backend.dngettext_noop/3</code></a>.</p>  </section>
 </section>
 <section class="detail" id="dpgettext/4">
     <span id="dpgettext/3"></span>
@@ -330,10 +330,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dpgettext/4"><code class="inline">Gettext.Backend.dpgettext/4</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dpgettext/4"><code class="inline">Gettext.Backend.dpgettext/4</code></a>.</p>  </section>
 </section>
 <section class="detail" id="dpgettext_noop/3">
   <div class="detail-header">
@@ -348,8 +349,10 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="dpngettext/6">
@@ -366,10 +369,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:dpngettext/6"><code class="inline">Gettext.Backend.dpngettext/6</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:dpngettext/6"><code class="inline">Gettext.Backend.dpngettext/6</code></a>.</p>  </section>
 </section>
 <section class="detail" id="dpngettext_noop/4">
   <div class="detail-header">
@@ -384,8 +388,10 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="gettext/2">
@@ -402,10 +408,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:gettext/2"><code class="inline">Gettext.Backend.gettext/2</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:gettext/2"><code class="inline">Gettext.Backend.gettext/2</code></a>.</p>  </section>
 </section>
 <section class="detail" id="gettext_comment/1">
   <div class="detail-header">
@@ -420,10 +427,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:gettext_comment/1"><code class="inline">Gettext.Backend.gettext_comment/1</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:gettext_comment/1"><code class="inline">Gettext.Backend.gettext_comment/1</code></a>.</p>  </section>
 </section>
 <section class="detail" id="gettext_noop/1">
   <div class="detail-header">
@@ -438,10 +446,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:gettext_noop/1"><code class="inline">Gettext.Backend.gettext_noop/1</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:gettext_noop/1"><code class="inline">Gettext.Backend.gettext_noop/1</code></a>.</p>  </section>
 </section>
 <section class="detail" id="handle_missing_bindings/2">
   <div class="detail-header">
@@ -454,10 +463,11 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_bindings/2"><code class="inline">Gettext.Backend.handle_missing_bindings/2</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:handle_missing_bindings/2"><code class="inline">Gettext.Backend.handle_missing_bindings/2</code></a>.</p>  </section>
 </section>
 <section class="detail" id="handle_missing_plural_translation/6">
   <div class="detail-header">
@@ -470,10 +480,11 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_plural_translation/6"><code class="inline">Gettext.Backend.handle_missing_plural_translation/6</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:handle_missing_plural_translation/6"><code class="inline">Gettext.Backend.handle_missing_plural_translation/6</code></a>.</p>  </section>
 </section>
 <section class="detail" id="handle_missing_translation/4">
   <div class="detail-header">
@@ -486,10 +497,11 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:handle_missing_translation/4"><code class="inline">Gettext.Backend.handle_missing_translation/4</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:handle_missing_translation/4"><code class="inline">Gettext.Backend.handle_missing_translation/4</code></a>.</p>  </section>
 </section>
 <section class="detail" id="lgettext/5">
     <span id="lgettext/4"></span>
@@ -503,8 +515,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="lngettext/7">
@@ -519,8 +533,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+      </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="ngettext/4">
@@ -537,10 +553,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:ngettext/4"><code class="inline">Gettext.Backend.ngettext/4</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:ngettext/4"><code class="inline">Gettext.Backend.ngettext/4</code></a>.</p>  </section>
 </section>
 <section class="detail" id="ngettext_noop/2">
   <div class="detail-header">
@@ -555,10 +572,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:ngettext_noop/2"><code class="inline">Gettext.Backend.ngettext_noop/2</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:ngettext_noop/2"><code class="inline">Gettext.Backend.ngettext_noop/2</code></a>.</p>  </section>
 </section>
 <section class="detail" id="pgettext/3">
     <span id="pgettext/2"></span>
@@ -574,10 +592,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:pgettext/3"><code class="inline">Gettext.Backend.pgettext/3</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:pgettext/3"><code class="inline">Gettext.Backend.pgettext/3</code></a>.</p>  </section>
 </section>
 <section class="detail" id="pgettext_noop/2">
   <div class="detail-header">
@@ -592,8 +611,10 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="pngettext/5">
@@ -610,10 +631,11 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
-<p>Callback implementation for <a href="https://hexdocs.pm/gettext/0.17.4/Gettext.Backend.html#c:pngettext/5"><code class="inline">Gettext.Backend.pngettext/5</code></a>.</p>
-  </section>
+
+<p>Callback implementation for <a href="https://hexdocs.pm/gettext/Gettext.Backend.html#c:pngettext/5"><code class="inline">Gettext.Backend.pngettext/5</code></a>.</p>  </section>
 </section>
 <section class="detail" id="pngettext_noop/3">
   <div class="detail-header">
@@ -628,8 +650,10 @@ Functions          </h1>
      </a>
     
       <span class="note">(macro)</span>
-      </div>
+  </div>
+
   <section class="docstring">
+
   </section>
 </section>
           </div>
@@ -638,7 +662,7 @@ Functions          </h1>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.22.1),
           </span>
           <span class="line">
             designed by

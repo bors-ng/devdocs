@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.21.3">
+    <meta name="generator" content="ExDoc v0.22.1">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
-    <script src="dist/sidebar_items-38b1daa7c3.js"></script>
+    <link rel="stylesheet" href="dist/elixir-e589b8fad3dab6230c65.css" />
+    <script src="dist/sidebar_items-30d117c478.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/app-a225d03098e64fef431a.js"></script>
+    <script async src="dist/app-5c0c23dfec2d63ae33a2.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -75,8 +75,7 @@ BorsNG.GitHub
 
 
         <section id="moduledoc">
-<p>Wrappers around the GitHub REST API.</p>
-        </section>
+<p>Wrappers around the GitHub REST API.</p>        </section>
 
         <section id="summary" class="details-list">
           <h1 class="section-heading">
@@ -347,12 +346,14 @@ Types          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>tcollaborator() :: %{user: <a href="#t:tuser/0">tuser</a>(), perms: <a href="#t:tuser_repo_perms/0">tuser_repo_perms</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="t:tcommitter/0">
@@ -366,12 +367,14 @@ Types          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>tcommitter() :: %{name: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(), email: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="t:tconn/0">
@@ -385,15 +388,16 @@ Types          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>tconn() :: {<a href="#t:ttoken/0">ttoken</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>()} | {<a href="#t:ttoken/0">ttoken</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
 <p>A repository connection;
-it packages a repository with the permissions to access it.</p>
-  </section>
+it packages a repository with the permissions to access it.</p>  </section>
 </section>
 <section class="detail" id="t:tpr/0">
   <div class="detail-header">
@@ -406,12 +410,14 @@ it packages a repository with the permissions to access it.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>tpr() :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="t:trepo/0">
@@ -425,12 +431,14 @@ it packages a repository with the permissions to access it.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>trepo() :: <a href="BorsNG.GitHub.Repo.html#t:t/0">BorsNG.GitHub.Repo.t</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="t:trepo_perm/0">
@@ -444,12 +452,14 @@ it packages a repository with the permissions to access it.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>trepo_perm() :: :admin | :push | :pull</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="t:tstatus/0">
@@ -463,12 +473,14 @@ it packages a repository with the permissions to access it.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>tstatus() :: :ok | :running | :error</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="t:ttoken/0">
@@ -482,16 +494,17 @@ it packages a repository with the permissions to access it.</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>ttoken() :: {:installation, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>()} | {:raw, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
 <p>An authentication token;
 this may be a raw token (as on oAuth)
-or an installation xref (in which case the server will look it up).</p>
-  </section>
+or an installation xref (in which case the server will look it up).</p>  </section>
 </section>
 <section class="detail" id="t:tuser/0">
   <div class="detail-header">
@@ -504,12 +517,14 @@ or an installation xref (in which case the server will look it up).</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>tuser() :: <a href="BorsNG.GitHub.User.html#t:t/0">BorsNG.GitHub.User.t</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="t:tuser_repo_perms/0">
@@ -523,12 +538,14 @@ or an installation xref (in which case the server will look it up).</p>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>tuser_repo_perms() :: %{admin: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), push: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), pull: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
           </div>
@@ -552,12 +569,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>belongs_to_team?(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="create_commit/2">
@@ -571,7 +590,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>create_commit(<a href="#t:tconn/0">tconn</a>(), %{
   tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
@@ -580,8 +602,7 @@ Functions          </h1>
   committer: <a href="#t:tcommitter/0">tcommitter</a>() | nil
 }) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="create_commit!/2">
@@ -595,7 +616,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>create_commit!(<a href="#t:tconn/0">tconn</a>(), %{
   tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
@@ -604,8 +628,7 @@ Functions          </h1>
   committer: <a href="#t:tcommitter/0">tcommitter</a>() | nil
 }) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="delete_branch!/2">
@@ -619,12 +642,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>delete_branch!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: :ok</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="force_push!/3">
@@ -638,12 +663,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>force_push!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_app!/0">
@@ -657,12 +684,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_app!() :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_branch!/2">
@@ -676,12 +705,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_branch!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: %{commit: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(), tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_collaborators_by_repo/1">
@@ -695,12 +726,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_collaborators_by_repo(<a href="#t:tconn/0">tconn</a>()) :: {:ok, [<a href="#t:tcollaborator/0">tcollaborator</a>()]} | :error</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_commit_status!/2">
@@ -714,12 +747,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_commit_status!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: %{optional(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) => <a href="#t:tstatus/0">tstatus</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_file!/3">
@@ -733,12 +768,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_file!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>() | nil</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_installation_list!/0">
@@ -752,12 +789,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_installation_list!() :: [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()]</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_installation_repos!/1">
@@ -771,12 +810,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_installation_repos!(<a href="#t:ttoken/0">ttoken</a>()) :: [<a href="#t:trepo/0">trepo</a>()]</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_labels!/2">
@@ -790,12 +831,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_labels!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()]</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_open_prs!/1">
@@ -809,12 +852,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_open_prs!(<a href="#t:tconn/0">tconn</a>()) :: [<a href="#t:tpr/0">tpr</a>()]</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_pr/2">
@@ -828,13 +873,15 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_pr(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) ::
   {:ok, <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_pr!/2">
@@ -848,12 +895,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_pr!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_pr_commits/2">
@@ -867,13 +916,15 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_pr_commits(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) ::
   {:ok, [<a href="BorsNG.GitHub.Commit.html#t:t/0">BorsNG.GitHub.Commit.t</a>()]} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_pr_commits!/2">
@@ -887,12 +938,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_pr_commits!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: [<a href="BorsNG.GitHub.Commit.html#t:t/0">BorsNG.GitHub.Commit.t</a>()]</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_pr_files/2">
@@ -906,13 +959,15 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_pr_files(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) ::
   {:ok, [<a href="BorsNG.GitHub.File.html#t:t/0">BorsNG.GitHub.File.t</a>()]} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_pr_files!/2">
@@ -926,12 +981,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_pr_files!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: [<a href="BorsNG.GitHub.File.html#t:t/0">BorsNG.GitHub.File.t</a>()]</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_reviews!/2">
@@ -945,12 +1002,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_reviews!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_team_by_name/3">
@@ -964,13 +1023,15 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_team_by_name(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
   {:ok, <a href="BorsNG.GitHub.Team.html#t:t/0">BorsNG.GitHub.Team.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="get_user_by_login!/2">
@@ -984,12 +1045,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>get_user_by_login!(<a href="#t:ttoken/0">ttoken</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: {:ok, <a href="#t:tuser/0">tuser</a>()} | :error | nil</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="map_changed_status/1">
@@ -1003,12 +1066,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>map_changed_status(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="map_check_to_status/1">
@@ -1022,12 +1087,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>map_check_to_status(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="#t:tstatus/0">tstatus</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="map_state_to_status/1">
@@ -1041,12 +1108,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>map_state_to_status(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="#t:tstatus/0">tstatus</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="map_status_to_state/1">
@@ -1060,12 +1129,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>map_status_to_state(<a href="#t:tstatus/0">tstatus</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="merge_branch!/2">
@@ -1079,7 +1150,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>merge_branch!(<a href="#t:tconn/0">tconn</a>(), %{
   from: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
@@ -1087,8 +1161,7 @@ Functions          </h1>
   commit_message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()
 }) :: %{commit: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()} | :conflict</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="post_comment!/3">
@@ -1102,12 +1175,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>post_comment!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: :ok</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="post_commit_status!/2">
@@ -1121,12 +1196,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>post_commit_status!(<a href="#t:tconn/0">tconn</a>(), {<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="#t:tstatus/0">tstatus</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}) :: :ok</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="push/3">
@@ -1140,13 +1217,15 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>push(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) ::
   {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="push!/3">
@@ -1160,12 +1239,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>push!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="synthesize_commit!/2">
@@ -1179,7 +1260,10 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>synthesize_commit!(<a href="#t:tconn/0">tconn</a>(), %{
   branch: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
@@ -1189,8 +1273,7 @@ Functions          </h1>
   committer: <a href="#t:tcommitter/0">tcommitter</a>() | nil
 }) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="update_pr/2">
@@ -1204,13 +1287,15 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>update_pr(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) ::
   {:ok, <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
 <section class="detail" id="update_pr!/2">
@@ -1224,12 +1309,14 @@ Functions          </h1>
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-        
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
       <div class="specs">
           <pre>update_pr!(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
       </div>
-  </div>
-  <section class="docstring">
+
   </section>
 </section>
           </div>
@@ -1238,7 +1325,7 @@ Functions          </h1>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.22.1),
           </span>
           <span class="line">
             designed by
