@@ -160,7 +160,7 @@ defmodule DevDocs.GitHub do
   def get_installation_token!(integration_token, installation_xref) do
     cfg = config()
     %{body: raw, status_code: 201} = HTTPoison.post!(
-      "#{cfg[:site]}/installations/#{installation_xref}/access_tokens",
+      "#{cfg[:site]}/app/installations/#{installation_xref}/access_tokens",
       "",
       [
         {"Authorization", "Bearer #{integration_token}"},
