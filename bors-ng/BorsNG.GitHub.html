@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.22.1">
+    <meta name="generator" content="ExDoc v0.22.2">
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub — Bors-NG v0.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-e589b8fad3dab6230c65.css" />
-    <script src="dist/sidebar_items-e6de284fbb.js"></script>
+    <link rel="stylesheet" href="dist/elixir-d678dad126d82ddc061f.css" />
+    <script src="dist/sidebar_items-e207d7005e.js"></script>
       <script src="docs_config.js"></script>
-    <script async src="dist/app-5c0c23dfec2d63ae33a2.js"></script>
+    <script async src="dist/app-0103364119015b97e56c.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -151,7 +151,7 @@ or an installation xref (in which case the server will look it up).</p></div>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#belongs_to_team?/3">belongs_to_team?(repo_conn, username, team_id)</a>
+    <a href="#belongs_to_team?/4">belongs_to_team?(repo_conn, org, team_slug, username)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -257,11 +257,6 @@ or an installation xref (in which case the server will look it up).</p></div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#get_reviews!/2">get_reviews!(repo_conn, issue_xref)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#get_team_by_name/3">get_team_by_name(repo_conn, org_name, team_name)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -563,14 +558,14 @@ or an installation xref (in which case the server will look it up).</p>  </secti
             </a>
 Functions          </h1>
           <div class="functions-list">
-<section class="detail" id="belongs_to_team?/3">
+<section class="detail" id="belongs_to_team?/4">
   <div class="detail-header">
-    <a href="#belongs_to_team?/3" class="detail-link" title="Link to this function">
+    <a href="#belongs_to_team?/4" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">belongs_to_team?(repo_conn, username, team_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L354" class="view-source" rel="help" title="View Source">
+    <h1 class="signature">belongs_to_team?(repo_conn, org, team_slug, username)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L344" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -579,7 +574,7 @@ Functions          </h1>
   <section class="docstring">
       <h2>Specs</h2>
       <div class="specs">
-          <pre>belongs_to_team?(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
+          <pre>belongs_to_team?(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
       </div>
 
   </section>
@@ -685,7 +680,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_app!()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L373" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L363" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -727,7 +722,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_collaborators_by_repo(repo_conn)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L364" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L354" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -778,7 +773,7 @@ Functions          </h1>
   <section class="docstring">
       <h2>Specs</h2>
       <div class="specs">
-          <pre>get_commit_status!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: %{optional(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) => <a href="#t:tstatus/0">tstatus</a>()}</pre>
+          <pre>get_commit_status!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: %{optional(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) =&gt; <a href="#t:tstatus/0">tstatus</a>()}</pre>
       </div>
 
   </section>
@@ -811,7 +806,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_installation_list!()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L393" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L383" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -832,7 +827,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_installation_repos!(token)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L381" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L371" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1038,28 +1033,6 @@ Functions          </h1>
 
   </section>
 </section>
-<section class="detail" id="get_team_by_name/3">
-  <div class="detail-header">
-    <a href="#get_team_by_name/3" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">get_team_by_name(repo_conn, org_name, team_name)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L344" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-      </div>
-
-  <section class="docstring">
-      <h2>Specs</h2>
-      <div class="specs">
-          <pre>get_team_by_name(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
-  {:ok, <a href="BorsNG.GitHub.Team.html#t:t/0">BorsNG.GitHub.Team.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
-      </div>
-
-  </section>
-</section>
 <section class="detail" id="get_user_by_login!/2">
   <div class="detail-header">
     <a href="#get_user_by_login!/2" class="detail-link" title="Link to this function">
@@ -1088,7 +1061,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_changed_status(check_name)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L433" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L423" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1109,7 +1082,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_check_to_status(conclusion)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L415" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L405" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1130,7 +1103,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_state_to_status(state)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L405" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L395" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1151,7 +1124,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_status_to_state(state)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L424" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L414" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1351,7 +1324,7 @@ Functions          </h1>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.22.1),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.22.2),
           </span>
           <span class="line">
             designed by
