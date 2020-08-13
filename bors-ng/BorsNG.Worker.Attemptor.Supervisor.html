@@ -99,7 +99,7 @@ BorsNG.Worker.Attemptor.Supervisor
   <div class="summary-signature">
     <a href="#init/1">init(atom)</a>
   </div>
-    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/elixir/Supervisor.html#c:init/1"><code class="inline">Supervisor.init/1</code></a>.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/elixir/DynamicSupervisor.html#c:init/1"><code class="inline">DynamicSupervisor.init/1</code></a>.</p></div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -146,7 +146,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">init(atom)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor/supervisor.ex#L17" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor/supervisor.ex#L23" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -154,7 +154,7 @@ Functions          </h1>
 
   <section class="docstring">
 
-<p>Callback implementation for <a href="https://hexdocs.pm/elixir/Supervisor.html#c:init/1"><code class="inline">Supervisor.init/1</code></a>.</p>  </section>
+<p>Callback implementation for <a href="https://hexdocs.pm/elixir/DynamicSupervisor.html#c:init/1"><code class="inline">DynamicSupervisor.init/1</code></a>.</p>  </section>
 </section>
 <section class="detail" id="start/1">
   <div class="detail-header">
@@ -163,13 +163,17 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">start(project_id)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor/supervisor.ex#L13" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/attemptor/supervisor.ex#L14" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
       </div>
 
   <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>start(<a href="BorsNG.Database.Project.html#t:id/0">BorsNG.Database.Project.id</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pid</a>()}</pre>
+      </div>
 
   </section>
 </section>
