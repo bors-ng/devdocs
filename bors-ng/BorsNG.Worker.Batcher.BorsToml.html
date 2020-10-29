@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.Worker.Batcher.BorsToml — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-2a693ebc6ceec33a2045.css" />
-    <script src="dist/sidebar_items-e207d7005e.js"></script>
+    <script src="dist/sidebar_items-a682090ac3.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/app-ba01209f31ac9a9695fd.js"></script>
   </head>
@@ -74,13 +74,13 @@ Bors-NG      </a>
 
 
         <section id="moduledoc">
-<p>The format for <code class="inline">bors.toml</code>. It looks like this:</p><pre><code class="nohighlight makeup elixir"><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="3890225197-1">[</span><span class="w">
+<p>The format for <code class="inline">bors.toml</code>. It looks like this:</p><pre><code class="nohighlight makeup elixir"><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="1351305369-1">[</span><span class="w">
   </span><span class="s">&quot;continuous-integration/travis-ci/push&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s">&quot;continuous-integration/appveyor/branch&quot;</span><span class="p" data-group-id="3890225197-1">]</span><span class="w">
+  </span><span class="s">&quot;continuous-integration/appveyor/branch&quot;</span><span class="p" data-group-id="1351305369-1">]</span><span class="w">
 
-</span><span class="n">block_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="3890225197-2">[</span><span class="w"> </span><span class="s">&quot;S-do-not-merge-yet&quot;</span><span class="w"> </span><span class="p" data-group-id="3890225197-2">]</span><span class="w">
+</span><span class="n">block_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="1351305369-2">[</span><span class="w"> </span><span class="s">&quot;S-do-not-merge-yet&quot;</span><span class="w"> </span><span class="p" data-group-id="1351305369-2">]</span><span class="w">
 
-</span><span class="n">pr_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="3890225197-3">[</span><span class="w"> </span><span class="s">&quot;continuous-integration/travis-ci/pull&quot;</span><span class="w"> </span><span class="p" data-group-id="3890225197-3">]</span></code></pre>        </section>
+</span><span class="n">pr_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="1351305369-3">[</span><span class="w"> </span><span class="s">&quot;continuous-integration/travis-ci/pull&quot;</span><span class="w"> </span><span class="p" data-group-id="1351305369-3">]</span></code></pre>        </section>
 
         <section id="summary" class="details-list">
           <h1 class="section-heading">
@@ -137,7 +137,7 @@ Types          </h1>
       <span class="sr-only">Link to this type</span>
     </a>
     <h1 class="signature">err()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L53" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L55" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -168,7 +168,7 @@ Types          </h1>
       <span class="sr-only">Link to this type</span>
     </a>
     <h1 class="signature">t()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L38" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L39" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -188,6 +188,7 @@ Types          </h1>
   status: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()],
   timeout_sec: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(),
   up_to_date_approvals: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(),
+  update_base_for_deletes: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(),
   use_codeowners: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(),
   use_squash_merge: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()
 }</pre>
@@ -202,7 +203,7 @@ Types          </h1>
       <span class="sr-only">Link to this type</span>
     </a>
     <h1 class="signature">tcommitter()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L33" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L34" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -233,7 +234,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">new(str)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L72" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/worker/batcher/bors_toml.ex#L74" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
