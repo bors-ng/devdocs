@@ -8,7 +8,7 @@
     <meta name="project" content="Bors-NG v0.1.0">
     <title>BorsNG.GitHub — Bors-NG v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-2a693ebc6ceec33a2045.css" />
-    <script src="dist/sidebar_items-a682090ac3.js"></script>
+    <script src="dist/sidebar_items-42913e9b84.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/app-ba01209f31ac9a9695fd.js"></script>
   </head>
@@ -328,6 +328,16 @@ or an installation xref (in which case the server will look it up).</p></div>
     <a href="#update_pr!/2">update_pr!(repo_conn, pr)</a>
   </div>
 </div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_pr_base/2">update_pr_base(repo_conn, pr)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_pr_base!/2">update_pr_base!(repo_conn, pr)</a>
+  </div>
+</div>
   </div>
         </section>
 
@@ -569,7 +579,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">belongs_to_team?(repo_conn, org, team_slug, username)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L356" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L372" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -590,7 +600,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">create_commit(repo_conn, info)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L220" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L236" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -616,7 +626,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">create_commit!(repo_conn, info)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L203" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L219" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -642,7 +652,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">delete_branch!(repo_conn, branch)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L152" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L168" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -663,7 +673,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">force_push!(repo_conn, sha, to)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L229" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L245" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -684,7 +694,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_app!()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L375" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L391" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -705,7 +715,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_branch!(repo_conn, from)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L140" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L156" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -726,7 +736,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_collaborators_by_repo(repo_conn)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L366" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L382" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -747,7 +757,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_commit_reviews!(repo_conn, issue_xref, sha)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L279" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L295" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -768,7 +778,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_commit_status!(repo_conn, sha)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L243" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L259" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -789,7 +799,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_file!(repo_conn, branch, path)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L291" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L307" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -810,7 +820,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_installation_list!()</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L395" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L411" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -831,7 +841,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_installation_repos!(token)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L383" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L399" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -852,7 +862,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_labels!(repo_conn, issue_xref)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L255" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L271" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -873,7 +883,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_open_prs!(repo_conn)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L95" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L111" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -894,7 +904,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_open_prs_with_base!(repo_conn, base)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L107" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L123" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -958,7 +968,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_pr_commits(repo_conn, pr_xref)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L86" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L102" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -980,7 +990,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_pr_commits!(repo_conn, pr_xref)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L79" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L95" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1044,7 +1054,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_reviews!(repo_conn, issue_xref)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L267" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L283" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1065,7 +1075,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">get_user_by_login!(token, login)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L343" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L359" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1086,7 +1096,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_changed_status(check_name)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L435" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L451" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1107,7 +1117,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_check_to_status(conclusion)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L417" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L433" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1128,7 +1138,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_state_to_status(state)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L407" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L423" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1149,7 +1159,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">map_status_to_state(state)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L426" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L442" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1170,7 +1180,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">merge_branch!(repo_conn, info)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L168" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L184" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1195,7 +1205,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">post_comment!(repo_conn, number, body)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L303" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L319" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1216,7 +1226,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">post_commit_status!(repo_conn, arg)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L315" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L331" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1237,7 +1247,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">push(repo_conn, sha, to)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L131" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L147" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1259,7 +1269,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">push!(repo_conn, sha, to)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L119" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L135" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1280,7 +1290,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">synthesize_commit!(repo_conn, info)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L186" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L202" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1307,7 +1317,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">update_pr(repo_conn, pr)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L70" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L86" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1329,7 +1339,7 @@ Functions          </h1>
       <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature">update_pr!(repo_conn, pr)</h1>
-      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L63" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L69" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -1339,6 +1349,49 @@ Functions          </h1>
       <h2>Specs</h2>
       <div class="specs">
           <pre>update_pr!(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="update_pr_base/2">
+  <div class="detail-header">
+    <a href="#update_pr_base/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_pr_base(repo_conn, pr)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L76" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>update_pr_base(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) ::
+  {:ok, <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="update_pr_base!/2">
+  <div class="detail-header">
+    <a href="#update_pr_base!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_pr_base!(repo_conn, pr)</h1>
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L63" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+      </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>update_pr_base!(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
       </div>
 
   </section>
