@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '@weekly'
+    - cron: '0 0 * * 0'
 
 jobs:
   mdbook:
