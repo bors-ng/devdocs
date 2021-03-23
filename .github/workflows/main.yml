@@ -16,6 +16,9 @@ jobs:
         otp-version: "23.2"
         elixir-version: "1.11.0"
     - run: mix do deps.get, run
+      env:
+        DEVDOCS_GITHUB_ISS: ${{secrets.DEVDOCS_GITHUB_ISS}}
+        DEVDOCS_GITHUB_PEM: ${{secrets.DEVDOCS_GITHUB_PEM}}
     - run: echo -ne "machine github.com\nlogin ${{secrets.DEPLOY_LOGIN}}\npassword ${{secrets.DEPLOY_PASSWORD}}\n" > $HOME/.netrc && chmod 600 ~/.netrc
     - run: git config --global --add user.name "Github Actions"
     - run: git config --global --add user.email "github-action@users.noreply.github.com"
