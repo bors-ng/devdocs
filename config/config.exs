@@ -6,5 +6,5 @@ config :devdocs, DevDocs,
   self_repo: System.get_env("DEVDOCS_SELF_REPO")
 
 config :devdocs, DevDocs.GitHub,
-  iss: String.to_integer(System.get_env("DEVDOCS_GITHUB_ISS")),
-  pem: Base.decode64!(System.get_env("DEVDOCS_GITHUB_PEM"))
+  iss: String.to_integer(System.get_env("DEVDOCS_GITHUB_ISS") || "0"),
+  pem: Base.decode64!(System.get_env("DEVDOCS_GITHUB_PEM") || "")
