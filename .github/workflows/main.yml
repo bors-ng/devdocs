@@ -1,0 +1,27 @@
+name: CI
+on:
+  # Only run when merging to master, because it uses secrets.
+  push:
+    branches:
+      - master
+
+jobs:
+  mdbook:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: erlef/setup-elixir@v1
+      with:
+        otp-version: "1.11.0"
+        elixir-version: "23.2"
+    - run: mix do local.rebar --force, local.hex --force, deps.get, run
+    - run: echo -ne "machine github.com\nlogin ${{secrets.DEPLOY_LOGIN}}\npassword ${{secrets.DEPLOY_PASSWORD}}\n" > $HOME/.netrc && chmod 600 ~/.netrc
+    - run: git config --global --add user.name "Github Actions"
+    - run: git config --global --add user.email "github-action@users.noreply.github.com"
+    - run: git -C _docsubmit init
+    - run: git -C _docsubmit add .
+    - run: git -C _docsubmit commit -m "Deploy page"
+    - run: git -C _docsubmit remote add origin https://github.com/bors-ng/rfcs
+    - run: git -C _docsubmit push -f origin HEAD:gh-pages
+
