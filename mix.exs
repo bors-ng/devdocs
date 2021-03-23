@@ -35,7 +35,6 @@ defmodule Devdocs.Mixfile do
       {:httpoison, "~> 1.7.0"},
       {:joken, "~> 1.1"},
       {:jose, "~> 1.8"},
-      {:libsodium, "~> 0.0.3"},
       {:etoml, [git: "git://github.com/kalta/etoml.git"]},
       {:ex_doc, "~> 0.14"},
     ]
