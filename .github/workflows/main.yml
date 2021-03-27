@@ -27,6 +27,6 @@ jobs:
     - run: git -C _docsubmit init
     - run: git -C _docsubmit add .
     - run: git -C _docsubmit commit -m "Deploy page"
-    - run: git -C _docsubmit remote add origin https://github.com/bors-ng/rfcs
+    - run: git -C _docsubmit remote add origin https://github.com/bors-ng/devdocs
     - run: git -C _docsubmit push -f origin HEAD:gh-pages
 
