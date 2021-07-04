@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.24.2">
+    <meta name="project" content="Bors-NG v0.1.0">
+
+    <title>BorsNG.Command — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+
+    <script src="dist/sidebar_items-d9e4489390.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+
+  </head>
+  <body data-type="modules">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+      <li><a id="tasks-list-link" href="#full-list">Mix Tasks</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+BorsNG.Command <small class="app-vsn">(Bors-NG v0.1.0)</small>
+
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+
+      </h1>
+
+
+        <section id="moduledoc">
+<p>Resolve magic comments.</p><h1>try</h1><p>The bors comment CLI allows parameters to be passed to try.
+Assuming the activation phrase is &quot;bors try&quot;, you can do things like this:</p><pre><code class="makeup elixir"><span class="n">bors</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="o">--</span><span class="n">layout</span></code></pre><p>And the commit will come out like:</p><pre><code class="makeup elixir"><span class="nc">Try</span><span class="w"> </span><span class="c1">#13: --layout</span></code></pre><p>Your build scripts should then inspect the commit message
+to pull out the commands.</p>
+        </section>
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:cmd/0">cmd()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:t/0">t()</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#delegate_to/2">delegate_to(c, delegatee)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#fetch_patch/1">fetch_patch(c)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>If the Patch is not already in this struct, fetch it.
+This will not re-sync from GitHub unless it isn't even in the database.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#fetch_pr/1">fetch_pr(c)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>If the GitHub PR is not already in this struct, fetch it.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#log/2">log(c, cmd)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse/1">parse(comment)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Parse a comment for bors commands.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse_activation_args/1">parse_activation_args(arguments)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse_activation_args/2">parse_activation_args(binary, string)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>The username part of an activation-by command is defined like this</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse_cmd/1">parse_cmd(arg1)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse_delegation_args/1">parse_delegation_args(arguments)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse_delegation_args/3">parse_delegation_args(l, nick, arg3)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>The username part of a delegate-to command is defined like this</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse_priority/1">parse_priority(binary)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#parse_single_patch/1">parse_single_patch(binary)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#permission_denied/1">permission_denied(c)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#regex/0">regex()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#required_permission_level/1">required_permission_level(cmd_list)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#required_permission_level_cmd/1">required_permission_level_cmd(arg1)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#run/1">run(c)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Given a populated struct, run everything.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#run/2">run(c, arg2)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#trim_and_parse_cmd/1">trim_and_parse_cmd(arg1)</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+        </section>
+
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types
+          </h1>
+          <div class="types-list">
+<section class="detail" id="t:cmd/0">
+
+  <div class="detail-header">
+    <a href="#t:cmd/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">cmd()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L97" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>cmd() ::
+  {:try, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}
+  | :try_cancel
+  | {:activate_by, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}
+  | {:set_is_single, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}
+  | {:set_priority, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}
+  | :activate
+  | :deactivate
+  | :delegate
+  | {:delegate_to, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}
+  | {:autocorrect, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}
+  | :ping
+  | :retry</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:t/0">
+
+  <div class="detail-header">
+    <a href="#t:t/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">t()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L44" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>t() :: %BorsNG.Command{
+  comment: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(),
+  commenter: <a href="BorsNG.Database.User.html#t:t/0">BorsNG.Database.User.t</a>(),
+  patch: <a href="BorsNG.Database.Patch.html#t:t/0">BorsNG.Database.Patch.t</a>() | nil,
+  pr: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>() | nil,
+  pr_xref: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(),
+  project: <a href="BorsNG.Database.Project.html#t:t/0">BorsNG.Database.Project.t</a>()
+}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions
+          </h1>
+          <div class="functions-list">
+<section class="detail" id="delegate_to/2">
+
+  <div class="detail-header">
+    <a href="#delegate_to/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">delegate_to(c, delegatee)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L527" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="fetch_patch/1">
+
+  <div class="detail-header">
+    <a href="#fetch_patch/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">fetch_patch(c)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L80" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>fetch_patch(<a href="#t:t/0">t</a>()) :: <a href="#t:t/0">t</a>()</pre>
+
+      </div>
+
+<p>If the Patch is not already in this struct, fetch it.
+This will not re-sync from GitHub unless it isn't even in the database.</p>
+  </section>
+</section>
+<section class="detail" id="fetch_pr/1">
+
+  <div class="detail-header">
+    <a href="#fetch_pr/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">fetch_pr(c)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L60" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>fetch_pr(<a href="#t:t/0">t</a>()) :: <a href="#t:t/0">t</a>()</pre>
+
+      </div>
+
+<p>If the GitHub PR is not already in this struct, fetch it.</p>
+  </section>
+</section>
+<section class="detail" id="log/2">
+
+  <div class="detail-header">
+    <a href="#log/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">log(c, cmd)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L424" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>log(<a href="#t:t/0">t</a>(), <a href="#t:cmd/0">cmd</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="parse/1">
+
+  <div class="detail-header">
+    <a href="#parse/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse(comment)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L115" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>parse(nil) :: []</pre>
+
+          <pre>parse(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: [<a href="#t:cmd/0">cmd</a>()]</pre>
+
+      </div>
+
+<p>Parse a comment for bors commands.</p>
+  </section>
+</section>
+<section class="detail" id="parse_activation_args/1">
+
+  <div class="detail-header">
+    <a href="#parse_activation_args/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_activation_args(arguments)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L238" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="parse_activation_args/2">
+
+  <div class="detail-header">
+    <a href="#parse_activation_args/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_activation_args(binary, string)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L196" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>The username part of an activation-by command is defined like this:</p><ul><li><p>It may start with whitespace</p></li><li><p>@-signs are stripped</p></li><li><p>&quot;, &quot; is converted to &quot;,&quot;</p></li><li><p>Otherwise, whitespace ends it.</p><p>iex&gt; alias BorsNG.Command
+iex&gt; Command.parse_activation_args(&quot;&quot;, &quot; this, is, whitespace heavy&quot;)
+&quot;this,is,whitespace&quot;
+iex&gt; Command.parse_activation_args(&quot;&quot;, &quot; @this, @has, @ats&quot;)
+&quot;this,has,ats&quot;
+iex&gt; Command.parse_activation_args(&quot;&quot;, &quot; trimmed &quot;)
+&quot;trimmed&quot;
+iex&gt; Command.parse_activation_args(&quot;&quot;, &quot;what\never&quot;)
+&quot;what&quot;
+iex&gt; Command.parse_activation_args(&quot;&quot;, &quot;&quot;)
+&quot;&quot;
+iex&gt; Command.parse_activation_args(&quot;somebody&quot;)
+[{:activate_by, &quot;somebody&quot;}]
+iex&gt; Command.parse_activation_args(&quot;&quot;)
+[]
+iex&gt; Command.parse_activation_args(&quot;  &quot;)
+[]
+iex&gt; Command.parse_activation_args(&quot;somebody p=10&quot;)
+[{:set_priority, 10}, {:activate_by, &quot;somebody&quot;}]</p></li></ul>
+  </section>
+</section>
+<section class="detail" id="parse_cmd/1">
+
+  <div class="detail-header">
+    <a href="#parse_cmd/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_cmd(arg1)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L142" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="parse_delegation_args/1">
+
+  <div class="detail-header">
+    <a href="#parse_delegation_args/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_delegation_args(arguments)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L308" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="parse_delegation_args/3">
+
+  <div class="detail-header">
+    <a href="#parse_delegation_args/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_delegation_args(l, nick, arg3)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L276" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>The username part of a delegate-to command is defined like this:</p><ul><li><p>It may start with whitespace</p></li><li><p>@-signs are stripped</p></li><li><p>&quot;, &quot; is converted to &quot;,&quot;</p></li><li><p>Otherwise, whitespace ends it.</p></li><li><p>It's split on comma.</p><p>iex&gt; alias BorsNG.Command
+iex&gt; Command.parse_delegation_args(&quot; this, is, whitespace heavy&quot;)
+[
+  {:delegate_to, &quot;this&quot;},
+  {:delegate_to, &quot;is&quot;},
+  {:delegate_to, &quot;whitespace&quot;}]
+iex&gt; Command.parse_delegation_args(&quot; @this, @has, @ats&quot;)
+[{:delegate_to, &quot;this&quot;}, {:delegate_to, &quot;has&quot;}, {:delegate_to, &quot;ats&quot;}]
+iex&gt; Command.parse_delegation_args(&quot; trimmed &quot;)
+[{:delegate_to, &quot;trimmed&quot;}]
+iex&gt; Command.parse_delegation_args(&quot;what\never&quot;)
+[{:delegate_to, &quot;what&quot;}]
+iex&gt; Command.parse_delegation_args(&quot;somebody&quot;)
+[{:delegate_to, &quot;somebody&quot;}]
+iex&gt; Command.parse_delegation_args(&quot;&quot;)
+[]
+iex&gt; Command.parse_delegation_args(&quot;  &quot;)
+[]</p></li></ul>
+  </section>
+</section>
+<section class="detail" id="parse_priority/1">
+
+  <div class="detail-header">
+    <a href="#parse_priority/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_priority(binary)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L318" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="parse_single_patch/1">
+
+  <div class="detail-header">
+    <a href="#parse_single_patch/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">parse_single_patch(binary)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L324" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="permission_denied/1">
+
+  <div class="detail-header">
+    <a href="#permission_denied/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">permission_denied(c)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L400" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="regex/0">
+
+  <div class="detail-header">
+    <a href="#regex/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">regex()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L128" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="required_permission_level/1">
+
+  <div class="detail-header">
+    <a href="#required_permission_level/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">required_permission_level(cmd_list)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L385" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="required_permission_level_cmd/1">
+
+  <div class="detail-header">
+    <a href="#required_permission_level_cmd/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">required_permission_level_cmd(arg1)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L357" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="run/1">
+
+  <div class="detail-header">
+    <a href="#run/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">run(c)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L338" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>run(<a href="#t:t/0">t</a>()) :: :ok</pre>
+
+      </div>
+
+<p>Given a populated struct, run everything.</p>
+  </section>
+</section>
+<section class="detail" id="run/2">
+
+  <div class="detail-header">
+    <a href="#run/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">run(c, arg2)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L429" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>run(<a href="#t:t/0">t</a>(), <a href="#t:cmd/0">cmd</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="trim_and_parse_cmd/1">
+
+  <div class="detail-header">
+    <a href="#trim_and_parse_cmd/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">trim_and_parse_cmd(arg1)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/web/command.ex#L130" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.24.2) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+  </body>
+</html>

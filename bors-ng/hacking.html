@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.24.2">
+    <meta name="project" content="Bors-NG v0.1.0">
+
+    <title>The innards of Bors-NG — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+
+    <script src="dist/sidebar_items-d9e4489390.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+      <li><a id="tasks-list-link" href="#full-list">Mix Tasks</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>The innards of Bors-NG</h1><p>Bors-NG uses Ecto for all permanent data storage
+and Phoenix to implement the webserver portion
+(which is responsible for both the dashboard frontend and GitHub webhooks).
+Bors-NG also has a number of worker GenServers,
+to help isolate different projects from each other and perform background processing.</p><p>You'll also want to do some terminology mapping between what we say to users and what we say in the code:</p><ul><li>Project → Repo: A Bors &quot;Project&quot; corresponds to a GitHub &quot;Repo.&quot;<pre><code class="makeup elixir"><span class="w">            </span><span class="nc">We</span><span class="w"> </span><span class="k" data-group-id="5625001870-1">do</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">renaming</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="nc">Ecto</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">concept</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Repo</span><span class="o">.</span></code></pre></li><li>Attempt → Try: Try is a keyword in Elixir, and in a lot of other languages besides,<pre><code class="makeup elixir"><span class="w">           </span><span class="n">so</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">attempt</span><span class="o">.</span></code></pre></li><li>Patch → PR: A Bors &quot;Patch&quot; corresponds to a GitHub &quot;Pull Request.&quot;</li></ul><h2 id="the-frontend" class="section-heading">
+  <a href="#the-frontend" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  The frontend
+</h2>
+<p>In the source tree, you'll find the frontend in the <code class="inline">lib/web</code> folder.
+There is also a webhook controller in the <code class="inline">lib/web/controllers</code> folder.
+This isn't really part of the frontend, because the user won't be interacting with it,
+but rather GitHub will POST to it when comments are left, builds are completed,
+and new GitHub repositories are associated with our integration.
+The webhook controller is on a separate Plug pipeline for this reason.</p><h2 id="the-backend" class="section-heading">
+  <a href="#the-backend" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  The backend
+</h2>
+<p>In <code class="inline">lib/worker</code>, the worker GenServers are implemented.</p><h3 id="worker-batcher-and-worker-attemptor" class="section-heading">
+  <a href="#worker-batcher-and-worker-attemptor" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">Worker.Batcher</code> and <code class="inline">Worker.Attemptor</code>
+</h3>
+<p>Batcher handles &quot;r+&quot;-ed patches, which the user is attempting to land in master.
+Attemptor handles &quot;try&quot;-ed patches.</p><p>Batcher and Attemptor both have about the same structure:
+each project has zero or one instance of these workers at any time,
+and a registry GenServer lazily creates an instance if it's needed and none exists.</p><p>The webhook controller sends a message to the appropriate worker when the user
+posts the comment on a pull request.
+The webhook controller also delivers status notifications for running builds,
+and the server will poll GitHub every half-hour just in case.</p><p>These servers also keep all their state written to Ecto,
+so bors can pick up where it left off if it's restarted.</p><h2 id="the-github-glue" class="section-heading">
+  <a href="#the-github-glue" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  The GitHub glue
+</h2>
+<p>Found in the folder <code class="inline">lib/github</code>.</p><h3 id="github-server" class="section-heading">
+  <a href="#github-server" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  GitHub.Server
+</h3>
+<p>All requests made to GitHub's REST API
+(except a couple things related to oAuth) go through the &quot;GitHub API server.&quot;
+This server keeps a cache of installation tokens
+(so we don't constantly re-request them) and is responsible for rate limiting.
+It can be replaced with <code class="inline">GitHub.ServerMock</code>, for local testing.</p><p>As a further development convenience, you can initialize some test data using <a href="https://bors.tech/devdocs/bors-ng/BorsNG.GitHub.FriendlyMock.html" title=""><code class="inline">GitHub.FriendlyMock</code></a>,
+from the IEx REPL.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="api-reference.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+API Reference
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="contributing.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Getting started for contributors
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.24.2) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+  </body>
+</html>

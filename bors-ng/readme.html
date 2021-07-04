@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.24.2">
+    <meta name="project" content="Bors-NG v0.1.0">
+
+    <title>A merge bot for GitHub pull requests — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+
+    <script src="dist/sidebar_items-d9e4489390.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+      <li><a id="tasks-list-link" href="#full-list">Mix Tasks</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>A merge bot for GitHub pull requests</h1><p><a href="https://gitpod.io/#https://github.com/bors-ng/bors-ng"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod"/></a></p><p><a href="https://app.bors.tech/repositories/3"><img src="https://bors.tech/images/badge_small.svg" alt="Bors enabled"/></a></p><p><a href="https://bors.tech/" title="">Bors-NG</a> implements a continuous-testing workflow where the main branch never breaks.
+It integrates GitHub pull requests with a tool like <a href="https://travis-ci.org/" title="">Travis CI</a> that runs your tests.</p><p>Other resources:</p><ul><li><a href="https://bors.tech/">Home page</a></li><li><a href="https://bors.tech/documentation/">Documentation</a></li><li><a href="https://forum.bors.tech/">Support forum</a></li><li><a href="https://app.bors.tech/">Publicly hosted instance (public repositories only)</a></li></ul><h1>But don't GitHub's Protected Branches already do this?</h1><p>Most CI systems, like Travis, Jenkins, and GitHub Actions both run the test suite
+on every branch after it's pushed to and every pull request when it's opened, and
+GitHub can block the pull requests if the tests fail on them. To understand why
+this is insufficient to get an evergreen main branch, imagine this:</p><ul><li><h4>Pull Request #1: Rename <code class="inline">bifurcate()</code> to <code class="inline">bifurcateCrab()</code></h4><p>Change the name of this function, as well as every call site that currently
+exists in the main branch. I've thought of making it a method on Crab instead
+of on Sword, but then it would be <code class="inline">bifurcateWithSword()</code>, which hardly seems
+like an improvement.</p></li><li><h4>Pull Request #2: <code class="inline">bifurcate()</code> after landing, in addition to before</h4><p>Adds another call to <code class="inline">bifurcate()</code>, to make sure it gets done even if we
+skip the pre-landing procedure.</p></li></ul><p>When both of these pull requests are sitting open in the backlog, they will
+both be tested with the main branch. Assuming they both pass, GitHub will happily
+present the Big Green Merge Button. Once they both get merged, the main branch
+will go red (Method <code class="inline">bifurcate()</code> not found).</p><p>In addition to the testing requirements, GitHub can also be set to block pull
+requests that are not &quot;up to date&quot; with the main branch, meaning that problems
+like this can show up. This fixes the problem, by requiring that the main branch
+only contain a snapshot of the code that has passed the tests, but it requires
+maintainers to manually:</p><ol><li>&quot;Update the pull requests,&quot; merging them onto main without changing
+main itself</li><li>Wait for the test suite to finish</li><li>Merge the pull request when it's done, which is a trivial operation that
+can't break the test suite thanks to step 1</li></ol><p>And it has to be done for every pull request one at a time.</p><p>This is similar to, but less efficient than, the process that bors automates.
+Instead of merging, you add reviewed pull requests to a &quot;merge queue&quot; of pull
+requests that are tested against the main branch by copying it to a staging branch
+and merging into that. When the status of staging is determined (either pass or fail),
+bors reports the result back as a comment and merges staging into main if it was a pass.
+Then it goes on to the next one.
+Based on the assumption that the tests usually pass once they're r+-ed,
+bors actually tests them in batches (and bisects if a batch fails).</p><p>Note that bors is not a replacement for your CI system. It just implements
+this workflow.</p><h1>How it works</h1><p>Bors is a <a href="https://github.com/settings/installations" title="">GitHub Application</a>, so (assuming you already have GitHub Actions set up), getting bors set up requires three steps:</p><ol><li><p>Add the app to your repo in GitHub. <a href="https://github.com/apps/bors/installations/new">Click here to use the publicly hosted instance.</a></p></li><li><p>Commit a bors.toml with these contents:</p><pre><code class="makeup elixir"><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="3902787159-1">[</span><span class="s">&quot;ci&quot;</span><span class="p" data-group-id="3902787159-1">]</span></code></pre></li><li><p>Set up a workflow step with the same name. For example:</p><pre><code class="makeup elixir"><span class="n">ci</span><span class="o">-</span><span class="ss">success</span><span class="p">:</span><span class="w">
+  </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">ci</span><span class="w">
+  </span><span class="ss">if</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="p" data-group-id="3937531427-1">{</span><span class="p" data-group-id="3937531427-2">{</span><span class="w"> </span><span class="n">success</span><span class="p" data-group-id="3937531427-3">(</span><span class="p" data-group-id="3937531427-3">)</span><span class="w"> </span><span class="p" data-group-id="3937531427-2">}</span><span class="p" data-group-id="3937531427-1">}</span><span class="w">
+  </span><span class="ss">needs</span><span class="p">:</span><span class="w">
+    </span><span class="o">-</span><span class="w"> </span><span class="n">exfmt</span><span class="w">
+    </span><span class="o">-</span><span class="w"> </span><span class="n">test</span><span class="w">
+  </span><span class="n">runs</span><span class="o">-</span><span class="ss">on</span><span class="p">:</span><span class="w"> </span><span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span><span class="w">
+  </span><span class="ss">steps</span><span class="p">:</span><span class="w">
+    </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">CI</span><span class="w"> </span><span class="n">succeeded</span><span class="w">
+      </span><span class="ss">run</span><span class="p">:</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="mi">0</span></code></pre></li></ol><p>To use it, you need to stop clicking the big green merge button, and instead leave a comment with this in it on any pull request that looks good to you:</p><pre><code class="makeup elixir"><span class="n">bors</span><span class="w"> </span><span class="n">r</span><span class="o">+</span></code></pre><p>As commits are reviewed, bors lumps them into a queue of batches. If everything passes, there will just be two batches; the one that's running, and the one that's waiting to be run (and is accumulating more and more pull requests until it gets a chance to run).</p><p>To run a batch, bors creates a merge commit, merging the main branch with all the pull requests that make up the batch. Instead of pushing the merge commit immediately, however, it will instead push it to the <code class="inline">staging</code> branch. They'll look like this:</p><pre><code class="makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#5 #7 #8</span><span class="w">
+
+</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="1575373269-1">(</span><span class="p" data-group-id="1575373269-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="1575373269-2">(</span><span class="p" data-group-id="1575373269-2">)</span><span class="err">`</span><span class="w">
+</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="1575373269-3">(</span><span class="p" data-group-id="1575373269-3">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span><span class="w">
+</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="nc">Fix</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">`</span><span class="n">drive</span><span class="p" data-group-id="1575373269-4">(</span><span class="p" data-group-id="1575373269-4">)</span><span class="err">`</span></code></pre><p>If the build passes, the main branch gets fast-forwarded to meet the staging branch. Since the main branch contains the exact contents that were just tested, bit-for-bit, it's not broken. (at least, not in any way that the automated tests are able to detect)</p><p>If the build fails, bors will follow a strategy called &quot;bisecting&quot;. Namely, it splits the batch into two batches, and pushes those to the queue. In this example, the first batch will look like this:</p><pre><code class="makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#5 #7</span><span class="w">
+
+</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="8157472449-1">(</span><span class="p" data-group-id="8157472449-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="8157472449-2">(</span><span class="p" data-group-id="8157472449-2">)</span><span class="err">`</span><span class="w">
+</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="8157472449-3">(</span><span class="p" data-group-id="8157472449-3">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span></code></pre><p>This batch will still fail, because the second patch inserts a call to a function that the first patch removes. It will get bisected again, as a result.</p><p>The second will still pass, though.</p><pre><code class="makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#8</span><span class="w">
+
+</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="nc">Fix</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">`</span><span class="n">drive</span><span class="p" data-group-id="9238944838-1">(</span><span class="p" data-group-id="9238944838-1">)</span><span class="err">`</span></code></pre><p>This one will work, causing it to land in the main branch, leaving the first two still in the backlog.</p><pre><code class="makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#5</span><span class="w">
+
+</span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">Rename</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="1189385184-1">(</span><span class="p" data-group-id="1189385184-1">)</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcateCrab</span><span class="p" data-group-id="1189385184-2">(</span><span class="p" data-group-id="1189385184-2">)</span><span class="err">`</span></code></pre><p>This one will pass, since the PR it conflicts with (#7) is sitting behind it in the queue.</p><pre><code class="makeup elixir"><span class="nc">Merge</span><span class="w"> </span><span class="c1">#7</span><span class="w">
+
+</span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">Call</span><span class="w"> </span><span class="err">`</span><span class="n">bifurcate</span><span class="p" data-group-id="6109292296-1">(</span><span class="p" data-group-id="6109292296-1">)</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">onland</span><span class="err">`</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handler</span></code></pre><p>When a batch cannot be bisected (because it only contains one PR), it gets kicked back to the creator so they can fix it.</p><p>Note that you can watch this process running on the <a href="https://app.bors.tech/" title="">dashboard page</a> if you want.</p><p>As a convenience, you can also run <code class="inline">bors try</code>, which will kick off a build the same way <code class="inline">r+</code> would, but without actually pushing it to the main branch even if it does succeed. To help keep them separate, <code class="inline">r+</code> merge commits go in <code class="inline">staging</code> and <code class="inline">try</code> builds go in <code class="inline">trying</code>.</p><p>The <a href="https://bors-ng.github.io/guide/2017/04/26/whirlwind/" title="">original bors</a> used a more simple system (it just tested one PR at a time all the time).
+The one-at-a-time strategy is O(N), where N is the total number of pull requests.
+The batching strategy is O(E log N), where N is again the total number of pull requests and E is the number of pull requests that fail.</p><h1>How to run it on your local machine</h1><p>If you're using a macOS or Linux command line with Docker on it,
+<code class="inline">./script/setup &amp;&amp; ./script/server</code> will set up a local instance,
+with a mocked-out GitHub instance, using Docker to pull in all the underlying dependencies.
+The web server ends up running on <a href="http://localhost:8000/">http://localhost:8000/</a>.
+You can get an Elixir REPL running in the same context as the webserver by running
+<code class="inline">repl</code> instead of <code class="inline">server</code>. To run the tests, run <code class="inline">test</code> instead of <code class="inline">server</code>.</p><p>If you log in, it will log you in with the user &quot;space.&quot;
+There won't be any repositories, and space will not have admin perms.
+You can use the <a href="https://bors-ng.github.io/devdocs/bors-ng/BorsNG.Database.User.html" title="">User model</a> to give space admin rights,
+and the <a href="https://bors-ng.github.io/devdocs/bors-ng/BorsNG.WebhookController.html" title="">WebhookController</a> and <a href="https://bors-ng.github.io/devdocs/bors-ng/BorsNG.GitHub.ServerMock.html" title="">GitHub ServerMock</a> to create the repo.</p><h2 id="setting-it-up-without-docker-like-on-windows-home-edition" class="section-heading">
+  <a href="#setting-it-up-without-docker-like-on-windows-home-edition" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Setting it up without Docker, like on Windows home edition
+</h2>
+<p>The main things you'll need to run Bors on your laptop are:</p><ul><li>Familiarity with the command line</li><li>Elixir, with a full installation of OTP (the <code class="inline">esl-erlang</code> package is sufficient)</li><li>PostgreSQL; the configuration for it is in config/dev.exs</li><li>Stock C compilation tools, because some of bors's dependencies use NIFs</li><li>A git client, which you probably already have for downloading this repository</li><li>NodeJS, to perform asset compilation</li></ul><p>I use <a href="https://sourceforge.net/projects/postgresqlportable/" title="">Portable PostgreSQL</a>,
+the <a href="https://chocolatey.org/packages/Elixir" title="">Chocolatey</a> packages for Elixir, Git, and NodeJS,
+and the Visual C++ build tools from Microsoft.</p><p>You can then run it using <code class="inline">mix</code>:</p><pre><code class="makeup elixir"><span class="err">$</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="n">ecto</span><span class="o">.</span><span class="n">create</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="n">ecto</span><span class="o">.</span><span class="n">migrate</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="n">phx</span><span class="o">.</span><span class="n">server</span></code></pre><p>And it'll run with the GitHub API mocked-out.</p><p>To run tests, run:</p><pre><code class="makeup elixir"><span class="err">$</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="n">test</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="n">dogma</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="n">dialyzer</span></code></pre><h1>How to set up your own real instance</h1><h2 id="step-1-register-a-new-github-app" class="section-heading">
+  <a href="#step-1-register-a-new-github-app" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Step 1: Register a new GitHub App
+</h2>
+<p>The first step is to <a href="https://github.com/settings/apps" title="">register a new Github App</a> on the GitHub web site.</p><h3 id="app-settings" class="section-heading">
+  <a href="#app-settings" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  App settings
+</h3>
+<p>The <em>Github App name</em>, <em>description</em>, and <em>homepage URL</em> are irrelevant, though I suggest pointing the homepage at the dashboard page.</p><p>The <em>user authorization callback URL</em> should be at <code class="inline">&lt;DASHBOARD URL&gt;/auth/github/callback</code>.</p><p>Leave the <em>setup URL</em> blank.</p><p>The <em>webhook URL</em> should be at <code class="inline">&lt;DASHBOARD URL&gt;/webhook/github</code>.</p><p>The <em>webhook secret</em> should be a randomly generated string. The <a href="https://hexdocs.pm/phoenix/1.5.9/Mix.Tasks.Phx.Gen.Secret.html"><code class="inline">mix phx.gen.secret</code></a> command will work awesomely for this. Keep this handy to specify the same value in the bors configuration (you can also edit this value later if you need to).</p><h3 id="required-github-app-permissions" class="section-heading">
+  <a href="#required-github-app-permissions" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Required GitHub App permissions
+</h3>
+<h4>Permission summary</h4><p>For each of these sections, set the following overall section permissions and check the following webhook event checkboxes. Explanations for why bors-ng needs each of these permissions are below.</p><ul><li><em>Repository metadata</em>: Read-only (no choice)<ul><li><em>Repository</em> (Repository created, deleted, publicized, or privatized)</li></ul></li><li><em>Repository administration</em>: No access</li><li><em>Commit statuses</em>: Read &amp; write<ul><li><em>Status</em> (Commit status updated from the API)</li></ul></li><li><em>Deployments</em>: No access</li><li><em>Issues</em>: Read &amp; write<ul><li><em>Issue comment</em> (Issue comment created, edited, or deleted)</li></ul></li><li><em>Pages</em>: No access</li><li><em>Pull requests</em>: Read &amp; write<ul><li><em>Pull request</em> (Pull request opened, closed, reopened, edited, assigned, unassigned, review requested, review request removed, labeled, unlabeled, or synchronized)</li><li><em>Pull request review</em> (Pull request review submitted, edited, or dismissed)</li><li><em>Pull request review comment</em> (Pull request diff comment created, edited, or deleted)</li></ul></li><li><em>Repository contents</em>: Read &amp; write<ul><li>(no checkboxes)</li></ul></li><li><em>Single file</em>: No access</li><li><em>Repository projects</em>: No access</li><li><em>Organization members</em>: Read-only<ul><li><em>Team</em> (Team is created, deleted, edited, added to/removed from a repository)</li><li><em>Member</em> (Collaborator added to, removed from, or has changed permissions for a repository)</li><li><em>Membership</em> (Team membership added or removed)</li><li><em>Organization</em> ( User invited to, added to, or removed from an organization)</li></ul></li><li><em>Organization projects</em>: No access</li><li><em>Checks</em>: Read &amp; Write<ul><li><em>Check run</em> (Check run created from the API)</li><li><em>Check suite</em> (Check suite created from the API)</li></ul></li></ul><h4>Permission explanations</h4><p><em>Repository metadata</em> will be read-only. Must be set to receive <em>Repository</em> events to automatically remove entries from our database when a repo is deleted.</p><p><em>Commit statuses</em> must be set to <em>Read &amp; write</em> to report a testing status (this is the older version). Also must get <em>Status</em> events to integrate with CI systems that report their status via GitHub.</p><p><em>Issues</em> must be set to <em>Read &amp; write</em> because pull requests are issues. <em>Issue comment</em> events must be enabled to get the &quot;bors r+&quot; comments. If <em>Issues</em> is set to Read-only, repos will end up with pull requests that are marked as simultaneously merged and opened.</p><p><em>Pull requests</em> must be set to <em>Read &amp; write</em> to be able to post pull request comments. Also, must receive <em>Pull request</em> events to be able to keep the dashboard working, and must get <em>Pull request review</em> and <em>Pull request review comment</em> events to get those kinds of comments.</p><p><em>Repository contents</em> must be set to <em>Read &amp; write</em> to be able to create merge commits.</p><p><em>Checks</em> must be set to <em>Read &amp; write</em> to report a testing status (this is the newer version). Also must get <em>Check run</em> events to integrate with CI systems that report their status via GitHub.</p><p><em>Organization members</em> must be set to <em>Read only</em> to synchronize repository contributors and bors reviewers.</p><h3 id="after-you-click-the-create-button" class="section-heading">
+  <a href="#after-you-click-the-create-button" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  After you click the &quot;Create&quot; button
+</h3>
+<p>GitHub will send a &quot;ping&quot; notification to your webhook endpoint. Since bors is not actually running yet, that will fail. This is expected.</p><p>You'll need the following values from your GitHub App for configuring bors-ng:</p><ul><li>Private key (generate one and download the file)</li><li>OAuth credentials</li><li>ID (appears beneath the app logo and &quot;Owned by&quot; in the right hand column)</li></ul><h3 id="internal-app" class="section-heading">
+  <a href="#internal-app" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Internal app?
+</h3>
+<p>GitHub Apps can be set as &quot;Internal&quot; or &quot;External&quot;.
+When the App is set to be internal,
+then whichever organization/user it belongs to will be the only one allowed to install it.</p><p>This setting can be chosen while first creating the app, or it can be changed afterward at one of these URLs (the switch is on the bottom of the page):</p><ul><li>If the app is owned by an organization: <code class="inline">https://github.com/organizations/&lt;ORGANIZATION&gt;/settings/apps/&lt;APP NAME&gt;/advanced</code></li><li>If the app is owned by a user: <code class="inline">https://github.com/settings/apps/&lt;APP NAME&gt;/advanced</code></li></ul><p>If an &quot;External&quot; app is installed on any external repositories,
+then the &quot;Make Internal&quot; button will be grayed out.</p><h2 id="step-2-set-up-the-server" class="section-heading">
+  <a href="#step-2-set-up-the-server" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Step 2: Set up the server
+</h2>
+<p>bors-ng is written in the <a href="https://elixir-lang.org/" title="">Elixir</a> programming language,
+and it uses <a href="https://postgresql.org/" title="">PostgreSQL</a> as the backend database.
+Whatever machine you plan to run it on needs to have both of those installed.</p><p>bors-ng is built on the Phoenix web framework, and they have <a href="https://hexdocs.pm/phoenix/deployment.html" title="">docs on how to deploy phoenix apps</a> already. Where you deploy will determine what the dashboard URL will be, which is needed in the previous steps, so this decision needs to be made before you can set up the Github App.</p><p>You'll need to edit the configuration with a few bors-specific variables.</p><h3 id="deploying-on-heroku-and-other-12-factor-style-systems" class="section-heading">
+  <a href="#deploying-on-heroku-and-other-12-factor-style-systems" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Deploying on <a href="https://heroku.com/" title="">Heroku</a> (and other 12-factor-style systems)
+</h3>
+<p>The config file in the repository is already set up to pull the needed information from the environment, so you can configure bors by setting the right env variables and deploy the app from this repository into Heroku:</p><p>You can do using Heroku's one-button-deploy system:</p><p><a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku"/></a></p><p>Or you can do it manually:</p><p><strong>Note</strong>: The <code class="inline">GITHUB_INTEGRATION_ID</code> is now called the App ID on GitHub.</p><pre><code class="makeup elixir"><span class="err">$</span><span class="w"> </span><span class="n">heroku</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">buildpack</span><span class="w"> </span><span class="s">&quot;https://github.com/HashNuke/heroku-buildpack-elixir.git&quot;</span><span class="w"> </span><span class="n">bors</span><span class="o">-</span><span class="n">app</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">heroku</span><span class="w"> </span><span class="n">buildpacks</span><span class="ss">:add</span><span class="w"> </span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gjaldon</span><span class="o">/</span><span class="n">heroku</span><span class="o">-</span><span class="n">buildpack</span><span class="o">-</span><span class="n">phoenix</span><span class="o">-</span><span class="n">static</span><span class="o">.</span><span class="n">git</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">heroku</span><span class="w"> </span><span class="n">addons</span><span class="ss">:create</span><span class="w"> </span><span class="n">heroku</span><span class="o">-</span><span class="n">postgresql</span><span class="ss">:hobby</span><span class="o">-</span><span class="n">dev</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">heroku</span><span class="w"> </span><span class="n">config</span><span class="ss">:set</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">MIX_ENV</span><span class="o">=</span><span class="n">prod</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">POOL_SIZE</span><span class="o">=</span><span class="mi">18</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">PUBLIC_HOST</span><span class="o">=</span><span class="n">bors</span><span class="o">-</span><span class="n">app</span><span class="o">.</span><span class="n">herokuapp</span><span class="o">.</span><span class="n">com</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">ALLOW_PRIVATE_REPOS</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">COMMAND_TRIGGER</span><span class="o">=</span><span class="n">bors</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">SECRET_KEY_BASE</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">SECRET1</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">GITHUB_CLIENT_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">OAUTH_CLIENT_ID</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">GITHUB_CLIENT_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">OAUTH_CLIENT_SECRET</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">GITHUB_INTEGRATION_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">ISS</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">GITHUB_INTEGRATION_PEM</span><span class="o">=</span><span class="err">`</span><span class="n">base64</span><span class="w"> </span><span class="o">-</span><span class="n">w0</span><span class="w"> </span><span class="n">priv</span><span class="o">.</span><span class="n">pem</span><span class="err">`</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="nc">GITHUB_WEBHOOK_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">SECRET2</span><span class="o">&gt;</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">heroku</span><span class="w"> </span><span class="n">master</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">heroku</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="sc">&#39;POOL_SIZE=1 mix ecto.migrate&#39;</span></code></pre><p><em>WARNING</em>: bors-ng stores some short-term state inside the <code class="inline">web</code> dyno (it uses a sleeping process to implement delays, specifically).
+It can recover the information after restarting, but it will not work correctly with Heroku's replication system.
+If you need more throughput than one dyno can provide, you should deploy using a system that allows Erlang clustering to work.</p><h3 id="deploying-using-docker-and-compatible-container-orchestration-systems" class="section-heading">
+  <a href="#deploying-using-docker-and-compatible-container-orchestration-systems" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Deploying using <a href="https://docker.com/" title="">Docker</a> (and compatible container orchestration systems)
+</h3>
+<p>Pre-built Docker images are available at <a href="https://hub.docker.com/r/borsng/bors-ng/">Docker Hub</a> for tags and the current <code class="inline">master</code> (as <code class="inline">bors-ng:latest</code>).</p><p>The Dockerfile in the project root can be used to build the image yourself.
+It relies on <a href="https://docs.docker.com/engine/userguide/eng-image/multistage-build/">multi-stage builds</a> as introduced in Docker 17.05,
+to generate a slim image without the Erlang, Elixir and NodeJS development tools.</p><p>Most of the important configuration options should be set at runtime using environment variables, not unlike the Heroku instructions.
+All the same recommendations apply, with some extra notes:</p><ul><li><p><code class="inline">ELIXIR_VERSION</code> can be set as a build-time argument. Its default value is defined in the <a href="Dockerfile">Dockerfile</a>.</p></li><li><p><code class="inline">ALLOW_PRIVATE_REPOS</code> must be set at both build and run times to take effect. It is set to <code class="inline">true</code> by default.</p></li><li><p><code class="inline">DATABASE_URL</code> <em>must</em> contain the database port, as it will be used at container startup to wait until the database is reachable. <a href="https://hexdocs.pm/ecto/Ecto.Repo.html#module-urls">The format is documented here</a>.</p></li><li><p><code class="inline">DATABASE_TIMEOUT</code> may be set higher than the default of <code class="inline">15_000</code>(ms). This may be necessary with repositories with a very large amount of members.</p></li><li><p>The database schema will be automatically created and migrated at container startup, unless the <code class="inline">DATABASE_AUTO_MIGRATE</code>  env. var.
+is set to <code class="inline">false</code>. Make that change if the database state is managed externally, or if you are using a database that cannot safely handle
+concurrent schema changes (such as older MariaDB/MySQL versions).</p></li><li><p>Database migrations can be manually applied from a container using the <code class="inline">migrate</code> release command. Example:
+<code class="inline">docker run borsng/bors-ng:latest /app/bors/bin/bors migrate</code>.
+Unfortunately other <code class="inline">mix</code> tasks are not available, as they cannot be run from compiled releases.</p></li><li><p>The <code class="inline">PORT</code> environment variable is set to <code class="inline">4000</code> by default.</p></li><li><p><code class="inline">GITHUB_URL_ROOT_API</code> and <code class="inline">GITHUB_URL_ROOT_HTML</code> should allow you to connect bors-ng to an instance of GitHub Enterprise.
+Note: I've never actually used GitHub Enterprise, so I'm kinda guessing about what you'd need here.</p><pre><code class="makeup elixir"><span class="n">docker</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="w"> </span><span class="n">bors</span><span class="w"> </span><span class="o">--</span><span class="n">restart</span><span class="o">=</span><span class="k">unless</span><span class="o">-</span><span class="n">stopped</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">PUBLIC_HOST</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">bors</span><span class="o">.</span><span class="n">tech</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">SECRET_KEY_BASE</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_CLIENT_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_CLIENT_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_INTEGRATION_ID</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_INTEGRATION_PEM</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">GITHUB_WEBHOOK_SECRET</span><span class="o">=</span><span class="o">&lt;</span><span class="n">secret</span><span class="o">&gt;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_URL</span><span class="o">=</span><span class="s">&quot;postgresql://postgres:&lt;secret&gt;@db:5432/bors_ng&quot;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_USE_SSL</span><span class="o">=</span><span class="no">false</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">DATABASE_AUTO_MIGRATE</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">COMMAND_TRIGGER</span><span class="o">=</span><span class="n">bors</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="n">borsng</span><span class="o">/</span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="w">
+</span><span class="n">docker</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">bors</span></code></pre></li></ul><h3 id="deploying-on-your-own-cluster" class="section-heading">
+  <a href="#deploying-on-your-own-cluster" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Deploying on your own cluster
+</h3>
+<p>Your configuration can be done by modifying <code class="inline">config/prod.secret.exs</code>.</p><h2 id="optional-step-3-make-yourself-an-admin" class="section-heading">
+  <a href="#optional-step-3-make-yourself-an-admin" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Optional step 3: make yourself an admin
+</h2>
+<p>bors-ng offers a number of special functions for &quot;administrator&quot; users, including diagnostics and the ability to open a repo dashboard without being a reviewer.</p><p>However, there's no UI for adding admins; you'll have to go into Postgres yourself to do it. There's two ways to do that:</p><p>You can do it from the iex prompt, like this:</p><pre><code class="makeup elixir"><span class="n">shell</span><span class="err">$</span><span class="w"> </span><span class="n">iex</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="n">mix</span><span class="w"> </span><span class="c1"># or `heroku run bash -c &quot;POOL_SIZE=1 iex -S mix&quot;`</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">me</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">BorsNG.Database.Repo</span><span class="o">.</span><span class="n">get_by!</span><span class="w"> </span><span class="nc">BorsNG.Database.User</span><span class="p">,</span><span class="w"> </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;your login&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">BorsNG.Database.Repo</span><span class="o">.</span><span class="n">update!</span><span class="w"> </span><span class="nc">BorsNG.Database.User</span><span class="o">.</span><span class="n">changeset</span><span class="p" data-group-id="2643722035-1">(</span><span class="n">me</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2643722035-2">%{</span><span class="ss">is_admin</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="2643722035-2">}</span><span class="p" data-group-id="2643722035-1">)</span></code></pre><p>You can do it from a PostgreSQL prompt like this:</p><pre><code class="makeup elixir"><span class="n">postgres</span><span class="o">=</span><span class="c1"># \c bors_dev -- or bors_prod</span><span class="w">
+</span><span class="n">bors_dev</span><span class="o">=</span><span class="c1"># update users set is_admin = true where login = &#39;&lt;your login&gt;&#39;;</span></code></pre><h1>Copyright license</h1><p>bors-ng is licensed under the Apache license, version 2.0.
+It should be included with the source distribution in LICENSE-APACHE.
+If it is missing, it is at <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="contributing.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Getting started for contributors
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.24.2) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+  </body>
+</html>

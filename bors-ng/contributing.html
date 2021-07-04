@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.24.2">
+    <meta name="project" content="Bors-NG v0.1.0">
+
+    <title>Getting started for contributors — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+
+    <script src="dist/sidebar_items-d9e4489390.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+      <li><a id="tasks-list-link" href="#full-list">Mix Tasks</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>Getting started for contributors</h1><p>Thanks for wanting to help out with Bors-NG!</p><h2 id="answering-support-questions" class="section-heading">
+  <a href="#answering-support-questions" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Answering support questions
+</h2>
+<p>If you've been using bors a lot,
+you can help other people use it by answering questions on the <a href="https://forum.bors.tech/" title="">support forum</a>.
+It's running on Discourse, the same app used by Elixir Forum and Rust Users.</p><h2 id="submitting-bug-reports" class="section-heading">
+  <a href="#submitting-bug-reports" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Submitting bug reports
+</h2>
+<p>Go ahead and submit an issue report;
+we can't fix a problem if we don't know about it.
+Even if you're not sure if it's a bug,
+go ahead and submit it.
+If a lot of users think it's a problem,
+even if we don't think it's &quot;really a bug,&quot;
+we'll probably try to figure out a way to fix it anyway.
+Bors needs to be useful, not just correct.
+Besides, that's why we call them &quot;issue reports&quot; instead of &quot;bug reports.&quot;</p><p>If you get the chance,
+please use the search bar at the top of the issues list to see if somebody else already reported it.
+You don't have to do that,
+if you don't have time,
+or just can't think of what to search for.
+Think of it as extra credit.
+If we find a duplicate,
+we'll just leave a comment saying &quot;Duplicate of #some-other-issue-number&quot;
+(so that you know where the existing conversation is happening)
+and close it.</p><p>Filing an issue is as easy as going to the <a href="https://github.com/bors-ng/bors-ng/issues/new" title="">new issue page</a> and filling out the fields.</p><h2 id="sending-your-change-to-us" class="section-heading">
+  <a href="#sending-your-change-to-us" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Sending your change to us
+</h2>
+<p>The best way to send changes to Bors-NG is to fork our repo, then open a pull request.
+GitHub has a <a href="https://help.github.com/articles/fork-a-repo/" title="">howto for the fork-pull system</a> on their own website.</p><p>BTW, the <a href="https://hub.github.com/" title="">hub</a> CLI is really cool.
+With it,
+you can make a pull request that modifies this file by running these commands:</p><pre><code class="makeup elixir"><span class="err">$</span><span class="w"> </span><span class="n">hub</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="o">/</span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">bors</span><span class="o">-</span><span class="n">ng</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">hub</span><span class="w"> </span><span class="n">fork</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">checkout</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="n">fix_readme</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">vim</span><span class="w"> </span><span class="nc">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="nc">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">YOUR</span><span class="w"> </span><span class="nc">GITHUB</span><span class="w"> </span><span class="nc">USERNAME</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">HEAD</span><span class="w">
+</span><span class="err">$</span><span class="w"> </span><span class="n">hub</span><span class="w"> </span><span class="n">pull</span><span class="o">-</span><span class="n">request</span></code></pre><p>You don't have to use anything like that if you don't want to,
+though.</p><h2 id="finding-something-to-work-on" class="section-heading">
+  <a href="#finding-something-to-work-on" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Finding something to work on
+</h2>
+<p>If you're not sure what to work on,
+there's a list of easy-to-fix problems to get you started at <a href="https://bors.tech/starters">https://bors.tech/starters</a>.
+After you pick an issue,
+you should mention that you're working on it in a GitHub comment
+(so that we can mark it as assigned and avoid duplicate work).
+If you're having trouble fixing the problem,
+go ahead and ask questions right in the issue's comments section,
+even if your question seems unrelated to the issue itself.</p><h2 id="proposing-and-adding-new-features" class="section-heading">
+  <a href="#proposing-and-adding-new-features" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Proposing and adding new features
+</h2>
+<p>If you'd like to add a new feature, or make big changes to the way bors works,
+head over to the <a href="https://forum.bors.tech/t/about-the-draft-rfcs-category/291">RFC</a> area in the forum and follow the instructions.</p><h2 id="developing-locally" class="section-heading">
+  <a href="#developing-locally" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Developing locally
+</h2>
+<p>To work on bors-ng you will need:</p><ol><li>Erlang and Elixir installed and in PATH</li><li>a local database instance, bors uses Postgres by default</li></ol><p>You can install Erlang and Elixir as you prefer, one way to do it without
+affecting other development environments is with <a href="https://asdf-vm.com/#/">asdf</a>. The following shows you how to use asdf. If you already have Erlang and Elixir installed
+or prefer to install them in another way just skip to the next section.</p><p><strong>NOTE</strong>: please check the Erlang and Elixir versions against <code class="inline">.github/workflows/main.yml</code> to make sure you are using a supported version.</p><h3 id="installing-erlang-and-elixir-with-asdf" class="section-heading">
+  <a href="#installing-erlang-and-elixir-with-asdf" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Installing Erlang and Elixir with asdf
+</h3>
+<p>To get started developing on bors with asdf install it as per the docs, then
+install Erlang and Elixir with the following commands (we assume you're on linux,
+YMMV on other OSs):</p><pre><code class="sh">asdf plugin-add erlang
+asdf install erlang 23.2
+asdf plugin-add elixir
+asdf install elixir 1.11.4
+# in the parent directory
+cat&lt;&lt;EOF &gt; ../.tool-versions
+elixir 1.11.4
+erlang 23.2
+EOF</code></pre><p><strong>NOTE</strong>: please double check the Erlang and Elixir versions against <code class="inline">.travis.yml</code> to make sure you are using a supported version.</p><h3 id="running-tests-locally" class="section-heading">
+  <a href="#running-tests-locally" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Running tests locally
+</h3>
+<p>You are now set for developing locally. For example to run the tests you will just have to start a postgres instance on localhost, using docker is the simplest way:</p><pre><code class="sh">docker run -it --rm --net=host -e POSTGRES_PASSWORD=Postgres1234 postgres:13</code></pre><p>then in another shell you can run the tests as simply as:</p><pre><code class="sh">mix test</code></pre><p>to run a single test suite/case just pass the relative path to the test name and optionally the line number:</p><pre><code class="sh">mix test test/batcher/batcher_test.exs:3878</code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="hacking.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+The innards of Bors-NG
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="readme.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+A merge bot for GitHub pull requests
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.24.2) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+  </body>
+</html>

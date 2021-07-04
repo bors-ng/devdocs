@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.24.2">
+    <meta name="project" content="Bors-NG v0.1.0">
+
+    <title>BorsNG.GitHub.ServerMock — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+
+    <script src="dist/sidebar_items-d9e4489390.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+
+  </head>
+  <body data-type="modules">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+      <li><a id="tasks-list-link" href="#full-list">Mix Tasks</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+BorsNG.GitHub.ServerMock <small class="app-vsn">(Bors-NG v0.1.0)</small>
+
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+
+      </h1>
+
+
+        <section id="moduledoc">
+<p>Provides a fake connection to GitHub's REST API.</p><p>This is used for unit testing and when running in a &quot;dev&quot; environment,
+like on a local machine.
+It's basically just a genserver frontend for a big map;
+you can put and get its state,
+and other functions will mutate or read subsets of it.</p><p>For example, I can run <code class="inline">iex -S mix phx.server</code> and do this:</p><pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="c1"># Push state to &quot;GitHub&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub.ServerMock</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">ServerMock</span><span class="o">.</span><span class="n">put_state</span><span class="p" data-group-id="6909096588-1">(</span><span class="p" data-group-id="6909096588-2">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="6909096588-3">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="6909096588-3">}</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="6909096588-4">%{</span><span class="w"> </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-5">[</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="p" data-group-id="6909096588-6">%</span><span class="nc" data-group-id="6909096588-6">GitHub.Repo</span><span class="p" data-group-id="6909096588-6">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;test/repo&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-7">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="ss">:user</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="6909096588-7">}</span><span class="p" data-group-id="6909096588-6">}</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="6909096588-5">]</span><span class="w"> </span><span class="p" data-group-id="6909096588-4">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="6909096588-8">{</span><span class="p" data-group-id="6909096588-9">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="6909096588-9">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="6909096588-8">}</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="6909096588-10">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-11">%{</span><span class="p" data-group-id="6909096588-11">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-12">%{</span><span class="p" data-group-id="6909096588-12">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-13">%{</span><span class="mi">1</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="6909096588-14">[</span><span class="p" data-group-id="6909096588-14">]</span><span class="p" data-group-id="6909096588-13">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-15">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="6909096588-16">%</span><span class="nc" data-group-id="6909096588-16">GitHub.Pr</span><span class="p" data-group-id="6909096588-16">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mess&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">head_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-17">%</span><span class="nc" data-group-id="6909096588-17">GitHub.User</span><span class="p" data-group-id="6909096588-17">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="6909096588-17">}</span><span class="p" data-group-id="6909096588-16">}</span><span class="p" data-group-id="6909096588-15">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-18">%{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="6909096588-19">[</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">        </span><span class="p" data-group-id="6909096588-20">%</span><span class="nc" data-group-id="6909096588-20">GitHub.Commit</span><span class="p" data-group-id="6909096588-20">{</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bors Fanboi&quot;</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">          </span><span class="ss">author_email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi@example.com&quot;</span><span class="p" data-group-id="6909096588-20">}</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">      </span><span class="p" data-group-id="6909096588-19">]</span><span class="w"> </span><span class="p" data-group-id="6909096588-18">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-21">%{</span><span class="p" data-group-id="6909096588-21">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">    </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-22">%{</span><span class="p" data-group-id="6909096588-22">}</span><span class="p" data-group-id="6909096588-10">}</span><span class="p" data-group-id="6909096588-2">}</span><span class="p" data-group-id="6909096588-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">GitHub</span><span class="o">.</span><span class="n">get_open_prs!</span><span class="p" data-group-id="6909096588-23">(</span><span class="p" data-group-id="6909096588-24">{</span><span class="p" data-group-id="6909096588-25">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="6909096588-25">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="6909096588-24">}</span><span class="p" data-group-id="6909096588-23">)</span><span class="w">
+</span><span class="p" data-group-id="6909096588-26">[</span><span class="w">
+  </span><span class="p" data-group-id="6909096588-27">%</span><span class="nc" data-group-id="6909096588-27">BorsNG.GitHub.Pr</span><span class="p" data-group-id="6909096588-27">{</span><span class="w">
+    </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mess&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
+    </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="ss">head_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00000001&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6909096588-28">%</span><span class="nc" data-group-id="6909096588-28">BorsNG.GitHub.User</span><span class="p" data-group-id="6909096588-28">{</span><span class="w">
+      </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bors-fanboi&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data:image/svg+xml,&lt;svg&gt;&lt;/svg&gt;&quot;</span><span class="p" data-group-id="6909096588-28">}</span><span class="p" data-group-id="6909096588-27">}</span><span class="p" data-group-id="6909096588-26">]</span></code></pre>
+        </section>
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tbranch/0">tbranch()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tcollaborator/0">tcollaborator()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tcommit/0">tcommit()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tconn/0">tconn()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:trepo/0">trepo()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tstate/0">tstate()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tsynthesized/0">tsynthesized()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:ttoken/0">ttoken()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tuser/0">tuser()</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#child_spec/1">child_spec(init_arg)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_handle_call/4">do_handle_call(atom, repo_conn, pr, state)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_state/0">get_state()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#init/1">init(atom)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#put_state/1">put_state(state)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/0">start_link()</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+        </section>
+
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types
+          </h1>
+          <div class="types-list">
+<section class="detail" id="t:tbranch/0">
+
+  <div class="detail-header">
+    <a href="#t:tbranch/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tbranch()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L80" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tbranch() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tcollaborator/0">
+
+  <div class="detail-header">
+    <a href="#t:tcollaborator/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tcollaborator()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L78" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tcollaborator() :: <a href="BorsNG.GitHub.html#t:tcollaborator/0">BorsNG.GitHub.tcollaborator</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tcommit/0">
+
+  <div class="detail-header">
+    <a href="#t:tcommit/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tcommit()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L81" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tcommit() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tconn/0">
+
+  <div class="detail-header">
+    <a href="#t:tconn/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tconn()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L74" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tconn() :: <a href="BorsNG.GitHub.html#t:tconn/0">BorsNG.GitHub.tconn</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:trepo/0">
+
+  <div class="detail-header">
+    <a href="#t:trepo/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">trepo()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L76" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>trepo() :: <a href="BorsNG.GitHub.html#t:trepo/0">BorsNG.GitHub.trepo</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tstate/0">
+
+  <div class="detail-header">
+    <a href="#t:tstate/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tstate()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L88" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tstate() :: %{
+  required(<a href="#t:tconn/0">tconn</a>()) =&gt; %{
+    branches: %{required(<a href="#t:tbranch/0">tbranch</a>()) =&gt; <a href="#t:tcommit/0">tcommit</a>()},
+    comments: %{required(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) =&gt; [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()]},
+    commits: %{required(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) =&gt; <a href="#t:tsynthesized/0">tsynthesized</a>()},
+    statuses: %{
+      required(<a href="#t:tbranch/0">tbranch</a>()) =&gt; %{
+        required(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) =&gt; :open | :closed | :running
+      }
+    },
+    files: %{required(<a href="#t:tbranch/0">tbranch</a>()) =&gt; %{required(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) =&gt; <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()}},
+    collaborators: [<a href="#t:tcollaborator/0">tcollaborator</a>()]
+  },
+  required({:installation, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>()}) =&gt; %{repos: [<a href="#t:trepo/0">trepo</a>()]},
+  :users =&gt; %{required(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) =&gt; <a href="#t:tuser/0">tuser</a>()},
+  :merge_conflict =&gt; <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()
+}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tsynthesized/0">
+
+  <div class="detail-header">
+    <a href="#t:tsynthesized/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tsynthesized()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L83" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tsynthesized() :: %{commit_message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(), parents: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()]}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:ttoken/0">
+
+  <div class="detail-header">
+    <a href="#t:ttoken/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">ttoken()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L75" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>ttoken() :: <a href="BorsNG.GitHub.html#t:ttoken/0">BorsNG.GitHub.ttoken</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tuser/0">
+
+  <div class="detail-header">
+    <a href="#t:tuser/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tuser()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L77" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tuser() :: <a href="BorsNG.GitHub.User.html#t:t/0">BorsNG.GitHub.User.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions
+          </h1>
+          <div class="functions-list">
+<section class="detail" id="child_spec/1">
+
+  <div class="detail-header">
+    <a href="#child_spec/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">child_spec(init_arg)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L2" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Returns a specification to start this module under a supervisor.</p><p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="do_handle_call/4">
+
+  <div class="detail-header">
+    <a href="#do_handle_call/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_handle_call(atom, repo_conn, pr, state)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L151" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="get_state/0">
+
+  <div class="detail-header">
+    <a href="#get_state/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_state()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L108" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="init/1">
+
+  <div class="detail-header">
+    <a href="#init/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">init(atom)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L112" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="put_state/1">
+
+  <div class="detail-header">
+    <a href="#put_state/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">put_state(state)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L104" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="start_link/0">
+
+  <div class="detail-header">
+    <a href="#start_link/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/server_mock.ex#L70" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.24.2) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+  </body>
+</html>

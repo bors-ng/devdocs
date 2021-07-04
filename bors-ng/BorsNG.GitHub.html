@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.24.2">
+    <meta name="project" content="Bors-NG v0.1.0">
+
+    <title>BorsNG.GitHub — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+
+    <script src="dist/sidebar_items-d9e4489390.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+
+  </head>
+  <body data-type="modules">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+      <li><a id="tasks-list-link" href="#full-list">Mix Tasks</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+BorsNG.GitHub <small class="app-vsn">(Bors-NG v0.1.0)</small>
+
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L3" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+
+      </h1>
+
+
+        <section id="moduledoc">
+<p>Wrappers around the GitHub REST API.</p>
+        </section>
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tcollaborator/0">tcollaborator()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tcommitter/0">tcommitter()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tconn/0">tconn()</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A repository connection;
+it packages a repository with the permissions to access it.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tpr/0">tpr()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:trepo/0">trepo()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:trepo_perm/0">trepo_perm()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tstatus/0">tstatus()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:ttoken/0">ttoken()</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>An authentication token;
+this may be a raw token (as on oAuth)
+or an installation xref (in which case the server will look it up).</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tuser/0">tuser()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tuser_repo_perms/0">tuser_repo_perms()</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#belongs_to_team?/4">belongs_to_team?(repo_conn, org, team_slug, username)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#create_commit/2">create_commit(repo_conn, info)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#create_commit!/2">create_commit!(repo_conn, info)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#delete_branch!/2">delete_branch!(repo_conn, branch)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#force_push!/3">force_push!(repo_conn, sha, to)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_app!/0">get_app!()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_branch!/2">get_branch!(repo_conn, from)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_collaborators_by_repo/1">get_collaborators_by_repo(repo_conn)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_commit_reviews!/3">get_commit_reviews!(repo_conn, issue_xref, sha)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_commit_status!/2">get_commit_status!(repo_conn, sha)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_file!/3">get_file!(repo_conn, branch, path)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_installation_list!/0">get_installation_list!()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_installation_repos!/1">get_installation_repos!(token)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_labels!/2">get_labels!(repo_conn, issue_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_open_prs!/1">get_open_prs!(repo_conn)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_open_prs_with_base!/2">get_open_prs_with_base!(repo_conn, base)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_pr/2">get_pr(repo_conn, pr_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_pr!/2">get_pr!(repo_conn, pr_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_pr_commits/2">get_pr_commits(repo_conn, pr_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_pr_commits!/2">get_pr_commits!(repo_conn, pr_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_pr_files/2">get_pr_files(repo_conn, pr_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_pr_files!/2">get_pr_files!(repo_conn, pr_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_reviews!/2">get_reviews!(repo_conn, issue_xref)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_user_by_login!/2">get_user_by_login!(token, login)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#map_changed_status/1">map_changed_status(check_name)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#map_check_to_status/1">map_check_to_status(conclusion)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#map_state_to_status/1">map_state_to_status(state)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#map_status_to_state/1">map_status_to_state(state)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#merge_branch!/2">merge_branch!(repo_conn, info)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#post_comment!/3">post_comment!(repo_conn, number, body)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#post_commit_status!/2">post_commit_status!(repo_conn, arg)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#push/3">push(repo_conn, sha, to)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#push!/3">push!(repo_conn, sha, to)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#synthesize_commit!/2">synthesize_commit!(repo_conn, info)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_pr/2">update_pr(repo_conn, pr)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_pr!/2">update_pr!(repo_conn, pr)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_pr_base/2">update_pr_base(repo_conn, pr)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_pr_base!/2">update_pr_base!(repo_conn, pr)</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+        </section>
+
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types
+          </h1>
+          <div class="types-list">
+<section class="detail" id="t:tcollaborator/0">
+
+  <div class="detail-header">
+    <a href="#t:tcollaborator/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tcollaborator()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L27" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tcollaborator() :: %{user: <a href="#t:tuser/0">tuser</a>(), perms: <a href="#t:tuser_repo_perms/0">tuser_repo_perms</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tcommitter/0">
+
+  <div class="detail-header">
+    <a href="#t:tcommitter/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tcommitter()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L28" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tcommitter() :: %{name: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(), email: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tconn/0">
+
+  <div class="detail-header">
+    <a href="#t:tconn/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tconn()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L19" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tconn() :: {<a href="#t:ttoken/0">ttoken</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>()} | {<a href="#t:ttoken/0">ttoken</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>()}</pre>
+
+      </div>
+
+<p>A repository connection;
+it packages a repository with the permissions to access it.</p>
+  </section>
+</section>
+<section class="detail" id="t:tpr/0">
+
+  <div class="detail-header">
+    <a href="#t:tpr/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tpr()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L23" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tpr() :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:trepo/0">
+
+  <div class="detail-header">
+    <a href="#t:trepo/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">trepo()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L22" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>trepo() :: <a href="BorsNG.GitHub.Repo.html#t:t/0">BorsNG.GitHub.Repo.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:trepo_perm/0">
+
+  <div class="detail-header">
+    <a href="#t:trepo_perm/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">trepo_perm()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L25" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>trepo_perm() :: :admin | :push | :pull</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tstatus/0">
+
+  <div class="detail-header">
+    <a href="#t:tstatus/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tstatus()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L24" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tstatus() :: :ok | :running | :error</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:ttoken/0">
+
+  <div class="detail-header">
+    <a href="#t:ttoken/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">ttoken()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L13" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>ttoken() :: {:installation, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>()} | {:raw, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>An authentication token;
+this may be a raw token (as on oAuth)
+or an installation xref (in which case the server will look it up).</p>
+  </section>
+</section>
+<section class="detail" id="t:tuser/0">
+
+  <div class="detail-header">
+    <a href="#t:tuser/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tuser()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L21" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tuser() :: <a href="BorsNG.GitHub.User.html#t:t/0">BorsNG.GitHub.User.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:tuser_repo_perms/0">
+
+  <div class="detail-header">
+    <a href="#t:tuser_repo_perms/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tuser_repo_perms()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L26" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>tuser_repo_perms() :: %{admin: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), push: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), pull: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions
+          </h1>
+          <div class="functions-list">
+<section class="detail" id="belongs_to_team?/4">
+
+  <div class="detail-header">
+    <a href="#belongs_to_team?/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">belongs_to_team?(repo_conn, org, team_slug, username)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L372" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>belongs_to_team?(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="create_commit/2">
+
+  <div class="detail-header">
+    <a href="#create_commit/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">create_commit(repo_conn, info)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L236" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>create_commit(<a href="#t:tconn/0">tconn</a>(), %{
+  tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  parents: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()],
+  commit_message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  committer: <a href="#t:tcommitter/0">tcommitter</a>() | nil
+}) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="create_commit!/2">
+
+  <div class="detail-header">
+    <a href="#create_commit!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">create_commit!(repo_conn, info)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L219" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>create_commit!(<a href="#t:tconn/0">tconn</a>(), %{
+  tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  parents: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()],
+  commit_message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  committer: <a href="#t:tcommitter/0">tcommitter</a>() | nil
+}) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="delete_branch!/2">
+
+  <div class="detail-header">
+    <a href="#delete_branch!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">delete_branch!(repo_conn, branch)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L168" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>delete_branch!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="force_push!/3">
+
+  <div class="detail-header">
+    <a href="#force_push!/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">force_push!(repo_conn, sha, to)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L245" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>force_push!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_app!/0">
+
+  <div class="detail-header">
+    <a href="#get_app!/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_app!()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L391" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_app!() :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_branch!/2">
+
+  <div class="detail-header">
+    <a href="#get_branch!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_branch!(repo_conn, from)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L156" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_branch!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: %{commit: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(), tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_collaborators_by_repo/1">
+
+  <div class="detail-header">
+    <a href="#get_collaborators_by_repo/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_collaborators_by_repo(repo_conn)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L382" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_collaborators_by_repo(<a href="#t:tconn/0">tconn</a>()) :: {:ok, [<a href="#t:tcollaborator/0">tcollaborator</a>()]} | :error</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_commit_reviews!/3">
+
+  <div class="detail-header">
+    <a href="#get_commit_reviews!/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_commit_reviews!(repo_conn, issue_xref, sha)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L295" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_commit_reviews!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_commit_status!/2">
+
+  <div class="detail-header">
+    <a href="#get_commit_status!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_commit_status!(repo_conn, sha)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L259" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_commit_status!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: %{required(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) =&gt; <a href="#t:tstatus/0">tstatus</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_file!/3">
+
+  <div class="detail-header">
+    <a href="#get_file!/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_file!(repo_conn, branch, path)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L307" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_file!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>() | nil</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_installation_list!/0">
+
+  <div class="detail-header">
+    <a href="#get_installation_list!/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_installation_list!()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L411" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_installation_list!() :: [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_installation_repos!/1">
+
+  <div class="detail-header">
+    <a href="#get_installation_repos!/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_installation_repos!(token)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L399" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_installation_repos!(<a href="#t:ttoken/0">ttoken</a>()) :: [<a href="#t:trepo/0">trepo</a>()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_labels!/2">
+
+  <div class="detail-header">
+    <a href="#get_labels!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_labels!(repo_conn, issue_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L271" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_labels!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_open_prs!/1">
+
+  <div class="detail-header">
+    <a href="#get_open_prs!/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_open_prs!(repo_conn)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L111" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_open_prs!(<a href="#t:tconn/0">tconn</a>()) :: [<a href="#t:tpr/0">tpr</a>()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_open_prs_with_base!/2">
+
+  <div class="detail-header">
+    <a href="#get_open_prs_with_base!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_open_prs_with_base!(repo_conn, base)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L123" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_open_prs_with_base!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: [<a href="#t:tpr/0">tpr</a>()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_pr/2">
+
+  <div class="detail-header">
+    <a href="#get_pr/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_pr(repo_conn, pr_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L54" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_pr(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) ::
+  {:ok, <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_pr!/2">
+
+  <div class="detail-header">
+    <a href="#get_pr!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_pr!(repo_conn, pr_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L47" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_pr!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_pr_commits/2">
+
+  <div class="detail-header">
+    <a href="#get_pr_commits/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_pr_commits(repo_conn, pr_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L102" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_pr_commits(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) ::
+  {:ok, [<a href="BorsNG.GitHub.Commit.html#t:t/0">BorsNG.GitHub.Commit.t</a>()]} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_pr_commits!/2">
+
+  <div class="detail-header">
+    <a href="#get_pr_commits!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_pr_commits!(repo_conn, pr_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L95" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_pr_commits!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: [<a href="BorsNG.GitHub.Commit.html#t:t/0">BorsNG.GitHub.Commit.t</a>()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_pr_files/2">
+
+  <div class="detail-header">
+    <a href="#get_pr_files/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_pr_files(repo_conn, pr_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L38" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_pr_files(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) ::
+  {:ok, [<a href="BorsNG.GitHub.File.html#t:t/0">BorsNG.GitHub.File.t</a>()]} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_pr_files!/2">
+
+  <div class="detail-header">
+    <a href="#get_pr_files!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_pr_files!(repo_conn, pr_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L31" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_pr_files!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: [<a href="BorsNG.GitHub.File.html#t:t/0">BorsNG.GitHub.File.t</a>()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_reviews!/2">
+
+  <div class="detail-header">
+    <a href="#get_reviews!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_reviews!(repo_conn, issue_xref)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L283" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_reviews!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_user_by_login!/2">
+
+  <div class="detail-header">
+    <a href="#get_user_by_login!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_user_by_login!(token, login)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L359" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>get_user_by_login!(<a href="#t:ttoken/0">ttoken</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: {:ok, <a href="#t:tuser/0">tuser</a>()} | :error | nil</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="map_changed_status/1">
+
+  <div class="detail-header">
+    <a href="#map_changed_status/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">map_changed_status(check_name)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L454" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>map_changed_status(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="map_check_to_status/1">
+
+  <div class="detail-header">
+    <a href="#map_check_to_status/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">map_check_to_status(conclusion)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L436" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>map_check_to_status(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="#t:tstatus/0">tstatus</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="map_state_to_status/1">
+
+  <div class="detail-header">
+    <a href="#map_state_to_status/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">map_state_to_status(state)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L423" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>map_state_to_status(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="#t:tstatus/0">tstatus</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="map_status_to_state/1">
+
+  <div class="detail-header">
+    <a href="#map_status_to_state/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">map_status_to_state(state)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L445" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>map_status_to_state(<a href="#t:tstatus/0">tstatus</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="merge_branch!/2">
+
+  <div class="detail-header">
+    <a href="#merge_branch!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">merge_branch!(repo_conn, info)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L184" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>merge_branch!(<a href="#t:tconn/0">tconn</a>(), %{
+  from: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  to: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  commit_message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()
+}) :: %{commit: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()} | :conflict</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="post_comment!/3">
+
+  <div class="detail-header">
+    <a href="#post_comment!/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">post_comment!(repo_conn, number, body)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L319" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>post_comment!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">number</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="post_commit_status!/2">
+
+  <div class="detail-header">
+    <a href="#post_commit_status!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">post_commit_status!(repo_conn, arg)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L331" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>post_commit_status!(<a href="#t:tconn/0">tconn</a>(), {<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="#t:tstatus/0">tstatus</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}) :: :ok</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="push/3">
+
+  <div class="detail-header">
+    <a href="#push/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">push(repo_conn, sha, to)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L147" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>push(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="push!/3">
+
+  <div class="detail-header">
+    <a href="#push!/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">push!(repo_conn, sha, to)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L135" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>push!(<a href="#t:tconn/0">tconn</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="synthesize_commit!/2">
+
+  <div class="detail-header">
+    <a href="#synthesize_commit!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">synthesize_commit!(repo_conn, info)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L202" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>synthesize_commit!(<a href="#t:tconn/0">tconn</a>(), %{
+  branch: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  tree: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  parents: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>()],
+  commit_message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">bitstring</a>(),
+  committer: <a href="#t:tcommitter/0">tcommitter</a>() | nil
+}) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="update_pr/2">
+
+  <div class="detail-header">
+    <a href="#update_pr/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_pr(repo_conn, pr)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L86" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>update_pr(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) ::
+  {:ok, <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="update_pr!/2">
+
+  <div class="detail-header">
+    <a href="#update_pr!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_pr!(repo_conn, pr)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L69" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>update_pr!(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="update_pr_base/2">
+
+  <div class="detail-header">
+    <a href="#update_pr_base/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_pr_base(repo_conn, pr)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L76" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>update_pr_base(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) ::
+  {:ok, <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="update_pr_base!/2">
+
+  <div class="detail-header">
+    <a href="#update_pr_base!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_pr_base!(repo_conn, pr)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github.ex#L63" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>update_pr_base!(<a href="#t:tconn/0">tconn</a>(), <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()) :: <a href="BorsNG.GitHub.Pr.html#t:t/0">BorsNG.GitHub.Pr.t</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.24.2) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+  </body>
+</html>

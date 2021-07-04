@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.24.2">
+    <meta name="project" content="Bors-NG v0.1.0">
+
+    <title>BorsNG.GitHub.FriendlyMock — Bors-NG v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+
+    <script src="dist/sidebar_items-d9e4489390.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+
+  </head>
+  <body data-type="modules">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://bors.tech/" class="sidebar-projectName">
+Bors-NG
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+      <li><a id="tasks-list-link" href="#full-list">Mix Tasks</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+BorsNG.GitHub.FriendlyMock <small class="app-vsn">(Bors-NG v0.1.0)</small>
+
+          <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+
+      </h1>
+
+
+        <section id="moduledoc">
+<p>Helper functions for ServerMock for common operations without having to
+modify state by hand.</p><p>Tries to lookup values instead of requiring full %{} associative arrays.</p><p>Assumes a single GitHub instance with a single repository and single user.</p><p>Does everything through webhook notifications. Does not use
+Database.Repo.insert directly! (One exception: adding a reviewer,
+which is normally done through Bors' web UI.)</p><p>For example, I can run <code class="inline">iex -S mix phx.server</code> and do this:</p><pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">BorsNG.GitHub.FriendlyMock</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">init_state</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">make_admin</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">pr_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_pr</span><span class="w"> </span><span class="s">&quot;first&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_reviewer</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">ci_status</span><span class="p" data-group-id="9891655010-1">(</span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ci&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:running</span><span class="p" data-group-id="9891655010-1">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_comment</span><span class="p" data-group-id="9891655010-2">(</span><span class="n">pr_num</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors ping&quot;</span><span class="p" data-group-id="9891655010-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">add_comment</span><span class="p" data-group-id="9891655010-3">(</span><span class="n">pr_num</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors r+&quot;</span><span class="p" data-group-id="9891655010-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">get_state</span><span class="w">
+  </span><span class="p">%</span><span class="err">{</span><span class="w">
+    </span><span class="p" data-group-id="9891655010-4">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="9891655010-4">}</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="9891655010-5">%{</span><span class="w">
+          </span><span class="ss">repos</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9891655010-6">[</span><span class="w">
+            </span><span class="p" data-group-id="9891655010-7">%</span><span class="nc" data-group-id="9891655010-7">BorsNG.GitHub.Repo</span><span class="p" data-group-id="9891655010-7">{</span><span class="w">
+              </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+              </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;test/repo&quot;</span><span class="p">,</span><span class="w">
+              </span><span class="ss">owner</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9891655010-8">%{</span><span class="ss">avatar_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="ss">login</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tester&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="ss">:user</span><span class="p" data-group-id="9891655010-8">}</span><span class="p">,</span><span class="w">
+              </span><span class="ss">private</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="w">
+            </span><span class="p" data-group-id="9891655010-7">}</span><span class="w">
+          </span><span class="p" data-group-id="9891655010-6">]</span><span class="w">
+    </span><span class="p" data-group-id="9891655010-5">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="9891655010-9">{</span><span class="p" data-group-id="9891655010-10">{</span><span class="ss">:installation</span><span class="p">,</span><span class="w"> </span><span class="mi">91</span><span class="p" data-group-id="9891655010-10">}</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p" data-group-id="9891655010-9">}</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
+          </span><span class="ss">branches</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9891655010-11">%{</span><span class="s">&quot;first&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;ini&quot;</span><span class="p" data-group-id="9891655010-11">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">collaborators</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9891655010-12">%{</span><span class="p" data-group-id="9891655010-12">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">comments</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9891655010-13">%{</span><span class="w">
+            </span><span class="mi">1</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="9891655010-14">[</span><span class="s">&quot;:-1: Rejected by PR status&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors r+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pong&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bors ping&quot;</span><span class="p" data-group-id="9891655010-14">]</span><span class="w">
+          </span><span class="p" data-group-id="9891655010-13">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9891655010-15">%{</span><span class="p" data-group-id="9891655010-15">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
+            </span><span class="s">&quot;SHA-1&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
+              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre><p>pr_status = [ &quot;ci&quot; ]
+prerun_timeout_sec = 5
+delete_merged_branches = true
+&quot;</p><pre><code class="makeup elixir"><span class="w">            </span><span class="err">}</span><span class="p">,</span><span class="w">
+            </span><span class="s">&quot;master&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
+              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre><p>pr_status = [ &quot;ci&quot; ]
+prerun_timeout_sec = 5
+delete_merged_branches = true
+&quot;</p><pre><code class="makeup elixir"><span class="w">            </span><span class="err">}</span><span class="p">,</span><span class="w">
+            </span><span class="s">&quot;staging.tmp&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">%</span><span class="err">{</span><span class="w">
+              </span><span class="s">&quot;.github/bors.toml&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;status = [ &quot;</span><span class="n">ci</span><span class="err">&quot;</span><span class="w"> </span><span class="p">]</span></code></pre><p>pr_status = [ &quot;ci&quot; ]
+prerun_timeout_sec = 5
+delete_merged_branches = true
+&quot;</p><pre><code class="makeup elixir"><span class="w">            </span><span class="err">}</span><span class="w">
+          </span><span class="err">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">pr_commits</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5664928403-1">%{</span><span class="mi">1</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="5664928403-2">[</span><span class="p" data-group-id="5664928403-2">]</span><span class="p" data-group-id="5664928403-1">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">pulls</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5664928403-3">%{</span><span class="w">
+            </span><span class="mi">1</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="5664928403-4">%</span><span class="nc" data-group-id="5664928403-4">BorsNG.GitHub.Pr</span><span class="p" data-group-id="5664928403-4">{</span><span class="w">
+              </span><span class="ss">base_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="p">,</span><span class="w">
+              </span><span class="ss">base_repo_id</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
+              </span><span class="ss">head_ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;first&quot;</span><span class="p">,</span><span class="w">
+              </span><span class="ss">head_repo_id</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="ss">head_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w">
+              </span><span class="ss">merged</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+              </span><span class="ss">number</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="ss">:open</span><span class="p">,</span><span class="w">
+              </span><span class="ss">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;first&quot;</span><span class="p">,</span><span class="w">
+              </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5664928403-5">%{</span><span class="s">&quot;avatar_url&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;login&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;tester&quot;</span><span class="p" data-group-id="5664928403-5">}</span><span class="w">
+            </span><span class="p" data-group-id="5664928403-4">}</span><span class="w">
+          </span><span class="p" data-group-id="5664928403-3">}</span><span class="p">,</span><span class="w">
+          </span><span class="ss">statuses</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5664928403-6">%{</span><span class="s">&quot;SHA-1&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="5664928403-7">%{</span><span class="s">&quot;ci&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ss">:running</span><span class="p" data-group-id="5664928403-7">}</span><span class="p" data-group-id="5664928403-6">}</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+  </span><span class="err">}</span></code></pre><p>Now try</p><pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">FriendlyMock</span><span class="o">.</span><span class="n">ci_status</span><span class="p" data-group-id="4573669565-1">(</span><span class="s">&quot;SHA-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ci&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="4573669565-1">)</span></code></pre><p>instead of :running above.</p>
+        </section>
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_comment/3">add_comment(pr_num, body, author \\ %{&quot;avatar_url&quot; =&gt; &quot;&quot;, &quot;id&quot; =&gt; 7, &quot;login&quot; =&gt; &quot;tester&quot;})</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Adds a reviewer comment.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_commit/3">add_commit(pr_num, sha, author)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_pr/2">add_pr(title, body \\ nil)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_reviewer/2">add_reviewer(repo \\ 14, user \\ %{&quot;avatar_url&quot; =&gt; &quot;&quot;, &quot;id&quot; =&gt; 7, &quot;login&quot; =&gt; &quot;tester&quot;})</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ci_status/3">ci_status(hash, ci_name, status)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Set CI status</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#comments/2">comments(repo \\ 14, inst \\ 91)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#commits/3">commits(pr_num, repo \\ 14, inst \\ 91)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#full_example/0">full_example()</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>An example function.
+Call from iex with</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_state/0">get_state()</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#init_state/0">init_state()</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Creates a single installation with a single repo where
+nothing has happened yet.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#make_admin/1">make_admin(username \\ %{&quot;avatar_url&quot; =&gt; &quot;&quot;, &quot;id&quot; =&gt; 7, &quot;login&quot; =&gt; &quot;tester&quot;}[&quot;login&quot;])</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pr_to_json/1">pr_to_json(pr)</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#prs/2">prs(repo \\ 14, inst \\ 91)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Get open PRs</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_mock/4">update_mock(path, fun, repo \\ 14, inst \\ 91)</a>
+
+  </div>
+
+</div>
+
+  </div>
+
+        </section>
+
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions
+          </h1>
+          <div class="functions-list">
+<section class="detail" id="add_comment/3">
+
+    <span id="add_comment/2"></span>
+
+  <div class="detail-header">
+    <a href="#add_comment/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_comment(pr_num, body, author \\ %{&quot;avatar_url&quot; =&gt; &quot;&quot;, &quot;id&quot; =&gt; 7, &quot;login&quot; =&gt; &quot;tester&quot;})</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L228" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Adds a reviewer comment.</p>
+  </section>
+</section>
+<section class="detail" id="add_commit/3">
+
+  <div class="detail-header">
+    <a href="#add_commit/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_commit(pr_num, sha, author)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L219" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="add_pr/2">
+
+    <span id="add_pr/1"></span>
+
+  <div class="detail-header">
+    <a href="#add_pr/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_pr(title, body \\ nil)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L167" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="add_reviewer/2">
+
+    <span id="add_reviewer/0"></span>
+
+    <span id="add_reviewer/1"></span>
+
+  <div class="detail-header">
+    <a href="#add_reviewer/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_reviewer(repo \\ 14, user \\ %{&quot;avatar_url&quot; =&gt; &quot;&quot;, &quot;id&quot; =&gt; 7, &quot;login&quot; =&gt; &quot;tester&quot;})</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L252" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="ci_status/3">
+
+  <div class="detail-header">
+    <a href="#ci_status/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ci_status(hash, ci_name, status)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L260" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Set CI status</p>
+  </section>
+</section>
+<section class="detail" id="comments/2">
+
+    <span id="comments/0"></span>
+
+    <span id="comments/1"></span>
+
+  <div class="detail-header">
+    <a href="#comments/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">comments(repo \\ 14, inst \\ 91)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L156" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="commits/3">
+
+    <span id="commits/1"></span>
+
+    <span id="commits/2"></span>
+
+  <div class="detail-header">
+    <a href="#commits/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">commits(pr_num, repo \\ 14, inst \\ 91)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L215" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="full_example/0">
+
+  <div class="detail-header">
+    <a href="#full_example/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">full_example()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L272" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>An example function.
+Call from iex with</p><p>   iex&gt; FriendlyMock.full_example</p><p>Then modify, <code class="inline">recompile()</code> and run again.</p>
+  </section>
+</section>
+<section class="detail" id="get_state/0">
+
+  <div class="detail-header">
+    <a href="#get_state/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_state()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L324" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="init_state/0">
+
+  <div class="detail-header">
+    <a href="#init_state/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">init_state()</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L105" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Creates a single installation with a single repo where
+nothing has happened yet.</p>
+  </section>
+</section>
+<section class="detail" id="make_admin/1">
+
+    <span id="make_admin/0"></span>
+
+  <div class="detail-header">
+    <a href="#make_admin/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">make_admin(username \\ %{&quot;avatar_url&quot; =&gt; &quot;&quot;, &quot;id&quot; =&gt; 7, &quot;login&quot; =&gt; &quot;tester&quot;}[&quot;login&quot;])</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L247" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="pr_to_json/1">
+
+  <div class="detail-header">
+    <a href="#pr_to_json/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">pr_to_json(pr)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L289" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="prs/2">
+
+    <span id="prs/0"></span>
+
+    <span id="prs/1"></span>
+
+  <div class="detail-header">
+    <a href="#prs/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">prs(repo \\ 14, inst \\ 91)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L152" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Get open PRs</p>
+  </section>
+</section>
+<section class="detail" id="update_mock/4">
+
+    <span id="update_mock/2"></span>
+
+    <span id="update_mock/3"></span>
+
+  <div class="detail-header">
+    <a href="#update_mock/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_mock(path, fun, repo \\ 14, inst \\ 91)</h1>
+
+      <a href="https://github.com/bors-ng/bors-ng/blob/master/lib/github/github/friendly.ex#L210" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+          </div>
+        </section>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.24.2) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+  </body>
+</html>
